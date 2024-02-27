@@ -1,5 +1,3 @@
-// ya tut bil
-
 <template>
   <div>
     
