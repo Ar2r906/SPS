@@ -1,45 +1,56 @@
 <template>
-  <div class="header">
-      <div class="image">
-        <router-link to="/home" ><img src="./assets/Logotype.svg" alt="logotype"></router-link>
-      </div>
-      <nav>
-        <router-link to="/auth" >Войти</router-link>
-        <router-link to="/registration" >Зарегистрироваться</router-link>
-      </nav>
-  </div>  
+  <div class="home-nav">
+    <div class="logo">
+      <a href="/home"><img src="./assets/Logotype.svg" alt="logotype"></a>
+    </div>
+    <nav>
+      <router-link to="/login">Вход</router-link>
+      <router-link to="/register">Регистрация</router-link>
+      <router-link to="/#">Мероприятия</router-link>
+      <router-link to="/#">Партнерам</router-link>
+      <router-link to="/#">Контакты</router-link>
+    </nav> 
+    <router-view />
+  </div>
 </template>
 
-<script>
-  export default {
-    
-  }
-</script>
-
 <style>
-  * {
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url(./fonts/JetBrainsMonoNL-Regular.ttf);
+  }
+  body {
     padding: 0;
     margin: 0;
+    font-family: "JetBrains Mono";
   }
-  .header {
+  .home-nav {
+    height: 80dvh;
+    background-color: #1B1C21;
     display: flex;
-    flex-direction: column;
-    width: auto;
-    width: auto;
+    flex-direction: row;
+    padding-top: 2dvh;
   }
-  .header img {
-    padding: 5dvh 0 0 5dvw;
+  .logo {
+    justify-content: start; 
+    padding-left: 2dvw;
   }
-  .image {
-  }
-  nav {
+  nav { 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 10dvw;
-    padding-top: 0;
+    flex-direction: row;
+    column-gap: 3dvw;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding-right: 2dvw;
   }
-  .router-link {
+  nav a {
+    font-family: "JetBrains Mono";
     text-decoration: none;
+    color: #D9D9D9;
+    font-size: 2dvh;
+    font-weight: 500;
+  }
+  nav a:hover {
+    color: #402FFF;
   }
 </style>

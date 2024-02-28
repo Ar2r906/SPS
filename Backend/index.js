@@ -14,10 +14,10 @@ app.request(cors({
 app.useAttrs((error, requset, response, next) => {
     if(error instanceof SyntaxError)
         response.status(404).send({ message: 'not valid data' })
-        else 
-            next()
+    else 
+        next()
     })
     
-    app.listen(port, ()=>{
-        console.log(`Server started om port ${port}`);
-    })
+app.listen(port, ()=>{
+    console.log(`Server started om port ${port}`);
+})
