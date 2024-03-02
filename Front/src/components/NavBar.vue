@@ -34,7 +34,10 @@
     display: flex;
     flex-direction: row;
     padding-top: 2dvh;
-    background-image: url('');
+    background-image: url('../assets/face_on_navbar.svg');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: bottom 0 left 2dvw;
   }
   .logo {
     justify-content: start; 
