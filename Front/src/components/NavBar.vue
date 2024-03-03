@@ -36,7 +36,7 @@
     padding-top: 2dvh;
     background-image: url('../assets/face_on_navbar.svg');
     background-repeat: no-repeat;
-    background-size: 38%;
+    background-size: 35%;
     background-position: bottom 0 left 2dvw;
   }
   .logo {
@@ -49,7 +49,7 @@
     column-gap: 3dvw;
     justify-content: flex-end;
     margin-left: auto;
-    padding-right: 2dvw;
+    padding-right: 1dvw;
   }
   nav a {
     font-family: "JetBrains Mono";
