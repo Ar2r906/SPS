@@ -15,7 +15,9 @@
 </template>
 
 <script>
-
+  export default {
+    name: 'NavBar'
+  }
 </script>
 
 <style>
@@ -29,7 +31,7 @@
     font-family: "JetBrains Mono";
   }
   .home-nav {
-    height: 80dvh;
+    height: 70dvh;
     background-color: #1B1C21;
     display: flex;
     flex-direction: row;

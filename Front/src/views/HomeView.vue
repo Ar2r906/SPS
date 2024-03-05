@@ -1,15 +1,38 @@
 <template>
-  <NavBar />
-  <div class="home">
-    main home
+  <div>
+    <div class="news">
+      <NewsBlock/>
+    </div>
+    <div class="events">
+      <EventsBlock/>
+    </div>
+    <div class="feedback">
+      <FeedBack/>
+    </div>
   </div>
 </template>
 
 <script>
-import NavBar from '../components/NavBar.vue'
+import NewsBlock from '@/components/NewsBlock.vue'
+import FeedBack from '@/components/FeedBack.vue';
+import EventsBlock from '@/components/EventsBlock.vue';
+
 export default {
+  name: 'HomeView',
   components: {
-    component: NavBar,
+    NewsBlock,
+    FeedBack,
+    EventsBlock,
   }
 }
+
 </script>
+
+<style>
+  .events {
+    padding: 15dvh 0 0 2dvw;
+  }
+  .feedback {
+    padding: 15dvh 0 0 2dvw;
+  }
+</style>
