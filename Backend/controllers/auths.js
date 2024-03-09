@@ -9,7 +9,7 @@ const { v4: uuidv4 } = require('uuid')
 exports.signup = async (req, res) => {
     try {
         const authed = await auth.create({
-            email: req.body.toLoweCase(),
+            email: req.body.email.toLowerCase(),
             role: 'user',
             password: bcrypt.hashSync(req.body.password, 8),
             uid: uuidv4(),
