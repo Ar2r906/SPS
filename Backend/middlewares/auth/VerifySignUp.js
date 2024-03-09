@@ -1,24 +1,16 @@
-const {get_auth_table, auth} = require('') // тут надо указать auth из model front
+const { auth } = require('../../models/auths')
 
-checkDuplicateEmail = (req, res, next) => {
-    get_auth_table();
-    auth.findOne( {
-        where: {
-            email: req.body.email.toLowerCase()
-        }
-    }).then(user => {
-        if(user) {
-            res.status(400).send({
-                message: 'Email is already in use!'
-            })
-            return
-        }
-        next()
-    })
+checkDuplicateEmail = async(req, res, next) => {
+    console.log(req.body)
+    const user = await auth.findOne( { where: { email: req.body.email.toLowerCase() }})
+    console.log(user)
+    if (user) return res.status(413).send({ message: 'Email is already in use!'})
+    next();
 };
 
 const verifySignUp = {
     checkDuplicateEmail
 }
 
-module.export = verifySignUp
+console.log('Передал мидлвару')
+module.exports = verifySignUp

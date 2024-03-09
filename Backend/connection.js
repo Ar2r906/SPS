@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize')
-const sequelize = new Sequelize('postgres://postgres:asdF0987@example.com:5432/db1237')
+const sequelize = new Sequelize('postgres://postgres:asdF0987@localhost:5432/sps')
 
-(async () => {
+async function connect() {
     try {
         await sequelize.authenticate()
         console.log('db connectted');
@@ -9,6 +9,7 @@ const sequelize = new Sequelize('postgres://postgres:asdF0987@example.com:5432/d
     catch (error) {
         console.log(`error: {error}`);
     }
-})()
+}
+connect()
 
 module.exports = { sequelize }
