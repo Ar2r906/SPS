@@ -19,7 +19,7 @@ exports.signup = async (req, res) => {
             name: req.body.name,
         })
         return res.status(201).send({ message: 'registred', uid: createdUser.uid })
-    } catch (error) {
+    } catch (error) {9
         return res.status(400).send({ message: error.message })
     }
 }

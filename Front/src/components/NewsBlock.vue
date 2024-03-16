@@ -1,7 +1,60 @@
 <template>
     <div class="block">
         <h1 style="padding: 2dvh 0 2dvh 2dvw; color: #000">Новости</h1>
-        
+        <div class="windows-blocks">
+
+          <div class="window-news">
+            <div class="news">
+                <div class="photo">
+                    <img src="" alt="">
+                </div>
+
+                <div class="information">
+                    <div class="title">
+                        <h3>Заголовок</h3>
+                    </div>
+
+                    <div class="info">
+                        <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit unde esse consequatur perferendis, 
+                        fuga deleniti molestiae accusantium corrupti, quaerat cumque impedit dolorum perspiciatis. 
+                        Placeat blanditiis quaerat quis, facilis sed labore perspiciatis repellat optio fuga ratione minus/
+                        </span>
+                    </div>
+
+                    <div class="date">
+                        <time datetime="05.03.2024">5 марта 2024</time>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="window-news">
+            <div class="news">
+                <div class="photo">
+                    <img src="" alt="">
+                </div>
+
+                <div class="information">
+                    <div class="title">
+                        <h3>Заголовок</h3>
+                    </div>
+
+                    <div class="info">
+                        <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit unde esse consequatur perferendis, 
+                        fuga deleniti molestiae accusantium corrupti, quaerat cumque impedit dolorum perspiciatis. 
+                        Placeat blanditiis quaerat quis, facilis sed labore perspiciatis repellat optio fuga ratione minus/
+                        </span>
+                    </div>
+
+                    <div class="date">
+                        <time datetime="05.03.2024">5 марта 2024</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="window-news">
             <div class="news">
                 <div class="photo">
@@ -27,6 +80,9 @@
                 </div>
             </div>
         </div>
+
+        </div>
+
     </div>
 
     
@@ -39,10 +95,16 @@ export default {
 </script>
 
 <style>
-    .block {
-        width: 100%;
-        height: 90dvh;
-        background-color: #D9D9D9;
+  .block {
+      width: 100%;
+      height: 90dvh;
+      background-color: #D9D9D9;
+    }
+    .windows-blocks {
+      display: flex;
+      flex-direction: row;
+      width: 98dvw;
+      overflow-x: scroll;
     }
     .window-news {
     display: flex;
