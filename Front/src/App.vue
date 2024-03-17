@@ -1,21 +1,28 @@
 <template>
-  <div id="app">
-    <NavBar />
-    <div class="home-vies">
-      <HomeView />
+  <div class="home-nav">
+    <div class="logo">
+      <a href="/home"><img src="./assets/Logotype.svg" alt="logotype"></a>
     </div>
+    <nav>
+      <router-link to="/login">Вход</router-link>
+      <router-link to="/register">Регистрация</router-link>
+      <router-link to="/#">Мероприятия</router-link>
+      <router-link to="/#">Партнерам</router-link>
+      <router-link to="/#">Контакты</router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
+// import NavBar from './components/NavBar.vue'
 import HomeView from './views/HomeView.vue'
 import FeedBack from './components/FeedBack.vue'
 
 export default {
   name: 'App',
     components: {
-      NavBar,
+
       HomeView,
       FeedBack,
     },
@@ -23,7 +30,44 @@ export default {
 </script>
 
 <style>
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url(./fonts/JetBrainsMonoNL-Regular.ttf);
+  }
   body {
     background-color: #D9D9D9;
+  }
+  .home-nav {
+    height: 70dvh;
+    background-color: #1B1C21;
+    display: flex;
+    flex-direction: row;
+    padding-top: 2dvh;
+    background-image: url('./assets/face_on_navbar.svg');
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position: bottom 0 left 2dvw;
+  }
+  .logo {
+    justify-content: start;
+    padding-left: 2dvw;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    column-gap: 3dvw;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding-right: 1dvw;
+  }
+  nav router-link {
+    font-family: "JetBrains Mono";
+    text-decoration: none;
+    color: #D9D9D9;
+    font-size: 2dvh;
+    font-weight: 500;
+  }
+  nav a:hover {
+    color: #402FFF;
   }
 </style>

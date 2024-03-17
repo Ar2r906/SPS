@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="news">
-      <NewsBlock/>
+      <NewsBlock />
     </div>
     <div class="events">
-      <EventsBlock/>
+      <EventsBlock />
     </div>
     <div class="feedback">
-      <FeedBack/>
+      <FeedBack />
     </div>
   </div>
 </template>
@@ -16,6 +16,7 @@
 import NewsBlock from '@/components/NewsBlock.vue'
 import FeedBack from '@/components/FeedBack.vue';
 import EventsBlock from '@/components/EventsBlock.vue';
+import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: 'HomeView',
@@ -29,10 +30,11 @@ export default {
 </script>
 
 <style>
-  .events {
-    padding: 15dvh 0 0 2dvw;
-  }
-  .feedback {
-    padding: 15dvh 0 0 2dvw;
-  }
+
+.events {
+  padding: 15dvh 0 0 2dvw;
+}
+.feedback {
+  padding: 15dvh 0 0 2dvw;
+}
 </style>
