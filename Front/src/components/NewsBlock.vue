@@ -1,8 +1,7 @@
 <template>
-  <div class="block">
+    <div class="home">
     <h1 style="padding: 2dvh 0 2dvh 2dvw; color: #000">Новости</h1>
-    <div class="windows-blocks">
-
+    <div class="window">
       <div class="window-news">
         <div class="news">
           <div class="photo">
@@ -91,21 +90,23 @@ export default {
 </script>
 
 <style>
-  .block {
-      width: 100%;
-      height: 90dvh;
-      background-color: #D9D9D9;
-    }
-    .windows-blocks {
-      display: flex;
-      flex-direction: row;
-      width: 98dvw;
-      overflow-x: scroll;
-    }
-    .window-news {
+.home {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+  }
+  .window {
     display: flex;
     flex-direction: row;
-    padding: 0 2dvw 0 2dvw;
+    width: auto;
+    overflow-x: scroll;
+  }
+  .window-news {
+  display: flex;
+  flex-direction: row;
+  padding: 0 2dvw 0 2dvw;
   }
   .news {
     display: flex;

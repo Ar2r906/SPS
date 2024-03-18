@@ -6,7 +6,7 @@ import Register from '../views/Register.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: HomeView
   },

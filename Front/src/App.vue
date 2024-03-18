@@ -14,28 +14,18 @@
   </div>
 </template>
 
-<script>
-// import NavBar from './components/NavBar.vue'
-import HomeView from './views/HomeView.vue'
-import FeedBack from './components/FeedBack.vue'
-
-export default {
-  name: 'App',
-    components: {
-
-      HomeView,
-      FeedBack,
-    },
-}
-</script>
-
 <style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
   @font-face {
     font-family: "JetBrains Mono";
-    src: url(./fonts/JetBrainsMonoNL-Regular.ttf);
+    src: url('./fonts/JetBrainsMonoNL-Regular.ttf');
   }
   body {
     background-color: #D9D9D9;
+    font-family: 'JetBrains Mono';
   }
   .home-nav {
     height: 70dvh;
@@ -60,7 +50,7 @@ export default {
     margin-left: auto;
     padding-right: 1dvw;
   }
-  nav router-link {
+  nav a{
     font-family: "JetBrains Mono";
     text-decoration: none;
     color: #D9D9D9;
