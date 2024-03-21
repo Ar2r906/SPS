@@ -1,5 +1,8 @@
 const { Sequelize } = require('sequelize')
-const sequelize = new Sequelize('postgres://postgres:asdF0987@localhost:5432/sps')
+/*
+Указать данные сервера postgre
+*/
+const sequelize = new Sequelize('postgres://postgres:')
 
 async function connect() {
     try {
