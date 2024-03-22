@@ -6,7 +6,7 @@
         <div class="window-inform">
             <div class="inform-main">
                 <div class="main-image">
-                    <img src="../assets/image_in_news.svg" alt="test image" style="width:20dvw">
+                    <img src="../assets/image_in_news.svg" alt="test image" style="width:100%">
                 </div>
                 <div class="main-title">
                     <h2>Заголовок</h2>
@@ -46,14 +46,14 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: #2D2E37;
-    height: 40dvh;
+    height: 56dvh;
     width: 30dvw;
     justify-content: center;
     align-items: center;
 }
 .inform-main {
-    height: 36dvh;
-    width: 24dvw;
+    height: 46dvh;
+    width: 26dvw;
     background-color: #000000;
     color: #fff;
 }

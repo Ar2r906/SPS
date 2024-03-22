@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <img class="logo" src="./assets/Logotype.svg" alt="logotype">
+    <a class="logo" href="/"><img src="./assets/Logotype.svg" alt="logotype"></a>
     <router-link class="link" to="/login">Вход</router-link>
     <router-link class="link" to="/register">Регистрация</router-link>
     <router-link class="link" to="/events">Мероприятия</router-link>
@@ -35,7 +35,7 @@
     padding-right: 1dvw;
     background-image: url('./assets/face_on_navbar.svg');
     background-repeat: no-repeat;
-    background-size: 35%;
+    background-size: 33%;
     background-position: bottom 0 left 2dvw;
   }
   .link {
