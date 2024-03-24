@@ -60,4 +60,4 @@
   nav a:hover {
     color: #402FFF;
   }
-  </style>
+</style>
