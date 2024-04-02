@@ -3,22 +3,60 @@
         <div class="window-title">
             <h1>&lt;Новости&gt;</h1>
         </div>
-        <div class="window-inform">
-            <div class="inform-main">
-                <div class="main-image">
-                    <img src="../assets/image_in_news.svg" alt="test image" style="width:100%">
+
+        <div class="windows-blocks">
+            <div class="window-inform">
+                <div class="inform-main">
+                    <div class="main-image">
+                        <img src="../assets/image_in_news.svg" alt="test image" style="width:100%">
+                    </div>
+                    <div class="main-title">
+                        <h2>Заголовок</h2>
+                    </div>
+                    <div class="main-text">
+                        <p>Lorem Ipsum - это текст-”рыба”, часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной “рыбой”.</p>
+                    </div>
+                    <div class="main-date">
+                        <time datetime="18.03.2024">18.03.2024</time>
+                    </div>
                 </div>
-                <div class="main-title">
-                    <h2>Заголовок</h2>
+            </div>
+
+            <div class="window-inform">
+                <div class="inform-main">
+                    <div class="main-image">
+                        <img src="../assets/image_in_news.svg" alt="test image" style="width:100%">
+                    </div>
+                    <div class="main-title">
+                        <h2>Заголовок</h2>
+                    </div>
+                    <div class="main-text">
+                        <p>Lorem Ipsum - это текст-”рыба”, часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной “рыбой”.</p>
+                    </div>
+                    <div class="main-date">
+                        <time datetime="18.03.2024">18.03.2024</time>
+                    </div>
                 </div>
-                <div class="main-text">
-                    <p>Lorem Ipsum - это текст-”рыба”, часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной “рыбой”.</p>
-                </div>
-                <div class="main-date">
-                    <time datetime="18.03.2024">18.03.2024</time>
+            </div>
+
+            <div class="window-inform">
+                <div class="inform-main">
+                    <div class="main-image">
+                        <img src="../assets/image_in_news.svg" alt="test image" style="width:100%">
+                    </div>
+                    <div class="main-title">
+                        <h2>Заголовок</h2>
+                    </div>
+                    <div class="main-text">
+                        <p>Lorem Ipsum - это текст-”рыба”, часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной “рыбой”.</p>
+                    </div>
+                    <div class="main-date">
+                        <time datetime="18.03.2024">18.03.2024</time>
+                    </div>
                 </div>
             </div>
         </div>
+
   </div>
 </template>
 
@@ -41,6 +79,11 @@ export default {
 }
 .window-title h1 {
     font-size: 3rem;
+}
+.windows-blocks {
+    display: flex;
+    flex-direction: row;
+    column-gap: 3dvw;
 }
 .window-inform {
     display: flex;

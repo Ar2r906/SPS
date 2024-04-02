@@ -9,9 +9,9 @@
    <div class="form">
    <form name="search">
       <h3>Напишите нам</h3>
-      <input class="pole1" type="text" name="name" size="40" maxlength="20" value="Имя" />
-      <input class="pole2" type="text"  name="pochta" size="40" maxlength="25" value="Эл.почта" />
-      <textarea class="pole3" rows="2" cols="40" name="message" value="Сообщение"></textarea>
+      <input class="pole1" type="text" name="name" size="40" maxlength="20" placeholder="Имя" />
+      <input class="pole2" type="text"  name="pochta" size="40" maxlength="25" placeholder="Эл.почта" />
+      <textarea class="pole3" rows="2" cols="40" name="message" placeholder="Сообщение"></textarea>
       <input class="send" type="button" name="send" value="Отправить" />
     </form>
     </div>
