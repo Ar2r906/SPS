@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import News from '../components/News'
+import News from '../components/News.vue'
 import Events from '../components/Events.vue'
 import Contacts from '../components/Contacts.vue'
 import Buttons from '../components/Buttons.vue'
