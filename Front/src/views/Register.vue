@@ -1,11 +1,12 @@
 <template>
-    <div class="main">
-        <form @submit.prevent="">
-            <input type="text" name="" id="" placeholder="Имя">
-            <input type="email" name="" id="" placeholder="Email">
-            <input type="password" name="" id="" placeholder="Пароль">
-            <button>Зарегистрироваться</button>
-            <span>Уже есть аккаунт? <a href="/login">Войти</a></span>
+    <div class="form">
+        <h1>&lt;Регистрация&gt;</h1>
+        <form @submit.prevent="goRegister">
+            <input type="text" name="name" id="name" placeholder="Имя" class="form form-input">
+            <input type="email" name="email" id="email" placeholder="Email" class="form form-input">
+            <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input">
+            <button class="form form-button">Зарегистрироваться</button>
+            <span class="form text">Уже есть аккаунт?<a href="/login">Войти</a></span>
         </form>
     </div>
 </template>
@@ -37,6 +38,48 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+* {
+    font-family: "JetBrains Mono";
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5dvh;
+    padding-bottom: 5dvh;
+}
+h1 {
+    padding-bottom: 5dvh;
+}
+.form-input {
+    padding: 1dvh 1dvw;
+    margin: 2dvh auto;
+    width: 20dvw;
+    color: #000;
+    background-color: #D9D9D9;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+.form-button {
+    margin: 1dvh 0;
+    padding: 1dvh 1dvw;
+    background-color: #402FFF;
+    border: #1b1c21 1px solid;
+    border-radius: 8px;
+    width: 100%;
+    color: #fff;
+}
+.form-button:hover {
+  background-color: #1b1c21;
+  color: #fff;
+}
+.text a{
+  text-decoration: none;
+  color: #000;
+}
+.text a:hover {
+  color: #402FFF;
+}
 </style>

@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   v-footer{
     height: 60dvh;
     background-color: #1b1c21;
