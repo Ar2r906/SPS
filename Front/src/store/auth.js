@@ -31,8 +31,9 @@ export default {
     },
     namespaced: true,
     actions: {
-        async register({ }, { name, email, password }) {
-            const data = JSON.strinify({ name, email, password })
+
+        async register({ }, { email, password, name }) {
+            const data = JSON.stringify({ email, password, name })
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signup`, {
                 method: 'POST',
@@ -41,11 +42,13 @@ export default {
                 },
                 body: data
             })
+            
             if(!checkStatuses(response.status)) return
             window.alert('Вы успешно зарегистрированы! Теперь авторизуйтесь')
             router.push('/login')
             return
         },
+
         async login({ commit }, { email, password} ) {
             const data = JSON.stringify({email, password})
             console.log(data);
@@ -63,6 +66,27 @@ export default {
             localStorage.setItem('refreshToken', result.refreshToken)
             localStorage.setItem('uid', result.uid)
             router.push('/')
+            return
+        },
+
+        async chanheAccess({ }) {
+            const response = await instance.post('/api/auth/change-access', {
+                headers: {
+                    'x-refresh-token': localStorage.getItem('refreshToken')
+                }
+            })
+            if(!checkStatuses(response.status)) return 
+            const result = response.data
+            localStorage.setItem('accessToken', result.accessToken)
+            localStorage.setItem('refreshToken', result.refreshToken)
+        },
+
+        logout({ commit }) {
+            commit('setAuth', false)
+            localStorage.removeItem('uid')
+            localStorage.removeItem('accessToken')
+            localStorage.removeItem('refreshToken')
+            router.push('/login')
             return
         }
     }

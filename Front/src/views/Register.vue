@@ -5,7 +5,7 @@
             <input type="text" name="name" id="name" placeholder="Имя" class="form form-input">
             <input type="email" name="email" id="email" placeholder="Email" class="form form-input">
             <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input">
-            <button class="form form-button">Зарегистрироваться</button>
+            <button class="form form-button" type="submit">Зарегистрироваться</button>
             <span class="form text">Уже есть аккаунт?<a href="/login">Войти</a></span>
         </form>
     </div>
@@ -17,28 +17,30 @@ import { mapActions } from 'vuex'
 export default {
     data() {
         return {
-            name: '',
             email: '',
-            password: ''
+            password: '',
+            name: ''
         }
     },
     methods: {
         ...mapActions({
             register: 'auth/register'
-        }),
-        goRegister() {
+        }
+    ),
+        goRegister(){
             const formData = {
-                name: this.name,
                 email: this.email,
-                password: this.password
+                password: this.password,
+                name: this.name
             }
             this.register(formData)
-        }    
+        }
     }
 }
 </script>
 
 <style scoped>
+
 * {
     font-family: "JetBrains Mono";
 }

@@ -12,5 +12,4 @@ const verifySignUp = {
     checkDuplicateEmail
 }
 
-console.log('Передал мидлвару')
 module.exports = verifySignUp
