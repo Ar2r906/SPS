@@ -6,6 +6,7 @@
     <router-link class="link" to="/events">Мероприятия</router-link>
     <router-link class="link" to="/partners">Партнерам</router-link>
     <router-link class="link" to="/contacts">Контакты</router-link>
+    <router-link class="link" to="/EventsRegistration">Проверка</router-link>
   </nav>
   <router-view />
 </template>

@@ -10,8 +10,8 @@
    <form name="search">
       <h3>Напишите нам</h3>
       <input class="pole1" type="text" name="name" size="40" maxlength="20" placeholder="Имя" />
-      <input class="pole2" type="text"  name="pochta" size="40" maxlength="25" placeholder="Эл.почта" />
-      <textarea class="pole3" rows="2" cols="40" name="message" placeholder="Сообщение"></textarea>
+      <input class="pole1" type="text"  name="pochta" size="40" maxlength="25" placeholder="Эл.почта" />
+      <textarea class="pole1" rows="2" cols="40" name="message" placeholder="Сообщение"></textarea>
       <input class="send" type="button" name="send" value="Отправить" />
     </form>
     </div>
@@ -59,24 +59,9 @@ export default {
       border-bottom: 2px solid black;
       background: #D9D9D9;
       font-family: JetBrains Mono;
+      outline:none;
     }
-  .pole2{
-      height: 50px;
-      margin-left: 60px;
-      margin-top:20px;
-      border: none;
-      border-bottom: 2px solid black;
-      background: #D9D9D9;
-      font-family: JetBrains Mono;
-    }
-  .pole3{
-    background: #D9D9D9;
-    margin-left: 60px;
-    margin-top:30px;
-    border: none;
-    border-bottom: 2px solid black;
-    font-family: JetBrains Mono;
-  }
+
   h3{
     margin-top: 30px;
     margin-left: 55px;
