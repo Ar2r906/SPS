@@ -12,7 +12,7 @@ const user = sequelize.define(
         },
         name: {
             type: DataTypes.TEXT
-        },
+        }
     },
     {
         tableName: 'users',

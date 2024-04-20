@@ -7,5 +7,6 @@ const controller = require('../controllers/auths')
 router.post('/signup', [verifySignUp.checkDuplicateEmail], controller.signup)
 router.post('/signin', controller.signin)
 router.post('/change-access', controller.changeAccess)
+router.put('/update', )
 
 module.exports = router

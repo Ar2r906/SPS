@@ -59,6 +59,38 @@ exports.signin = async (req, res) => {
     }
 }
 
+exports.update = async(req, res, next) => {
+    const { role, uid } = req.body
+    // first
+    if(role && uid) {
+        //second
+        if(role === 'admin') {
+            await auth.findByUid(uid).then((auth) => {
+                // third
+                if(auth.role !== 'admin') {
+                    auth.role = role;
+                    auth.save((err) => {
+                        if(err) {
+                            res.status(400).send({ message: 'An error occurred', error: err.message });
+                            process.exit(1);
+                        }
+                        res.status(201).send({ message: 'Update successfull', auth });
+                    });
+                } else {
+                    res.status(400).send({ message: 'User is already an Admin' })
+                }
+            })
+            .catch((error) => {
+                res.status(400).send({ message: 'An error occurred', error: error.message });
+            });
+        } else {
+            res.status(400).send({ message: 'Role is not admin' });
+        };
+    } else {
+        res.status(400).send({ message: "Role ot Uid not present"})
+    }
+};
+
 exports.changeAccess = async(req, res) => {
     let token_refresh = req.body.headers['x-refresh-token']
     try {
