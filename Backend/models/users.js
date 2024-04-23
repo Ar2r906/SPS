@@ -12,6 +12,9 @@ const user = sequelize.define(
         },
         name: {
             type: DataTypes.TEXT
+        },
+        role: {
+            type: DataTypes.TEXT
         }
     },
     {

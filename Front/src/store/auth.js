@@ -22,6 +22,7 @@ const checkStatuses = (status) => {
 
 export default {
     name: 'auth',
+
     state: () => ({
         isAuth: false
     }),
@@ -30,11 +31,13 @@ export default {
             state.isAuth = isAuth
         }
     },
+
     namespaced: true,
+
     actions: {
 
-        async register({ }, { email, password, name }) {
-            const data = JSON.stringify({ email, password, name })
+        async register({ }, { role, email, password, name }) {
+            const data = JSON.stringify({role, email, password, name})
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signup`, {
                 method: 'POST',
@@ -42,7 +45,7 @@ export default {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: data
-            });
+            })
             
             if(!checkStatuses(response.status)) return
             window.alert('Вы успешно зарегистрированы! Теперь авторизуйтесь')
@@ -50,8 +53,8 @@ export default {
             return
         },
 
-        async login({ commit }, { email, password} ) {
-            const data = JSON.stringify({email, password})
+        async login({ commit }, { email, password } ) {
+            const data = JSON.stringify({email, password })
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signin`, {
                 method: 'POST',
@@ -70,7 +73,7 @@ export default {
             return
         },
 
-        async chanheAccess({ }) {
+        async changeAccess({ }) {
             const response = await instance.post('/api/auth/change-access', {
                 headers: {
                     'x-refresh-token': localStorage.getItem('refreshToken')

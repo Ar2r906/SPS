@@ -3,101 +3,69 @@ const { auth } = require('../models/auths')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
-const secret = process.env.secret
+const secret = process.env.SECRET
 const { v4: uuidv4 } = require('uuid')
 
 const ACCESS_LIFETIME = 30; // 30 секунд
-const REFRESH_LIFETIME = 3600 * 24 * 60; // 60 дней
+const REFRESH_LIFETIME = 3600 * 24 * 120; // 120 дней
 
 const createToken = (uid, lifetime) => jwt.sign({ uid }, secret, { expiresIn: lifetime })
 const createAccess = (uid) => createToken(uid, ACCESS_LIFETIME)
 const createRefresh = (uid) => createToken(uid, REFRESH_LIFETIME)
 
-exports.signup = async (req, res) => {
+exports.signup = async (request, response) => {
     try {
+        const { name, email, role, password } = request.body;
+        const hashedPassowrd = await bcrypt.hash(password, 8);
+
         const authed = await auth.create({
-            name: req.body.name,
-            email: req.body.email.toLowerCase(),
-            role: 'user',
-            password: bcrypt.hashSync(req.body.password, 8),
+            name: name,
+            email: email.toLowerCase(),
+            role: role,
+            password: hashedPassowrd,
             uid: uuidv4(),
-        })
-        // const createdUser = await user.create({
-        //     uid: authed.uid,
-        //     name: authed.name,
-        //     role: authed.role,
-        // })
-        return res.status(201).send({ 
-            message: 'registred', 
+        });
+        return response.status(201).send({ 
+            message: 'User registered', 
             uid: authed.uid, 
             name: authed.name,
             email: authed.email,
             role: authed.role
-        })
+        });
     } catch (error) {
-        return res.status(400).send({ message: error.message })
+        console.error(error)
+        return response.status(400).send({ message: error.message })
     }
 }
 
-exports.signin = async (req, res) => {
+exports.signin = async (request, response) => {
     try {
         const user = await auth.findOne({
             where: {
-                email: req.body.email.toLowerCase()
+                email: request.body.email.toLowerCase()
             }
         })
-        if(!user) return res.status(404).send({ messae: 'User not found!' })
+        if(!user) return response.status(404).send({ message: 'Пользователь не найден!' })
         var passwordIsValid = bcrypt.compareSync(
-            req.body.password,
+            request.body.password,
             user.password
         )
-        if(!passwordIsValid) return res.status(414).send({ message: 'Invalid password!' })
+        if(!passwordIsValid) return response.status(401).send({ message: 'Неверный пароль!' })
         const token = createAccess(user.uid)
         const token_refresh = createRefresh(user.uid)
         await auth.update({ AccessToken: token, RefreshToken: token_refresh },
             { where: { uid: user.uid }}
         )
-        return res.status(200).send({
+        return response.status(200).send({
             uid: user.uid,
             accessToken: token,
             refreshToken: token_refresh
         })
     } catch (error) {
-        return res.status(500).send({ message: error.message })
+        console.error(error);
+        return response.status(500).send({ message: error.message })
     }
 }
-
-exports.update = async(req, res, next) => {
-    const { role, uid } = req.body
-    // first
-    if(role && uid) {
-        //second
-        if(role === 'admin') {
-            await auth.findByUid(uid).then((auth) => {
-                // third
-                if(auth.role !== 'admin') {
-                    auth.role = role;
-                    auth.save((err) => {
-                        if(err) {
-                            res.status(400).send({ message: 'An error occurred', error: err.message });
-                            process.exit(1);
-                        }
-                        res.status(201).send({ message: 'Update successfull', auth });
-                    });
-                } else {
-                    res.status(400).send({ message: 'User is already an Admin' })
-                }
-            })
-            .catch((error) => {
-                res.status(400).send({ message: 'An error occurred', error: error.message });
-            });
-        } else {
-            res.status(400).send({ message: 'Role is not admin' });
-        };
-    } else {
-        res.status(400).send({ message: "Role ot Uid not present"})
-    }
-};
 
 exports.changeAccess = async(req, res) => {
     let token_refresh = req.body.headers['x-refresh-token']

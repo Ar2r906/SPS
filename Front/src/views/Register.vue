@@ -2,6 +2,11 @@
     <div class="form">
         <h1>&lt;Регистрация&gt;</h1>
         <form @submit.prevent="goRegister">
+            <select class="form option-input" name="role" id="role">
+                <option value="sportsmen">Спортсмен/спортсмен-стажер</option>
+                <option value="partner">Партнер</option>
+                <option value="coach">Тренер</option>
+            </select>
             <input type="text" name="name" id="name" placeholder="Имя" class="form form-input">
             <input type="email" name="email" id="email" placeholder="Email" class="form form-input">
             <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input">
@@ -17,6 +22,7 @@ import { mapActions } from 'vuex'
 export default {
     data() {
         return {
+            role: '',
             email: '',
             password: '',
             name: ''
@@ -29,6 +35,7 @@ export default {
     ),
         goRegister(){
             const formData = {
+                role: this.role,
                 email: this.email,
                 password: this.password,
                 name: this.name
@@ -56,13 +63,20 @@ h1 {
     padding-bottom: 5dvh;
 }
 .form-input {
-    padding: 1dvh 1dvw;
-    margin: 2dvh auto;
-    width: 20dvw;
+    padding: 1dvh 2dvw;
+    margin: 2dvh auto 2dvh auto;
+    width: 25dvw;
     color: #000;
     background-color: #D9D9D9;
     border: 1px solid #000;
     border-radius: 8px;
+}
+.option-input {
+    padding: 1dvh 1dvw;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 8px;
+    background-color: #d9d9d9;
 }
 .form-button {
     margin: 1dvh 0;

@@ -25,7 +25,8 @@ const routes = [
   {
     path: '/EventsRegistration',
     name: 'EventsRegistration',
-    component: EventsRegistration
+    component: EventsRegistration,
+    // meta: { auth: true}
   },
   // {
   //   path: '/partners',
