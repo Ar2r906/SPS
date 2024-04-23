@@ -15,7 +15,8 @@ const checkStatuses = (status) => {
         case 414:
             window.alert('Пароль не верный')
             return false
-        default: return true
+        default: 
+            return true
     }
 }
 
@@ -38,10 +39,10 @@ export default {
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signup`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
+                    'Content-Type': 'application/json;charset=utf-8'
                 },
                 body: data
-            })
+            });
             
             if(!checkStatuses(response.status)) return
             window.alert('Вы успешно зарегистрированы! Теперь авторизуйтесь')

@@ -5,7 +5,7 @@
             <input type="text" name="name" id="name" placeholder="Имя" class="form form-input">
             <input type="email" name="email" id="email" placeholder="Email" class="form form-input">
             <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input">
-            <button class="form form-button" type="submit">Зарегистрироваться</button>
+            <button class="form form-button" type="submit">Регистрация</button>
             <span class="form text">Уже есть аккаунт?<a href="/login">Войти</a></span>
         </form>
     </div>

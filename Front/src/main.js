@@ -7,4 +7,7 @@ import store from './store'
 // components.forEach(component => {
 //     app.component(component.name,)
 // });
+
+// app.use(store).use(router).mount('#app')
+
 createApp(App).use(store).use(router).mount('#app')

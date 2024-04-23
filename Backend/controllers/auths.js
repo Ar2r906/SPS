@@ -16,16 +16,24 @@ const createRefresh = (uid) => createToken(uid, REFRESH_LIFETIME)
 exports.signup = async (req, res) => {
     try {
         const authed = await auth.create({
+            name: req.body.name,
             email: req.body.email.toLowerCase(),
             role: 'user',
             password: bcrypt.hashSync(req.body.password, 8),
             uid: uuidv4(),
         })
-        const createdUser = await user.create({
-            uid: authed.uid,
-            name: req.body.name,
+        // const createdUser = await user.create({
+        //     uid: authed.uid,
+        //     name: authed.name,
+        //     role: authed.role,
+        // })
+        return res.status(201).send({ 
+            message: 'registred', 
+            uid: authed.uid, 
+            name: authed.name,
+            email: authed.email,
+            role: authed.role
         })
-        return res.status(201).send({ message: 'registred', uid: createdUser.uid })
     } catch (error) {
         return res.status(400).send({ message: error.message })
     }
