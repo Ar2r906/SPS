@@ -36,17 +36,17 @@ export default {
 
     actions: {
 
-        async register({ }, { role, email, password, name }) {
-            const data = JSON.stringify({role, email, password, name})
+        async register({ }, { role, name, email, password }) {
+            const data = JSON.stringify({ role, name, email, password })
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                body: data
+                body: data,
             })
-            
+        
             if(!checkStatuses(response.status)) return
             window.alert('Вы успешно зарегистрированы! Теперь авторизуйтесь')
             router.push('/login')
@@ -54,7 +54,7 @@ export default {
         },
 
         async login({ commit }, { email, password } ) {
-            const data = JSON.stringify({email, password })
+            const data = JSON.stringify({ email, password })
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signin`, {
                 method: 'POST',

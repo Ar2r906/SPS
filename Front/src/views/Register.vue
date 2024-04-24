@@ -3,6 +3,7 @@
         <h1>&lt;Регистрация&gt;</h1>
         <form @submit.prevent="goRegister">
             <select class="form option-input" name="role" id="role">
+                <option value="">--Выберите роль--</option>
                 <option value="sportsmen">Спортсмен/спортсмен-стажер</option>
                 <option value="partner">Партнер</option>
                 <option value="coach">Тренер</option>
@@ -63,7 +64,7 @@ h1 {
     padding-bottom: 5dvh;
 }
 .form-input {
-    padding: 1dvh 2dvw;
+    padding: 1dvh 1dvw;
     margin: 2dvh auto 2dvh auto;
     width: 25dvw;
     color: #000;
@@ -92,7 +93,7 @@ h1 {
   color: #fff;
 }
 .text a{
-  text-decoration: none;
+  /* text-decoration: none; */
   color: #000;
 }
 .text a:hover {

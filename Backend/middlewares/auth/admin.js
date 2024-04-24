@@ -15,7 +15,7 @@ const checkAccess = (requset, response, next) => {
             }
         });
     } else {
-        return response.status(401).send({ message: 'Not authorized, token not available' });
+        return response.status(401).send({ message: 'Не авторизован, токен не верный' });
     }
 }
 

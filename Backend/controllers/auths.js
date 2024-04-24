@@ -1,69 +1,67 @@
-const { user} = require('../models/users')
-const { auth } = require('../models/auths')
+const { user } = require('../models/users.js')
+const { auth } = require('../models/auths.js')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const secret = process.env.SECRET
 const { v4: uuidv4 } = require('uuid')
 
-const ACCESS_LIFETIME = 30; // 30 секунд
-const REFRESH_LIFETIME = 3600 * 24 * 120; // 120 дней
+const ACCESS_LIFETIME = 10;
+const REFRESH_LIFETIME = 60 * 60 * 24 *60;
 
 const createToken = (uid, lifetime) => jwt.sign({ uid }, secret, { expiresIn: lifetime })
 const createAccess = (uid) => createToken(uid, ACCESS_LIFETIME)
 const createRefresh = (uid) => createToken(uid, REFRESH_LIFETIME)
 
-exports.signup = async (request, response) => {
+exports.signup = async (req, res) => {
     try {
-        const { name, email, role, password } = request.body;
-        const hashedPassowrd = await bcrypt.hash(password, 8);
-
         const authed = await auth.create({
-            name: name,
-            email: email.toLowerCase(),
-            role: role,
-            password: hashedPassowrd,
+            email: req.body.email.toLowerCase(),
+            role: req.body.role,
+            name: req.body.name.toLowerCase(),
+            password: bcrypt.hashSync(req.body.password, 8),
             uid: uuidv4(),
-        });
-        return response.status(201).send({ 
-            message: 'User registered', 
-            uid: authed.uid, 
-            name: authed.name,
-            email: authed.email,
-            role: authed.role
-        });
+        })
+        const createdUser = await user.create({
+            uid: authed.uid,
+            name: req.body.name,
+        })
+
+        console.log({ message: `Пользователь ${createdUser.uid} зареган` })
+        return res.status(201).send({ message: 'registred', uid: createdUser.uid }) 
     } catch (error) {
-        console.error(error)
-        return response.status(400).send({ message: error.message })
+        return res.status(400).send({message: error.message})
     }
 }
 
-exports.signin = async (request, response) => {
+exports.signin = async (req, res) => {
     try {
         const user = await auth.findOne({
             where: {
-                email: request.body.email.toLowerCase()
+                email: req.body.email.toLowerCase()
             }
         })
-        if(!user) return response.status(404).send({ message: 'Пользователь не найден!' })
+        if (!user) return res.status(404).send({ message: 'Пользователь не нйаден!' })
         var passwordIsValid = bcrypt.compareSync(
-            request.body.password,
+            req.body.password,
             user.password
         )
-        if(!passwordIsValid) return response.status(401).send({ message: 'Неверный пароль!' })
+        if (!passwordIsValid) return res.status(414).send({ message: 'Неверный пароль' })
         const token = createAccess(user.uid)
         const token_refresh = createRefresh(user.uid)
-        await auth.update({ AccessToken: token, RefreshToken: token_refresh },
-            { where: { uid: user.uid }}
-        )
-        return response.status(200).send({
+        await auth.update({AccessToken: token, RefreshToken: token_refresh},
+            {where: {uid: user.uid}})
+        console.log({ message: `Пользователь ${user.uid} авторизован` })
+        return res.status(200).send({
             uid: user.uid,
             accessToken: token,
-            refreshToken: token_refresh
+            refreshToken: token_refresh,
+            email: userEmail,
+            name: userName,
+            role: user.role
         })
     } catch (error) {
-        console.error(error);
-        return response.status(500).send({ message: error.message })
+        return res.status(500).send({ message: error.message })
     }
 }
 
@@ -71,14 +69,12 @@ exports.changeAccess = async(req, res) => {
     let token_refresh = req.body.headers['x-refresh-token']
     try {
         const { uid } = jwt.verify(token_refresh, secret)
-        const currentUser = await auth.findOne({ where: {uid: uid} })
+        const currentUser = await auth.findOne({where: {uid: uid}})
         if(!currentUser) return res.status(404)
         const token = createAccess(currentUser.uid)
         token_refresh = createRefresh(currentUser.uid)
-        await auth.update(
-            { AccessToken: token, RefreshToken: token_refresh },
-            { where: {uid: currentUser.uid} }
-        )
+        await auth.update({AccessToken: token, RefreshToken: token_refresh},
+            {where: {uid: currentUser.uid}})
         return res.status(200).send({
             uid: currentUser.uid,
             accessToken: token,

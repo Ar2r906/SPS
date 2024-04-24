@@ -13,7 +13,7 @@ export default {
     },
     actions: {
         async getUserByUid({ commit }) {
-            const user = await instance.get('/api/user')
+            const user = await instance.get('/api/users')
             if(user) return commit('setUser', user.data)
             console.log(user.message);
         }
