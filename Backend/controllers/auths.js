@@ -41,6 +41,7 @@ exports.signup = async(request, response) => {
 
         const createdUser = await user.create({
             uid: authed.uid,
+            email: authed.email,
             name: authed.name,
             role: authed.role,
         });
@@ -87,6 +88,7 @@ exports.signin = async(request, response) => {
             uid: user.uid,
             accessToken: token,
             refreshToken: token_refresh,
+            name: user.name,
             email: user.email,
             role: user.role,
         })

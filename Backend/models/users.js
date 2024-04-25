@@ -11,6 +11,9 @@ const user = sequelize.define(
             primaryKey: true
         },
         name: {
+            type: DataTypes.TEXT,
+        },
+        email: {
             type: DataTypes.TEXT
         },
         role: {

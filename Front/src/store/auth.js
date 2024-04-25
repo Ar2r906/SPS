@@ -1,23 +1,8 @@
 import instance from '@/middlewares'
 import router from '@/router'
+import { computed } from 'vue';
 
-const checkRole = (role) => {
-    switch(role) {
-        case 'partner': 
-            return 'partneraccaunt' 
-            break;
-        case 'sportsman': 
-            return 'sportsmanaccaunt'
-            break;
-        case 'couch': 
-            return 'coachaccaunt'
-            break;
-        default:
-            return 'sportsmanaccaunt'
-            break;
-    }
-
-}
+var role_user;
 
 const checkStatuses = (status) => {
     switch (status) {
@@ -62,9 +47,12 @@ export default {
                 },
                 body: data,
             })
-        
+            
             if(!checkStatuses(response.status)) return
+            role_user = role;
+
             window.alert('Вы успешно зарегистрированы! Теперь авторизуйтесь')
+
             router.push('/login')
             return
         },
@@ -88,7 +76,7 @@ export default {
             localStorage.setItem('refreshToken', result.refreshToken)
             localStorage.setItem('uid', result.uid)
             
-            router.push(`/${checkRole(user.role)}`)
+            router.push(`/`)
             return
         },
 
