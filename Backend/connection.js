@@ -1,8 +1,19 @@
 const { Sequelize } = require('sequelize')
-/*
-Указать данные сервера postgre
-*/
-const sequelize = new Sequelize('postgres://postgres:asdF0987@localhost:5432/sps')
+const dbConfig = require('./config/db.config')
+
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+    host: dbConfig.HOST,
+    dialect: dbConfig.dialect,
+    port: dbConfig.port,
+    operationAliases: false,
+
+    pool: {
+        max: dbConfig.pool.max,
+        min:  dbConfig.pool.min,
+        acquire: dbConfig.pool.acquire,
+        idle: dbConfig.pool.idle,
+    }
+});
 
 async function connect() {
     try {
@@ -10,7 +21,7 @@ async function connect() {
         console.log('БД подключена');
     }
     catch (error) {
-        console.log(`error: {error}`);
+        console.log(`error: ${error}`);
     }
 }
 connect()

@@ -3,6 +3,11 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import EventsRegistration from '@/views/EventsRegistration.vue'
+
+import CoachAccount from '@/views/CoachAccount'
+import PartnerAccount from '@/views/PartnerAccount'
+import SportsmanAccount from '@/views/SportsmanAccount'
+
 import instance from '@/middlewares'
 
 
@@ -28,21 +33,21 @@ const routes = [
     component: EventsRegistration,
     // meta: { auth: true}
   },
-  // {
-  //   path: '/partners',
-  //   name: 'partners',
-  //   component: Partners
-  // },
-  // {
-  //   path: '/contacts',
-  //   name: 'contacts',
-  //   component: Contacts
-  // },
-  // {
-  //   path: '/events',
-  //   name: 'events',
-  //   component: Events
-  // }
+  {
+    path: '/coachaccaunt',
+    name: 'coachaccaunt',
+    component: CoachAccount
+  },
+  {
+    path: '/partneraccaunt',
+    name: 'partneraccaunt',
+    component: PartnerAccount
+  },
+  {
+    path: '/sportsmanaccaunt',
+    name: 'sportsmanaccaunt',
+    component: SportsmanAccount
+  }
 ]
 
 const router = createRouter({

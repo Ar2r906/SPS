@@ -8,8 +8,11 @@ app.use(express.urlencoded({ extended: true }))
 const port = process.env.PORT
 const auths_routes = require('./routes/auths')
 const users_routes = require('./routes/users')
+const { error } = require('console')
 
-app.use(cors({ origin: ['http://localhost:8080'] }))
+app.use(cors({ 
+    origin: ['http://localhost:8080'] 
+}));
 
 app.use('/api/auth', auths_routes)
 app.use('/api/users', users_routes)

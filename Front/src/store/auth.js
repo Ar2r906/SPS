@@ -1,6 +1,24 @@
 import instance from '@/middlewares'
 import router from '@/router'
 
+const checkRole = (role) => {
+    switch(role) {
+        case 'partner': 
+            return 'partneraccaunt' 
+            break;
+        case 'sportsman': 
+            return 'sportsmanaccaunt'
+            break;
+        case 'couch': 
+            return 'coachaccaunt'
+            break;
+        default:
+            return 'sportsmanaccaunt'
+            break;
+    }
+
+}
+
 const checkStatuses = (status) => {
     switch (status) {
         case 400:
@@ -31,9 +49,7 @@ export default {
             state.isAuth = isAuth
         }
     },
-
     namespaced: true,
-
     actions: {
 
         async register({ }, { role, name, email, password }) {
@@ -54,7 +70,9 @@ export default {
         },
 
         async login({ commit }, { email, password } ) {
-            const data = JSON.stringify({ email, password })
+            const data = JSON.stringify({ 
+                email, password 
+            });
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signin`, {
                 method: 'POST',
@@ -69,7 +87,8 @@ export default {
             localStorage.setItem('accessToken', result.accessToken)
             localStorage.setItem('refreshToken', result.refreshToken)
             localStorage.setItem('uid', result.uid)
-            router.push('/')
+            
+            router.push(`/${checkRole(user.role)}`)
             return
         },
 

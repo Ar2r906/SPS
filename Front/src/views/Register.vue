@@ -2,15 +2,15 @@
     <div class="form">
         <h1>&lt;Регистрация&gt;</h1>
         <form @submit.prevent="goRegister">
-            <select class="form option-input" name="role" id="role">
+            <select class="form option-input" name="role" id="role" v-model="role">
                 <option value="">--Выберите роль--</option>
-                <option value="sportsmen">Спортсмен/спортсмен-стажер</option>
+                <option value="sportsman">Спортсмен/спортсмен-стажер</option>
                 <option value="partner">Партнер</option>
                 <option value="coach">Тренер</option>
             </select>
-            <input type="text" name="name" id="name" placeholder="Имя" class="form form-input">
-            <input type="email" name="email" id="email" placeholder="Email" class="form form-input">
-            <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input">
+            <input type="text" name="name" id="name" placeholder="Имя" class="form form-input" v-model="name">
+            <input type="email" name="email" id="email" placeholder="Email" class="form form-input" v-model="email">
+            <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input" v-model="password">
             <button class="form form-button" type="submit">Регистрация</button>
             <span class="form text">Уже есть аккаунт?<a href="/login">Войти</a></span>
         </form>
