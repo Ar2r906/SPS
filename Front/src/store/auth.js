@@ -1,13 +1,13 @@
 import instance from '@/middlewares'
 import router from '@/router'
-import { computed } from 'vue';
-
-var role_user;
 
 const checkStatuses = (status) => {
     switch (status) {
         case 400:
             window.alert('Проблема на сервере')
+            return false
+        case 403:
+            window.alert('Введены неверные данные')
             return false
         case 404:
             window.alert('Пользователь не найден')
@@ -25,7 +25,6 @@ const checkStatuses = (status) => {
 
 export default {
     name: 'auth',
-
     state: () => ({
         isAuth: false
     }),
@@ -71,6 +70,7 @@ export default {
             })
             if (!checkStatuses(response.status)) return 
             const result = await response.json()
+            
             commit('setAuth', true)
             localStorage.setItem('accessToken', result.accessToken)
             localStorage.setItem('refreshToken', result.refreshToken)

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
@@ -31,23 +32,31 @@ const routes = [
     path: '/EventsRegistration',
     name: 'EventsRegistration',
     component: EventsRegistration,
-    // meta: { auth: true}
+    meta: { auth: true}
   },
-  {
-    path: '/coachaccaunt',
-    name: 'coachaccaunt',
-    component: CoachAccount
-  },
-  {
-    path: '/partneraccaunt',
-    name: 'partneraccaunt',
-    component: PartnerAccount
-  },
-  {
-    path: '/sportsmanaccaunt',
-    name: 'sportsmanaccaunt',
-    component: SportsmanAccount
-  }
+  // {
+  //   path: '/coach',
+  //   name: 'coach',
+  //   component: CoachAccount,
+  //   meta: { requireCoach: true }
+  // },
+  // {
+  //   path: '/partner',
+  //   name: 'partner',
+  //   component: PartnerAccount,
+  //   meta: { requirePartner: true }
+  // },
+  // {
+  //   path: '/sportsman',
+  //   name: 'sportsman',
+  //   component: SportsmanAccount,
+  //   meta: { requireSportsmen: true }
+  // },
+  // {
+  //   path: '/admin',
+  //   component: AdminAccount,
+  //   meta: { requireAdmin: true }
+  // },
 ]
 
 const router = createRouter({

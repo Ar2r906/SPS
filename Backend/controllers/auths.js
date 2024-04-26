@@ -6,8 +6,8 @@ require('dotenv').config()
 const secret = process.env.SECRET
 const { v4: uuidv4 } = require('uuid')
 
-const ACCESS_LIFETIME = 10;
-const REFRESH_LIFETIME = 60 * 60 * 24 *60;
+const ACCESS_LIFETIME = 30; // 30 секунд
+const REFRESH_LIFETIME = 60 * 60 * 24 * 60; // 2 месяца
 
 const createToken = (uid, lifetime) => jwt.sign({ uid }, secret, { expiresIn: lifetime })
 const createAccess = (uid) => createToken(uid, ACCESS_LIFETIME)
@@ -66,13 +66,13 @@ exports.signin = async(request, response) => {
             }
         })
 
-        if (!user) return response.status(404).send({ message: 'Пользователь не найден!' })
+        if (!user) return response.status(403).send({ error: 'Введены невенрые данные' })
         var passwordIsValid = bcrypt.compareSync(
             request.body.password,
             user.password
         )
 
-        if (!passwordIsValid) return response.status(414).send({ message: 'Неверный пароль' })
+        if (!passwordIsValid) return response.status(403).send({ error: 'Введены неверные данные' })
 
         const token = createAccess(user.uid)
         const token_refresh = createRefresh(user.uid)
@@ -93,7 +93,9 @@ exports.signin = async(request, response) => {
             role: user.role,
         })
     } catch (error) {
-        return response.status(500).send({ message: error.message })
+        return response.status(500).send({ 
+            error: 'Произошла ошибка при входе в систему' 
+        })
     }
 }
 

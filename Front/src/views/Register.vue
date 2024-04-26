@@ -1,7 +1,7 @@
 <template>
     <div class="form">
         <h1>&lt;Регистрация&gt;</h1>
-        <form @submit.prevent="goRegister">
+        <form @submit.prevent="goRegister" autocomplete="off">
             <select class="form option-input" name="role" id="role" v-model="role">
                 <option value="">--Выберите роль--</option>
                 <option value="sportsman">Спортсмен/спортсмен-стажер</option>
@@ -10,7 +10,7 @@
             </select>
             <input type="text" name="name" id="name" placeholder="Имя" class="form form-input" v-model="name">
             <input type="email" name="email" id="email" placeholder="Email" class="form form-input" v-model="email">
-            <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input" v-model="password">
+            <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input" v-model="password" autocomplete="new-password">
             <button class="form form-button" type="submit">Регистрация</button>
             <span class="form text">Уже есть аккаунт?<a href="/login">Войти</a></span>
         </form>
@@ -98,5 +98,17 @@ h1 {
 }
 .text a:hover {
   color: #402FFF;
+}
+
+@media only screen and(max-vidth: 768px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 3dvh;
+        padding-bottom: 3dvh;
+    }
+
 }
 </style>
