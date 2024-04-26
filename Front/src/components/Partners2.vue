@@ -1,7 +1,8 @@
 <template>
   <div class="partners">
     <h1 align=center>Наши партнёры</h1>
-    <input class="b1" type="button" name="b1" value="Стать партнёром" />
+    <button class="b1" type="submit">Стать партнёром</button>
+    <!-- <input class="b1" type="button" name="b1" value="Стать партнёром" /> -->
   </div>
     <div class="btn-group">
         <button>Партнёр</button>
@@ -32,7 +33,7 @@ h1 {
     margin-top: -37px;
     width: 270px;
     height: 40px;
-    font-family: JetBrains Mono;
+    font-family: 'JetBrains Mono';
     color: #D9D9D9;
     border: 0;
     border-radius: 0px;
