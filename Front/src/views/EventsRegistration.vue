@@ -55,7 +55,7 @@ export default {
     border-radius: 25px;
     background: #402FFF;
     font-size: 15px;
-  }
+  },
   .pole1{
       height: 50px;
       margin-left: 60px;

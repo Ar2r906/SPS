@@ -1,19 +1,12 @@
-const { user } = require('../models/users.js')
-// const { auth } = require('../models/auths.js')
+const { user } = require('../models/users')
 
-const getUserByUid = async(request, response) => {
+const getUserByUid = async(req, res) => {
     try {
-        const currentUser = await user.findOne({ 
-            where: { uid: request.userUid }
-        });
-
-        if(!currentUser) return response.status(404)
-
-        return response.json(currentUser)
+        const currenUser = await user.findOne({ where: { uid: req.userUid }})
+        if(!currenUser) return res.status(404)
+        return res.json(currenUser)
     } catch (error) {
-        return response.status(500).send({ 
-            message: error.message 
-        });
+        return res.status(500).send({ message: error.message })
     }
 }
 

@@ -6,9 +6,6 @@ const checkStatuses = (status) => {
         case 400:
             window.alert('Проблема на сервере')
             return false
-        case 403:
-            window.alert('Введены неверные данные')
-            return false
         case 404:
             window.alert('Пользователь не найден')
             return false
@@ -18,8 +15,7 @@ const checkStatuses = (status) => {
         case 414:
             window.alert('Пароль не верный')
             return false
-        default: 
-            return true
+        default: return true
     }
 }
 
@@ -36,30 +32,25 @@ export default {
     namespaced: true,
     actions: {
 
-        async register({ }, { role, name, email, password }) {
-            const data = JSON.stringify({ role, name, email, password })
+        async register({ }, { email, password, name }) {
+            const data = JSON.stringify({ email, password, name })
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signup`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
+                    'Content-Type': 'application/json; charset=utf-8'
                 },
-                body: data,
+                body: data
             })
             
             if(!checkStatuses(response.status)) return
-            role_user = role;
-
             window.alert('Вы успешно зарегистрированы! Теперь авторизуйтесь')
-
             router.push('/login')
             return
         },
 
-        async login({ commit }, { email, password } ) {
-            const data = JSON.stringify({ 
-                email, password 
-            });
+        async login({ commit }, { email, password} ) {
+            const data = JSON.stringify({email, password})
             console.log(data);
             const response = await fetch(`${process.env.VUE_APP_SERVER}/api/auth/signin`, {
                 method: 'POST',
@@ -70,17 +61,15 @@ export default {
             })
             if (!checkStatuses(response.status)) return 
             const result = await response.json()
-            
             commit('setAuth', true)
             localStorage.setItem('accessToken', result.accessToken)
             localStorage.setItem('refreshToken', result.refreshToken)
             localStorage.setItem('uid', result.uid)
-            
-            router.push(`/`)
+            router.push('/')
             return
         },
 
-        async changeAccess({ }) {
+        async chanheAccess({ }) {
             const response = await instance.post('/api/auth/change-access', {
                 headers: {
                     'x-refresh-token': localStorage.getItem('refreshToken')

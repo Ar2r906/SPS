@@ -1,4 +1,4 @@
-const { sequelize } = require('../connection')
+const { sequelize } = require('../../../Backend/connection.js')
 const { DataTypes } = require('sequelize')
 
 const auth = sequelize.define(
@@ -10,7 +10,7 @@ const auth = sequelize.define(
             primaryKey: true
         },
         uid: {
-            type: DataTypes.UUID
+            type: DataTypes,UUID
         },
         role: {
             type: DataTypes.TEXT
@@ -29,13 +29,14 @@ const auth = sequelize.define(
         },
     },
     {
-        tableName: 'auths',
+        tableName: 'auth',
         timestamps: true
     }
 )
 
 async function get_auth_table() {
     await auth.sync()
-    console.log('Синхронизация Auth выполнена');
+    console.log('Синхронизация выполнена');
 }
-module.exports = { auth, get_auth_table }
+module.export = { auth, get_auth_table }
+
