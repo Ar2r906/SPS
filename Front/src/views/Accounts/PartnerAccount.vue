@@ -1,6 +1,6 @@
 <template>
     <div>
-        Аккаунт спонсора
+        Partner account
     </div>
 </template>
 

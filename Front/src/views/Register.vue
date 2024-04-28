@@ -4,7 +4,8 @@
         <form @submit.prevent="goRegister" autocomplete="off">
             <select class="form option-input" name="role" id="role" v-model="role">
                 <option value="">--Выберите роль--</option>
-                <option value="sportsman">Спортсмен/спортсмен-стажер</option>
+                <option value="intern">Стажер</option>
+                <option value="sportsman">Спортсмен</option>
                 <option value="partner">Партнер</option>
                 <option value="coach">Тренер</option>
             </select>

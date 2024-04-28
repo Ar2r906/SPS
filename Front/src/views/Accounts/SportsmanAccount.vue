@@ -1,6 +1,6 @@
 <template>
     <div>
-        Аккаунт спортсмена
+        Sportsman account
     </div>
 </template>
 

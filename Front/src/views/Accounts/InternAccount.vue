@@ -1,6 +1,6 @@
 <template>
     <div>
-        Аккаунт старшего тренера
+        Intern account
     </div>
 </template>
 
