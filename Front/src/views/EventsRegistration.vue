@@ -1,32 +1,35 @@
 <template>
-  <h1>ИНФА О МЕРОПРИЯТИИ</h1>
+  <h2>НАЗВАНИЕ</h2>
+  <h4>Информация о мероприятии</h4>
     <hr>
-    <h2>&#8249;Подача заявки&#8250;</h2>
+    <h3>&#8249;Подача заявки&#8250;</h3>
     <form id="registration" action="" method="POST">
-        <label>Субъект Российской Федерации: </label>
-        <input class="pole1" type="text" name="name" id="name" placeholder="" required autofocus>
-        
-        <label>Город:</label>
-        <input class="pole1" type="text" name="city" id="city" placeholder="" required autofocus>
+        <div class="field">
+          <p>Субъект Российской Федерации: </p>
+          <input class="pole" type="text" name="name" id="name" placeholder="" required autofocus>
 
-        <label> Команда:</label>
-        <input class="pole1" type="text" name="team" id="team" placeholder="" required autofocus>
-        
-        <label> Количество спортсменов:</label>
-        <input class="pole1" type="text" name="chislo" id="chislo" placeholder="" required autofocus>
+         <p>Город:</p>
+          <input class="pole" type="text" name="city" id="city" placeholder="" required autofocus>
 
-        <label>Представитель команды:</label>
-        <input class="pole1" type="text" name="coach" id="coach" placeholder="" required autofocus>
+          <p> Команда:</p>
+          <input class="pole" type="text" name="team" id="team" placeholder="" required autofocus>
 
-        <label>Контактный номер представителя:</label>
-        <input class="pole1" type="text" name="phone" id="phone" placeholder="" required autofocus>
+          <p> Количество спортсменов:</p>
+          <input class="pole" type="text" name="chislo" id="chislo" placeholder="" required autofocus>
+ 
+          <p>Представитель команды:</p>
+          <input class="pole" type="text" name="coach" id="coach" placeholder="" required autofocus>
 
-        <label>Электронная почта представителя:</label>
-        <input class="pole1" type="text" name="e-mail" id="e-mail" placeholder="" required autofocus>
-       
-        <label>Аккаунт в Telegram представителя:</label>
-        <input class="pole1" type="text" name="telegram" id="telegram" placeholder="" required autofocus>
-        <input class="send" type="button" name="send" value="Принять участие" />
+          <p>Контактный номер представителя:</p>
+          <input class="pole" type="text" name="phone" id="phone" placeholder="" required autofocus>
+
+          <p>Электронная почта представителя:</p>
+          <input class="pole" type="text" name="e-mail" id="e-mail" placeholder="" required autofocus>
+
+          <p>Аккаунт в Telegram представителя:</p>
+          <input class="pole" type="text" name="telegram" id="telegram" placeholder="" required autofocus>
+        </div>
+        <button class="send1">Отправить</button>
     </form>
     <Contacts/>
 </template>
@@ -43,27 +46,41 @@ export default {
 </script>
 
 <style>
-  .send{
-    /*margin:auto;*/
-    margin-top: 30px;
-    margin-left: 100px;
+  .send1{
     width: 260px;
-    height: 35px;
+    height: 50px;
     font-family: JetBrains Mono;
     color: #D9D9D9;
     border: 0;
-    border-radius: 25px;
+    border-radius: 15px;
     background: #402FFF;
-    font-size: 15px;
+    font-size: 18px;
+    margin: 40px 0px 55px 700px;
   }
-  .pole1{
-      height: 50px;
-      margin-left: 60px;
-      margin-top:20px;
-      border: none;
-      border-bottom: 2px solid black;
-      background: #D9D9D9;
+  .pole{
+      height: 40px;
+      width: 450px;
+      margin-top:10px;
+      border: 1px solid;
+      border-radius: 15px;
+      font-size: 20px;
+      background: #white;
       font-family: JetBrains Mono;
-      outline:none;
+      text-align: center;
     }
+  p{
+    margin-top:28px;
+
+  }
+  .field{
+    margin-left: 100px;
+  }
+  h2, h3{
+    margin-left: 20px;
+    margin-top:30px;
+  }
+  h4{
+    margin-left: 100px;
+    margin-top:30px;
+  }
 </style>
