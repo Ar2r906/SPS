@@ -11,6 +11,12 @@ const user = sequelize.define(
             primaryKey: true
         },
         name: {
+            type: DataTypes.TEXT,
+        },
+        email: {
+            type: DataTypes.TEXT
+        },
+        role: {
             type: DataTypes.TEXT
         },
     },
@@ -27,7 +33,7 @@ user.belongsTo(auth, {
 
 async function get_user_table() {
     await user.sync()
-    console.log('Синхронизация User выполнена');
+    console.log('Синхронизация таблицы Users выполнена');
 }
 
 module.exports = { user, get_user_table }

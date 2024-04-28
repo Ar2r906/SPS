@@ -77,7 +77,7 @@ h1 {
   color: #fff;
 }
 .text a{
-  text-decoration: none;
+  /* text-decoration: none; */
   color: #000;
 }
 .text a:hover {

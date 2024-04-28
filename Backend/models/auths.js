@@ -27,6 +27,9 @@ const auth = sequelize.define(
         email: {
             type: DataTypes.TEXT
         },
+        name: {
+            type: DataTypes.TEXT
+        }
     },
     {
         tableName: 'auths',
