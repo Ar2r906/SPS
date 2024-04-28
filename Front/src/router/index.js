@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import instance from '@/middlewares'
 
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import EventsRegistration from '@/views/EventsRegistration.vue'
 
-import CoachAccount from '@/views/CoachAccount'
-import PartnerAccount from '@/views/PartnerAccount'
-import SportsmanAccount from '@/views/SportsmanAccount'
-
-import instance from '@/middlewares'
-
+import CoachAccount from '@/views/Accounts/CoachAccount'
+import PartnerAccount from '@/views/Accounts/PartnerAccount'
+import SportsmanAccount from '@/views/Accounts/SportsmanAccount'
+import InternAccount from '@/views/Accounts/InternAccount.vue'
+import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount'
 
 const routes = [
   {
@@ -34,29 +34,46 @@ const routes = [
     component: EventsRegistration,
     meta: { auth: true}
   },
-  // {
-  //   path: '/coach',
-  //   name: 'coach',
-  //   component: CoachAccount,
-  //   meta: { requireCoach: true }
-  // },
-  // {
-  //   path: '/partner',
-  //   name: 'partner',
-  //   component: PartnerAccount,
-  //   meta: { requirePartner: true }
-  // },
-  // {
-  //   path: '/sportsman',
-  //   name: 'sportsman',
-  //   component: SportsmanAccount,
-  //   meta: { requireSportsmen: true }
-  // },
-  // {
-  //   path: '/admin',
-  //   component: AdminAccount,
-  //   meta: { requireAdmin: true }
-  // },
+  {
+    path: '/coach',
+    name: 'coach',
+    component: CoachAccount,
+    meta: {
+      role: 'coach',
+    }
+  },
+  {
+    path: '/headcoach',
+    name: 'headcoach',
+    component: HeadCoachAccount,
+    meta: {
+      role: 'headcoach',
+    }
+  },
+  {
+    path: '/intern',
+    name: 'intern',
+    component: InternAccount,
+    meta: {
+      role: 'intern',
+    }
+  },
+  {
+    path: '/sportsman',
+    name: 'sportsman',
+    component: SportsmanAccount,
+    meta: {
+      role:'sportsman',
+    }
+  },
+  {
+    path: '/partner',
+    name: 'partner',
+    component: PartnerAccount,
+    meta: {
+      role: 'partner',
+    }
+  },
 ]
 
 const router = createRouter({

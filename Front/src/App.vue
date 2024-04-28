@@ -1,8 +1,6 @@
 <template>
   <nav>
     <a class="logo" href="/"><img src="./assets/Logotype.svg" alt="logotype"></a>
-    <!-- Hamburger icon -->
-    <!-- <span><img src="./assets/" alt=""></span> -->
     <router-link class="link" to="/login" v-if="!isAuth">Вход</router-link>
     <router-link class="link" to="/register" v-if="!isAuth">Регистрация</router-link>
     <router-link class="link" to="/events" v-if="isAuth">Мероприятия</router-link>
@@ -11,7 +9,7 @@
     <router-link class="link" to="/EventsRegistration">Проверка</router-link>
     <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
     <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>
-  </nav>
+  </nav> 
   <router-view />
 </template>
 
@@ -20,6 +18,7 @@ import { mapActions, mapState } from 'vuex'
 import store from './store';
 
 export default {
+
   methods: {
     ...mapActions({
       logout: 'auth/logout'
@@ -46,6 +45,7 @@ export default {
     font-family: "JetBrains Mono";
     src: url('./fonts/JetBrainsMonoNL-Regular.ttf');
   }
+  
   body {
     background-color: #D9D9D9;
     font-family: 'JetBrains Mono';
@@ -90,4 +90,5 @@ export default {
   nav a:hover {
     color: #402FFF;
   }
+ 
 </style>

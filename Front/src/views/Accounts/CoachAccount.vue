@@ -1,6 +1,6 @@
 <template>
     <div>
-        Аккаунт тренера
+        Coach account
     </div>
 </template>
 
