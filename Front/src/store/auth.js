@@ -48,7 +48,6 @@ export default {
             })
             
             if(!checkStatuses(response.status)) return
-            role_user = role;
 
             window.alert('Вы успешно зарегистрированы! Теперь авторизуйтесь')
 
