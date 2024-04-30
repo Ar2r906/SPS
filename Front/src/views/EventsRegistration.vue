@@ -64,8 +64,8 @@ export default {
       border: 1px solid;
       border-radius: 15px;
       font-size: 20px;
-      background: #white;
-      font-family: JetBrains Mono;
+      background: white;
+      font-family: 'JetBrains Mono';
       text-align: center;
     }
   p{
