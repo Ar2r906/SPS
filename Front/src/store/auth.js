@@ -68,15 +68,17 @@ export default {
                 body: data 
             })
             if (!checkStatuses(response.status)) return 
+            
             const result = await response.json()
             
             commit('setAuth', true)
             localStorage.setItem('accessToken', result.accessToken)
             localStorage.setItem('refreshToken', result.refreshToken)
             localStorage.setItem('uid', result.uid)
+            localStorage.setItem('role', result.role)
             
-            router.push(`/`)
-            return
+            router.push(`/${result.role}`)
+            return 
         },
 
         async changeAccess({ }) {

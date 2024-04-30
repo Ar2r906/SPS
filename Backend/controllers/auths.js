@@ -19,6 +19,26 @@ const isPasswordValid = (password) => {
     return regex.test(password);
 }
 
+const admin_name = 'Headcoach';
+const admin_email = 'headcoach@headcoach.headcoach'
+const admin_password = 'headcoach@headcoach.headcoach'
+const admin_role = 'headcoach'
+
+// const admin = auth.create({
+//     email: admin_email.toLowerCase(),
+//     role: admin_role,
+//     name: admin_name,
+//     password: bcrypt.hashSync(admin_password, 8),
+//     uid: uuidv4()
+// })
+
+// const createdAdmin = user.create({
+//     uid: admin.uid,
+//     name: admin_name, 
+//     email: admin_email, 
+//     role: admin_role 
+// })
+
 exports.signup = async(request, response) => {
     const { email, password, name, role } = request.body;
     
