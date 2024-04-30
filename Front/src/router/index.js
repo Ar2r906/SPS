@@ -32,7 +32,7 @@ const routes = [
     path: '/EventsRegistration',
     name: 'EventsRegistration',
     component: EventsRegistration,
-    meta: { auth: true}
+    /**  meta: { auth: true} **/
   },
   {
     path: '/coach',

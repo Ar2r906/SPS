@@ -76,7 +76,7 @@ export default {
   .pole1{
     height: 50px;
     margin-left: 60px;
-    margin-top:20px;
+    margin-top:35px;
     border: none;
     border-bottom: 2px solid black;
     background: #D9D9D9;
@@ -89,7 +89,7 @@ export default {
   }
   .send{
     /* margin:auto; */
-    margin-top: 30px;
+    margin-top: 40px;
     margin-left: 100px;
     width: 260px;
     height: 35px;
