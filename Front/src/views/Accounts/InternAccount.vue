@@ -1,38 +1,6 @@
 <template>
-<form id="Intern" action="" method="">
-  <div>
-   <label>
-    Учебное заведение:</label>
-    <input class='pole5'
-      type="text"
-      name="educational"
-      id="educational"
-    >
-    </div>
-  <div>
-  <label>
-    Группа/Класс: </label>
-    <input class='pole5'
-      type="text"
-      name="group"
-      id="group"
-    >
-  </div>
-  <div>
-  <label>
-    Почта: </label>
-    <input class='pole5' type="email" name="email">
-  </div>
-  <div>
-  <label>
-    Телефон: </label>
-    <input class='pole5'
-      type="text"
-      name="phone"
-      id="phone"
-    >
-    </div>
-  </form>
+  <div id="kvadrat_0"></div>
+  <button class="photo">Изменить</button>
   <button class="send1">&#8249;Пройти тестирование&#8250;</button>
 </template>
 
@@ -40,20 +8,40 @@
 </script>
 
 <style>
-label{
-  font-family: JetBrains Mono;
-  font-size: 15px;
-  font-weight: 700;
+div#kvadrat_0 {
+  width: 90%;
+  height: 500px;
+  border: 5px solid #D9D9D9;
+  background: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 80%;
+  left: 5%;
 }
-  .pole5{
-      height: 30px;
-      width: 250px;
-      margin-top:10px;
-      border: 1px solid;
-      border-radius: 10px;
-      font-size: 20px;
-      background: #D9D9D9;
-      font-family: JetBrains Mono;
-      text-align: center;
-    }
+.send1{
+  position: absolute;
+  top: 128%;
+  left: 10%;
+}
+.photo{
+    /* margin:auto; */
+    margin-top: 40px;
+    margin-left: 100px;
+    width: 150px;
+    height: 35px;
+    font-family: 'JetBrains Mono';
+    color: #D9D9D9;
+    border: 1px solid #402FFF;
+    border-radius: 25px;
+    background: #402FFF;
+    font-size: 15px;
+    position: absolute;
+    top: 100%;
+    left: 7%;
+  }
+.photo:hover{
+    border: 1px solid #000;
+    background-color: #000;
+  }
+
 </style>
