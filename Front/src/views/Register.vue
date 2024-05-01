@@ -2,16 +2,16 @@
     <div class="form">
         <h1>&lt;Регистрация&gt;</h1>
         <form @submit.prevent="goRegister" autocomplete="off">
-            <select class="form option-input" name="role" id="role" v-model="role">
-                <option value="">--Выберите роль--</option>
+            <select class="form option-input" name="role" id="role" v-model="role" required>
+                <option disabled label="--Выберите роль--"></option>
                 <option value="intern">Стажер</option>
                 <option value="sportsman">Спортсмен</option>
                 <option value="partner">Партнер</option>
                 <option value="coach">Тренер</option>
             </select>
-            <input type="text" name="name" id="name" placeholder="Имя" class="form form-input" v-model="name">
-            <input type="email" name="email" id="email" placeholder="Email" class="form form-input" v-model="email">
-            <input type="password" name="password" id="password" placeholder="Пароль" class="form form-input" v-model="password" autocomplete="new-password">
+            <input required type="text" name="name" id="name" placeholder="Имя" class="form form-input" v-model="name">
+            <input required type="email" name="email" id="email" placeholder="Email" class="form form-input" v-model="email">
+            <input required type="password" name="password" id="password" placeholder="Пароль" class="form form-input" v-model="password" autocomplete="new-password">
             <button class="form form-button" type="submit">Регистрация</button>
             <span class="form text">Уже есть аккаунт?<a href="/login">Войти</a></span>
         </form>
