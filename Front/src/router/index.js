@@ -40,6 +40,7 @@ const routes = [
     component: CoachAccount,
     meta: {
       role: 'coach',
+      // auth: true,
     }
   },
   {
@@ -48,6 +49,7 @@ const routes = [
     component: HeadCoachAccount,
     meta: {
       role: 'headcoach',
+      // auth: true,
     }
   },
   {
@@ -56,6 +58,7 @@ const routes = [
     component: InternAccount,
     meta: {
       role: 'intern',
+      // auth: true,
     }
   },
   {
@@ -64,6 +67,7 @@ const routes = [
     component: SportsmanAccount,
     meta: {
       role:'sportsman',
+      // auth: true,
     }
   },
   {
@@ -72,6 +76,7 @@ const routes = [
     component: PartnerAccount,
     meta: {
       role: 'partner',
+      // auth: true,
     }
   },
 ]

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
     data() {
