@@ -5,12 +5,15 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import EventsRegistration from '@/views/EventsRegistration.vue'
+import Calendar from '@/views/Calendar.vue'
+import Testirovanie from '@/views/Testirovanie.vue'
 
 import CoachAccount from '@/views/Accounts/CoachAccount'
 import PartnerAccount from '@/views/Accounts/PartnerAccount'
 import SportsmanAccount from '@/views/Accounts/SportsmanAccount'
 import InternAccount from '@/views/Accounts/InternAccount.vue'
 import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount'
+
 
 const routes = [
   {
@@ -78,6 +81,16 @@ const routes = [
       role: 'partner',
       // auth: true,
     }
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: Calendar,
+  },
+  {
+    path: '/testirovanie',
+    name: 'testirovanie',
+    component: Testirovanie,
   },
 ]
 
