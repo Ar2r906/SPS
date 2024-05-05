@@ -39,23 +39,22 @@
     </div>
   </div>
 
-  <button class="send1">&#8249;Пройти тестирование&#8250;</button>
-
   <div class="main2">
     <div>
-        <h2>&#8249;Моя команда&#8250;</h2>
+        <label>&#8249;Моя команда&#8250;</label>
+
     </div>
   </div>
 
   <div class="main3">
     <div>
-        <h2>&#8249;История соревнований&#8250;</h2>
+        <label>&#8249;История соревнований&#8250;</label>
     </div>
   </div>
 
   <div class="main4">
     <div>
-        <h2>&#8249;История тренировок&#8250;</h2>
+        <label>&#8249;История тренировок&#8250;</label>
     </div>
   </div>
 </template>
@@ -79,7 +78,18 @@ form {
   margin-top: 5dvh;
   margin-left: 10dvw;
   width: 750px; /* ширина формы */
-
+}
+.main2 label{
+  margin-left: 38dvw;
+  font-size: 25px;
+}
+.main3 label{
+  margin-left: 35dvw;
+  font-size: 25px;
+}
+.main4 label{
+  margin-left: 35dvw;
+  font-size: 25px;
 }
 label{
   font-family: 'JetBrains Mono';
@@ -111,9 +121,6 @@ input{
   background-color: #000;
 }
 .button{
-  /* margin:auto; */
-  /* margin-top: 40px;
-  margin-left: 100px; */
   width: 150px;
   height: 35px;
   font-family: 'JetBrains Mono';
@@ -123,10 +130,8 @@ input{
   background: #402FFF;
   font-size: 15px;
   position: absolute;
-  left: 9.5%;
-  margin-top: 3dvh;
-  /* top: 100%;
-  left: 7%; */
+  left: 14.5%;
+  margin-top: 2dvh;
 }
 .button:hover{
   border: 1px solid #000;
