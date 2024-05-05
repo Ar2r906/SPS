@@ -6,7 +6,7 @@
     <router-link class="link" to="/events" v-if="isAuth">Мероприятия</router-link>
     <router-link class="link" to="/partners" v-if="!isAuth">Партнерам</router-link>
     <router-link class="link" to="/contacts">Контакты</router-link>
-    <router-link class="link" to="/sportsman">Проверка</router-link>
+    <router-link class="link" to="/testirovanie">Проверка</router-link>
     <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
     <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>
   </nav> 
