@@ -1,17 +1,16 @@
 <template>
-    <form>
+    <form class='forma-zadanie'>
     <div class='role1'>
                 <label>Роль:</label>
-                    <select name="role">
+                    <select name="role" class='role-zadanie'>
                         <option value="r1">Роль1</option>
                         <option value="r2">Роль2</option>
                         <option value="r3">Роль3</option>
                     </select>
-            </div>
+    </div>
         <label>
             Задание: 
         </label>
-
             <div><textarea class="zadanie" rows="2" cols="40" name="zadanie" v-model="zadanie"></textarea></div>
             
         <button class="download">Загрузить</button>
@@ -22,13 +21,14 @@
 </script>
 
 <style>
-form{
+.forma-zadanie{
     margin-top: 15dvh;
 }
+.role1{
+  position: absolute;
+  left: 71.5%;
+}
 .download{
-  /* margin:auto; */
-  /* margin-top: 40px;
-  margin-left: 100px; */
   width: 180px;
   height: 35px;
   font-family: 'JetBrains Mono';
@@ -41,17 +41,16 @@ form{
   position: absolute;
   left: 46%;
   margin-top: 3dvh;
-  /* top: 100%;
-  left: 7%; */
+
 }
 .download:hover{
   border: 1px solid #000;
   background-color: #000;
 }
-textarea{
+.zadanie{
   width: 90%;
   height: 120px;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 50px;
   font-family: 'JetBrains Mono';
   font-size: 17px;
@@ -62,7 +61,7 @@ textarea{
   padding-top: 15px; /* отступ текста в поле */ 
   padding-right: 15px; /* отступ текста в поле */ 
 }
-select{
+.role-zadanie{
   width: 300px;
   height: 30px;
   margin-left: 20px;
