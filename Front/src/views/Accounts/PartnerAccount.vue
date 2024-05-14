@@ -13,45 +13,42 @@
           <label>Фамилия Имя Отчество</label>
         </div>
 
-        <div>
-        <label>
-          Компания:
-          <input type="text" v-model="company">
-        </label>
-        </div>
         <div class='data'>
-        <label>
-          ИНН:
-          <input type="text" v-model="inn">
-        </label> 
+          <label>
+            КПП:
+            <input type="text" v-model="kpp">
+          </label>
+
+
+            <label>
+              ИНН:
+              <input type="text" v-model="inn">
+            </label> 
+
+
+            <label>
+              ОГРН:
+              <input type="text" v-model="ogrn">
+            </label>
         </div>
 
-        <div>
-        <label>
-          Почта:
-          <input type="text" v-model="email">
-        </label>
-        </div>
-        <div class='data'>
-        <label>
-          КПП:
-          <input type="text" v-model="kpp">
-        </label>
-        </div>
+        <div class='data2'>
+            <label>
+              Компания:
+              <input type="text" v-model="company">
+            </label>
 
-        <div>
-        <label>
-          Телефон:
-          <input type="text" v-model="phone">
-        </label>
-        </div>
-        <div class='data'>
-        <label>
-          ОГРН:
-          <input type="text" v-model="ogrn">
-        </label>
-        </div>
+            <label>
+              Телефон:
+              <input type="text" v-model="phone">
+            </label>
 
+            <label>
+              Почта:
+              <input type="text" v-model="email">
+            </label>
+
+        </div>
       </form>
     </div>
   </div>
@@ -65,7 +62,10 @@
 <style scoped>
 .data{
   position: absolute;
-  left: 70%;
+  left: 80%;
+}
+.data2{
+  position: absolute;
 }
 .block-info{
   position: absolute;
@@ -104,8 +104,8 @@ input{
   border-radius: 10px;
   border: 1px solid black;
   background: #D9D9D9;
-  /* float: right;   выравнивание по правому краю */ 
   padding-left: 15px; /* отступ текста в поле */ 
+  margin-left: 20px;
 }
 .send1{
   position: absolute;
