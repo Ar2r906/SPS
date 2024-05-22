@@ -32,7 +32,7 @@ export default {
     },
     methods: {
       ...mapActions({
-        get_feedback: ''
+        get_feedback_table: ''
       }),
       go_feedback() {
         const formData = {
@@ -40,13 +40,14 @@ export default {
           name: this.name,
           message: this.message
         }
-        this.get_feedback(formData)
+        this.get_feedback_table(formData)
       }
     }
 }
 </script>
 
 <style scoped>
+
   v-footer{
     height: 60dvh;
     background-color: #1b1c21;

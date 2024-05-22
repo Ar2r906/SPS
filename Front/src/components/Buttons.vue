@@ -15,8 +15,8 @@ export default {
 .left {
   position: absolute;
   background: white;
-  font-family: JetBrains Mono;
-  text-color: #D9D9D9;
+  font-family: "JetBrains Mono";
+  color: #D9D9D9;
   font-size: 20px;
   width: 55px;
   height: 55px;
@@ -27,8 +27,8 @@ export default {
 .right {
   position: absolute;
   background: white;
-  font-family: JetBrains Mono;
-  text-color: #D9D9D9;
+  font-family: "JetBrains Mono";
+  color: #D9D9D9;
   font-size: 20px;
   width: 55px;
   height: 55px;

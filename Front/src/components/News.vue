@@ -89,13 +89,13 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: #2D2E37;
-    height: 56dvh;
+    /* height: auto; */
     width: 30dvw;
     justify-content: center;
     align-items: center;
 }
 .inform-main {
-    height: 46dvh;
+    height: auto;
     width: 26dvw;
     background-color: #000000;
     color: #fff;

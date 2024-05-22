@@ -2,6 +2,6 @@ const express = require('express')
 const router = express.Router()
 const feedback = require('../controllers/feedbacks')
 
-router.post('/form', feedback.getFeedback)
+router.get('/form', feedback.get_feedback_table)
 
 module.exports = router

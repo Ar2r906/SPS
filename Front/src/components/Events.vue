@@ -58,6 +58,7 @@ export default {
     row-gap: 5dvh;
     width: 96dvw;
     margin: 0 2dvw;
+    height: auto;
 }
 .window-title {
     padding-top: 4dvh;
