@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const secret = process.env.SECRET
+const { user } = require('../../models/users')
 
 const verifyToken = (request, response, next) => {
     let token = request.headers["x-access-token"]
@@ -21,7 +22,7 @@ const verifyToken = (request, response, next) => {
 const authorizate = (...roles) => {
     return (request, response, next) => {
         if(!roles.includes(request.user.role)) {
-            return response.status(403).json({ message: 'Не имеет права' });
+            return response.status(403).json({ message: 'Не обладает правами' });
         }
         next();
     };

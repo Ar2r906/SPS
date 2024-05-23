@@ -1,4 +1,5 @@
-const { workout, user } = require('./models');
+const { workout } = require('../models/workout');
+const { user } = require('../models/users');
 
 exports.getWorkouts = async (req, res) => {
     try {

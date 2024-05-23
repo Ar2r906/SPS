@@ -15,7 +15,8 @@
         <div>
         <label>
           Почта:
-          <input type="text" v-model="email">
+          <!-- <input type="text" v-model="email"> -->
+          {{ localStorage.email }}
         </label>
         </div>
         <div>
@@ -42,6 +43,11 @@
 </template>
 
 <script>
+export default {
+  data() {
+
+  }
+}
 </script>
 
 <style scoped>

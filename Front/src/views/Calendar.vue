@@ -4,41 +4,72 @@
         <div>
             <label>&#8249;Запланировать тренировку&#8250;</label>
         </div>
-        <form>
-            <div>
-            <label>Число</label>
-            <input type="date" />
-            </div>
-
-            <div>
-            <label>Время</label>
-            <input type="time" />
-            </div>
-
-            <div>
-            <label>Длительность</label>
-            <input type="time" />
-            </div>
-
-            <div>
-            <label>Название
-            <input type="text" v-model="nazvanie"> </label>
-            </div>
-
-            <div>
-            <label>Сложность</label>
-            <select name="complexity">
-                <option value="com1">Лёгко</option>
-                <option value="com2">Средне</option>
-                <option value="com3">Сложно</option>
-            </select>
-            </div>
-        <button class="schedule">Запланировать</button>
+        <form @submit.prevent="createWorkout">
+          <input v-model="title" type="text" placeholder="Название" required />
+          <input v-model="description" type="text" placeholder="" required />
+          <input v-model="date" type="date" required>
+          <!-- <input type="time" />  
+          <input type="time" /> -->
+          <select name="complexity">
+            <option value="com1">Лёгко</option>
+            <option value="com2">Средне</option>
+            <option value="com3">Сложно</option>
+          </select>       
+          <button type="submit" class="schedule">Запланировать</button>
+          <ul>
+            <li v-for="workout in workouts" :key="wirkout.id">
+              {{ workout.title }} - {{ workout.description }} - {{ workout.date }}
+            </li>
+          </ul>
         </form>
     </div>
 </template>
 
 <script>
+import { toHandlers } from 'vue';
+
+export default {
+  data() {
+    return {
+      title: '',
+      description: '',
+      date: '',
+      workouts: [],
+    };
+  },
+  methods: {
+    async fetchWorcouts() {
+      const token = localStorage.getItem('token');
+      const response = await fetch('http://localhost:3000/api/workouts', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      this.workouts = data;
+    },
+    
+    async createWorkout() {
+      const token = localStorage.getItem('token');
+      await fetch('http://localhost:3000/api/workouts', {
+        method: 'POST',
+        headers: {
+          'Conten-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title: this.title,
+          description: this.description,
+          date: this.date,
+        }),
+      });
+      this.fetchWorcouts();
+    },
+  },
+  mounted() {
+    this.fetchWorcouts();
+  },
+}
 </script>
 
 <style>

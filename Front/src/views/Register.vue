@@ -24,7 +24,7 @@ import { mapActions, mapState } from 'vuex'
 export default {
     data() {
         return {
-            role: '',
+            role: 'intern',
             email: '',
             password: '',
             name: ''

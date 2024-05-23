@@ -18,7 +18,6 @@ export default{
     return {
       email: '',
       password: '',
-      name: ''
     }
   },
   methods: {

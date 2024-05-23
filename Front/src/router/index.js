@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import instance from '@/middlewares'
+import store from '../store'
 
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
@@ -13,24 +14,12 @@ import PartnerAccount from '@/views/Accounts/PartnerAccount'
 import SportsmanAccount from '@/views/Accounts/SportsmanAccount'
 import InternAccount from '@/views/Accounts/InternAccount.vue'
 import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount'
-
+import auth from '@/store/auth'
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: Register
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
-  },
+  { path: '/', name: 'home', component: Home },
+  { path: '/register', name: 'register', component: Register},
+  { path: '/login', name: 'login', component: Login },
   {
     path: '/EventsRegistration',
     name: 'EventsRegistration',
@@ -86,6 +75,9 @@ const routes = [
     path: '/calendar',
     name: 'calendar',
     component: Calendar,
+    meta: {
+      auth: true, roles: ['coach', 'headcoach']
+    }
   },
   {
     path: '/testirovanie',
