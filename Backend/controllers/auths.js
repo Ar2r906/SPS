@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const secret = process.env.SECRET
 const { v4: uuidv4 } = require('uuid')
+const { request } = require('express')
 
 const ACCESS_LIFETIME = 30; // 30 секунд
 const REFRESH_LIFETIME = 60 * 60 * 24 * 60; // 2 месяца
@@ -19,25 +20,10 @@ const isPasswordValid = (password) => {
     return regex.test(password);
 }
 
-const admin_name = 'Headcoach';
-const admin_email = 'headcoach@headcoach.headcoach'
-const admin_password = 'headcoach@headcoach.headcoach'
-const admin_role = 'headcoach'
-
-// const admin = auth.create({
-//     email: admin_email.toLowerCase(),
-//     role: admin_role,
-//     name: admin_name,
-//     password: bcrypt.hashSync(admin_password, 8),
-//     uid: uuidv4()
-// })
-
-// const createdAdmin = user.create({
-//     uid: admin.uid,
-//     name: admin_name, 
-//     email: admin_email, 
-//     role: admin_role 
-// })
+// const admin_name = 'Headcoach';
+// const admin_email = 'headcoach@headcoach.headcoach'
+// const admin_password = 'headcoach@headcoach.headcoach'
+// const admin_role = 'headcoach'
 
 exports.signup = async(request, response) => {
     const { email, password, name, role } = request.body;

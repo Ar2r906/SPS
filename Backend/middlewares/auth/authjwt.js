@@ -18,8 +18,18 @@ const verifyToken = (request, response, next) => {
     })
 }
 
+const authorizate = (...roles) => {
+    return (request, response, next) => {
+        if(!roles.includes(request.user.role)) {
+            return response.status(403).json({ message: 'Не имеет права' });
+        }
+        next();
+    };
+};
+
 const authJwt = {
-    verifyToken
+    verifyToken,
+    authorizate
 }
 
 module.exports = authJwt
