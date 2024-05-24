@@ -1,5 +1,6 @@
 <template>
   <v-footer>
+  <img src="assets/footer.svg">
     <div class="col">
       <h1><Контактная информация></h1> 
       <p>info@fsp-russia.com</p>
