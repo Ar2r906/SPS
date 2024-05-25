@@ -6,7 +6,7 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import EventsRegistration from '@/views/EventsRegistration.vue'
-import Calendar from '@/views/Calendar.vue'
+import Workout from '@/views/Workout.vue'
 import Testirovanie from '@/views/Testirovanie.vue'
 
 import CoachAccount from '@/views/Accounts/CoachAccount'
@@ -72,9 +72,9 @@ const routes = [
     }
   },
   {
-    path: '/calendar',
-    name: 'calendar',
-    component: Calendar,
+    path: '/workout',
+    name: 'workout',
+    component: Workout,
     meta: {
       auth: true, roles: ['coach', 'headcoach']
     }

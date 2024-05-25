@@ -1,19 +1,21 @@
 <template>
     <form class='forma-zadanie'>
     <div class='role1'>
-                <label>Роль:</label>
-                    <select name="role" class='role-zadanie'>
-                        <option value="r1">Роль1</option>
-                        <option value="r2">Роль2</option>
-                        <option value="r3">Роль3</option>
-                    </select>
+      <label>Роль:</label>
+          <select name="role" class='role-zadanie'>
+              <option value="r1">Роль1</option>
+              <option value="r2">Роль2</option>
+              <option value="r3">Роль3</option>
+          </select>
     </div>
-        <label>
-            Задание: 
-        </label>
-            <div><textarea class="zadanie" rows="2" cols="40" name="zadanie" v-model="zadanie"></textarea></div>
-            
-        <button class="download">Загрузить</button>
+    <label>
+        Задание: 
+    </label>
+        <div>
+          <textarea class="zadanie" rows="2" cols="40" name="zadanie" v-model="zadanie">
+          </textarea>
+        </div> 
+    <button class="download">Загрузить</button>
     </form>
 </template>
 

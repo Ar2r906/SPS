@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import { toHandlers } from 'vue';
 
 export default {
   data() {
@@ -40,7 +39,7 @@ export default {
   methods: {
     async fetchWorcouts() {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3000/api/workouts', {
+      const response = await fetch('http://localhost:3000/posts/api/workouts', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,7 +50,7 @@ export default {
     
     async createWorkout() {
       const token = localStorage.getItem('token');
-      await fetch('http://localhost:3000/api/workouts', {
+      await fetch('http://localhost:3000/posts/api/workouts', {
         method: 'POST',
         headers: {
           'Conten-Type': 'application/json',

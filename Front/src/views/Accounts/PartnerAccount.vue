@@ -52,7 +52,7 @@
       </form>
     </div>
   </div>
-  <button class="send1">&#8249;Стать партнёром&#8250;</button>
+  <button class="submit">&#8249;Стать партнёром&#8250;</button>
   <button class="status">Статус?</button>
 </template>
 

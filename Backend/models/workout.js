@@ -21,7 +21,10 @@ const workout = sequelize.define(
             type: DataTypes.DATE,
         },
     },
-    { }
+    { 
+        tableName: 'workout',
+        timestamps: true
+    }
 );
 
 async function getWorkout() {
