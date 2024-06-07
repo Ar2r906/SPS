@@ -3,7 +3,7 @@
         <div class="window-title">
             <h1>&lt;Новости&gt;</h1>
         </div>
-
+        
         <div class="windows-blocks">
             <div class="window-inform">
                 <div class="inform-main">
@@ -19,6 +19,9 @@
                     <div class="main-date">
                         <time datetime="18.03.2024">18.03.2024</time>
                     </div>
+                    <div class="more-info-button">
+                  <button class="form form-button">Узнать подробнее</button>
+                </div>
                 </div>
             </div>
 
@@ -36,6 +39,9 @@
                     <div class="main-date">
                         <time datetime="18.03.2024">18.03.2024</time>
                     </div>
+                    <div class="more-info-button">
+                  <button class="form form-button">Узнать подробнее</button>
+                </div>
                 </div>
             </div>
 
@@ -53,6 +59,9 @@
                     <div class="main-date">
                         <time datetime="18.03.2024">18.03.2024</time>
                     </div>
+                    <div class="more-info-button">
+                  <button class="form form-button">Узнать подробнее</button>
+                </div>
                 </div>
             </div>
         </div>
@@ -100,4 +109,45 @@ export default {
     background-color: #000000;
     color: #fff;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5dvh;
+  padding-bottom: 5dvh;
+}
+h1 {
+  padding-bottom: 5dvh;
+}
+.form-input {
+  padding: 1dvh 1dvw;
+  margin: 2dvh auto;
+  width: 20dvw;
+  color: #000;
+  background-color: #D9D9D9;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+.form-button {
+  margin: 1dvh 0;
+  padding: 1dvh 1dvw;
+  background-color: #402FFF;
+  border: #1b1c21 1px solid;
+  border-radius: 8px;
+  color: #fff;
+  width: 100%;
+}
+.form-button:hover {
+  background-color: #1b1c21;
+  color: #fff;
+}
+.text a{
+  /* text-decoration: none; */
+  color: #000;
+}
+.text a:hover {
+  color: #402FFF;
+}
+
 </style>
