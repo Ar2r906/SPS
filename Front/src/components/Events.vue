@@ -2,7 +2,7 @@
     <div class="windows">
         <div class="window-title">
             <h2>&lt;Мероприятия&gt;</h2>
-            <h3>&lt;Ближайшие&gt;</h3>
+            <!--<h3>&lt;Ближайшие&gt;</h3>-->
         </div>
         <div class="windows-blocks">
         <div class="window-inform">
@@ -64,6 +64,46 @@
             </div></div>
       </div>
   </div>
+<div>
+
+<table>
+    <tr>
+        <td>Дата</td>
+        <td>Название</td>
+        <td>Место</td>
+        <td>Дисциплина</td>
+        <td>Участники</td>
+    </tr>
+    <tr>
+        <td>27-29 июня</td>
+        <td><a href="#">Всероссийские соревнования по спортивному программированию</a></td>
+        <td>Г. Оренбург</td>
+        <td>Программирование робототехники</td>
+        <td>Студенты</td>
+    </tr>
+
+    <tr>
+        <td>1-3 августа</td>
+        <td><a href="#">Всероссийские соревнования по спортивному программированию среди студентов</a></td>
+        <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
+        <td></td>
+        <td>Студенты</td>
+
+    </tr>
+
+    <tr>
+        <td>1-3 августа</td>
+        <td><a href="#">Всероссийские соревнования по спортивному программированию</a></td>
+        <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
+        <td></td>
+        <td>Мужчины и женщины</td>
+
+    </tr>
+</table>
+</div>
+
+
+  <!-- 
       <div class="windows">
         <div class="window-title">
             <h3>&lt;Прошедшие&gt;</h3>
@@ -128,7 +168,7 @@
                 </div>
           </div>
         </div></div>
-</div>
+</div> -->
   <hr>
 </template>
 
@@ -139,6 +179,23 @@ export default {
 </script>
 
 <style>
+table{
+    width: 95%;
+    text-align: center;
+    margin-left: 3%;
+    margin-top: 6%;
+}
+td {
+  text-align: center;
+	padding: 10px;
+    font-family: JetBrainsMonoNL;
+    font-size: 23px;
+}
+ th {
+  text-align: center;
+  padding: 10px;
+ }
+
 .windows {
     display: flex;
     flex-direction: column;
