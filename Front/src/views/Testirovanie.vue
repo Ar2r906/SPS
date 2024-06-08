@@ -106,7 +106,7 @@ export default {
   padding-top: 15px; /* отступ текста в поле */ 
   padding-right: 15px; /* отступ текста в поле */ 
 }
-input{
+.otvet input{
   height: 30px;
   width: 30%;
   font-family: 'JetBrains Mono';
