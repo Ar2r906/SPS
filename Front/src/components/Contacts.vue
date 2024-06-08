@@ -68,21 +68,22 @@ export default {
 
   }
   .form{
-    width: 25%;
+    width: 28%;
     height: 50dvh;
     border:1px solid;
-    margin-left:450px;
+    margin-left:420px;
     margin-top:45px;
     background: #D9D9D9;
     } 
   .pole1{
     height: 50px;
-    margin-left: 60px;
+    margin-left: 55px;
     margin-top:35px;
     border: none;
     border-bottom: 2px solid black;
     background: #D9D9D9;
     font-family: 'JetBrains Mono';
+    font-size: 17px;
     outline:none;
   }
   h3{
@@ -92,7 +93,7 @@ export default {
   .send{
     /* margin:auto; */
     margin-top: 40px;
-    margin-left: 100px;
+    margin-left: 140px;
     width: 260px;
     height: 35px;
     font-family: 'JetBrains Mono';
