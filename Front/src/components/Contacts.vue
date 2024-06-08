@@ -1,5 +1,5 @@
 <template>
-  <v-footer>
+  <v-footer id='contacts_main'>
   <img src="assets/footer.svg">
     <div class="col">
       <h1><Контактная информация></h1> 
@@ -50,7 +50,7 @@ export default {
 <style scoped>
 
   v-footer{
-    height: 60dvh;
+    height: 70dvh;
     background-color: #1b1c21;
     display: flex;
   }
