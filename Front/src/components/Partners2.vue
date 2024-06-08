@@ -1,5 +1,5 @@
 <template>
-  <div class="partners">
+  <div id="partners_main" class="partners">
     <h1 align=center>Наши партнёры</h1>
     <button class="b1" type="submit">Стать партнёром</button>
     <!-- <input class="b1" type="button" name="b1" value="Стать партнёром" /> -->
