@@ -1,5 +1,9 @@
 <template>
-  
+  <navbar>
+  <h1>Спортсмен-стажёр</h1>
+  <img src='assets/Ellipse.svg'>
+  </navbar>
+
   <div class="main">
     <div class="block-photo">
       <div class="block-photo image">
@@ -39,14 +43,17 @@
       </form>
     </div>
   </div>
-  <button class="send1">&#8249;Пройти тестирование&#8250;</button>
-  <button class="status">Статус?</button>
+  <router-link to="/testirovanie"> <button class="send1">&#8249;Пройти тестирование&#8250;</button></router-link>
 </template>
 
 <script>
 </script>
 
 <style scoped>
+navbar{
+  height: 700px;
+}
+
 .main {
   display: flex;
   width: 90%;
