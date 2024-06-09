@@ -20,19 +20,8 @@ const isPasswordValid = (password) => {
     return regex.test(password);
 }
 
-// const admin_name = 'Headcoach';
-// const admin_email = 'headcoach@headcoach.headcoach'
-// const admin_password = 'headcoach@headcoach.headcoach'
-// const admin_role = 'headcoach'
-
 exports.signup = async(request, response) => {
     const { email, password, name, role } = request.body;
-    
-    // if(!isPasswordValid(password)) {
-    //     return response.status(400).send({
-    //         message: 'Пароль не соответствует требованиям безопасности'
-    //     })
-    // };
 
     try {
         const hashedPassword = bcrypt.hashSync(password, 8);

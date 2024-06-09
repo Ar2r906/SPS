@@ -5,16 +5,16 @@
     <!-- <input class="b1" type="button" name="b1" value="Стать партнёром" /> -->
   </div>
     <div class="btn-group">
-        <button><img src="/assets/partners/vk.svg"></button>
-        <button><img src="/assets/partners/1c.svg"></button>
-        <button><img src="/assets/partners/росатом.svg"></button>
-        <button><img src="/assets/partners/xx.svg"></button>
+        <button><img src="../assets/partners/вк.svg"></button>
+        <button><img src="../assets/partners/1с.svg"></button>
+        <button><img src="../assets/partners/росатом.svg"></button>
+        <button><img src="../assets/partners/хх.svg"></button>
     </div>
     <div class="btn-group2">
-        <button><img src="/assets/partners/vk.svg"></button>
-        <button><img src="/assets/partners/касперский.svg"></button>
-        <button><img src="/assets/partners/ржд.svg"></button>
-        <button><img src="/assets/partners/северсталь.svg"></button>
+        <button><img src="../assets/partners/вк1.svg"></button>
+        <button><img src="../assets/partners/касперский.svg"></button>
+        <button><img src="../assets/partners/ржд.svg"></button>
+        <button><img src="../assets/partners/северсталь.svg"></button>
     </div>
 </template>
 
