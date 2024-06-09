@@ -1,48 +1,58 @@
 <template>
-    <div class="windows">
-        <div class="window-title">
-            <h2>&lt;Мероприятия&gt;</h2>
-            <h3>&lt;Ближайшие&gt;</h3>
-        </div>
-        <div class="window-inform">
-            <div class="inform-main">
-                <div class="main-image">
-                    <img src="../assets/image_in_news.svg" alt="test image" style="width:100%">
-                </div>
-                <div class="main-title">
-                    <h2>Заголовок</h2>
-                </div>
-                <div class="main-text">
-                    <p>Lorem Ipsum - это текст-”рыба”, часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной “рыбой”.</p>
-                </div>
-                <div class="main-date">
-                    <time datetime="18.03.2024">18.03.2024</time>
-                </div>
-            </div>
-        </div>
-  </div>
-      <div class="windows">
-        <div class="window-title">
-            <h3>&lt;Прошедшие&gt;</h3>
-        </div>
-        <div class="window-inform">
-            <div class="inform-main">
-                <div class="main-image">
-                    <img src="../assets/image_in_news.svg" alt="test image" style="width:100%">
-                </div>
-                <div class="main-title">
-                    <h2>Заголовок</h2>
-                </div>
-                <div class="main-text">
-                    <p>Lorem Ipsum - это текст-”рыба”, часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной “рыбой”.</p>
-                </div>
-                <div class="main-date">
-                    <time datetime="18.03.2024">18.03.2024</time>
-                </div>
-            </div>
-        </div>
-  </div>
-  <hr>
+<div id='mero'>
+    <h1>&lt;Мероприятия&gt;</h1>
+    <table>
+        <tr>
+            <td><u>Дата</u></td>
+            <td><u>Название</u></td>
+            <td><u>Место</u></td>
+            <td><u>Дисциплина</u></td>
+            <td><u>Участники</u></td>
+        </tr>
+        <tr>
+            <td>27-29 июня</td>
+            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</a></td>
+            <td>Г. Оренбург</td>
+            <td>Программирование робототехники</td>
+            <td>Студенты</td>
+        </tr>
+
+        <tr>
+            <td>1-3 августа</td>
+            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию среди студентов</a></td>
+            <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
+            <td></td>
+            <td>Студенты</td>
+
+        </tr>
+
+        <tr>
+            <td>1-3 августа</td>
+            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</a></td>
+            <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
+            <td></td>
+            <td>Мужчины и женщины</td>
+        </tr>
+
+        <tr>
+            <td>27-31 августа</td>
+            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования среди студентов по спортивному программированию "Кубок будущего"</a></td>
+            <td>Г. Калуга, KFL Arena</td>
+            <td></td>
+            <td>Студенты</td>
+        </tr>
+
+        <tr>
+            <td>13-15 сентября</td>
+            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</a></td>
+            <td>Г. Пермь, Пермский край</td>
+            <td>Программирование систем информационной безопасности</td>
+            <td>Мужчины и женщины от 16 лет</td>
+        </tr>
+
+    </table>
+</div>
+<hr>
 </template>
 
 <script>
@@ -52,42 +62,33 @@ export default {
 </script>
 
 <style>
-.windows {
-    display: flex;
-    flex-direction: column;
-    row-gap: 5dvh;
-    width: 96dvw;
-    margin: 0 2dvw;
-    height: auto;
+table{
+    width: 95%;
+    text-align: center;
+    margin-left: 3%;
+    margin-top: 10px;
 }
-.window-title {
-    padding-top: 4dvh;
+td {
+  text-align: center;
+	padding: 10px;
+    font-family: JetBrainsMonoNL;
+    font-size: 22px;
+    font-weight: bold;
 }
-.window-title h1 {
-    font-size: 3rem;
-}
-.window-inform {
-    display: flex;
-    flex-direction: column;
-    background-color: #2D2E37;
-    height: 56dvh;
-    width: 30dvw;
-    justify-content: center;
-    align-items: center;
-}
-.inform-main {
-    height: 46dvh;
-    width: 26dvw;
-    background-color: #000000;
-    color: #fff;
+ th {
+  text-align: center;
+  padding: 10px;
+ }
+
+h1 {
+  margin: 35px 0px 0px 70px;
 }
 hr {
-  	margin: -30px auto 10px;
+  	margin: 35px auto 10px;
 	padding: 0;
 	height: 50px;
 	border: none;
 	border-bottom: 2px solid #1f1209;
 	width: 95%;
 }
-
 </style>

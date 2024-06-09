@@ -1,4 +1,21 @@
 <template>
+<div class='navbar-sport'>
+      <div class='knopki'>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 35px">На главную</router-link>
+        <router-link class="link" to="/"  @click="logout()" style="text-decoration: none; color:white; font-size:22px; margin-left: 80px;">Выход</router-link>
+      </div>
+      <div class='logo-intern'>
+        <img src='assets/Ellipse.svg'> 
+      </div>
+      <div class='knopki2'>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px;">Команды</router-link>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Мероприятия</router-link>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Лидерборд</router-link>
+      </div>
+  <p>Спортсмен</p>
+</div>
+
   <div class="main">
     <div class="block-photo">
       <div class="block-photo image">
@@ -57,12 +74,55 @@
         <label>&#8249;История тренировок&#8250;</label>
     </div>
   </div>
+
+<footer>
+</footer>
 </template>
 
 <script>
 </script>
 
 <style scoped>
+.navbar-sport{
+  height: 500px;
+  background-color: black;
+}
+.navbar-sport p{
+   color: white;
+   margin-top: 7%;
+   margin-left: 5%;
+   font-size: 60px;
+   letter-spacing: 7px;
+   font-weigh: lighter;
+
+}
+.knopki{
+  background-color: #1B1C21;
+  height: 70px;
+  border-radius: 15px;
+  margin-left: 80%;
+  margin-right: 2%;
+}
+.knopki2{
+  position: absolute;
+  margin-top: 20%;
+  margin-left: 5.5%;
+}
+
+.logo-intern{
+  background-color: #1B1C21;
+  border-radius: 15px;
+  width:100px;
+  height: 70px;
+  margin-left: 5%;
+  margin-top: -4%;
+}
+.logo-intern img{
+  margin-left: 37px;
+  margin-top: 20px;
+}
+
+
 .main, .main2, .main3, .main4 {
   display: flex;
   width: 90%;
@@ -142,6 +202,13 @@ input{
 }
 .image {
   padding-top: 5dvh;
+}
+footer{
+  height: 30px;
+  background: #1B1C21;
+  padding: 10px 20px;
+  margin-top: 1.5%;
+  position: static;
 }
 
 </style>

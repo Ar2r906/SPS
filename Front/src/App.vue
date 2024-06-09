@@ -1,16 +1,16 @@
 <template>
-  <nav>
+    <nav>
     <a class="logo" href="/"><img src="./assets/Logotype.svg" alt="logotype"></a>
     <router-link class="link" to="/login" v-if="!isAuth">Вход</router-link>
     <router-link class="link" to="/register" v-if="!isAuth">Регистрация</router-link>
     <router-link class="link" to="/events" v-if="isAuth">Мероприятия</router-link>
-    <router-link class="link" to="/partner" v-if="!isAuth">Партнерам</router-link>
-    <router-link class="link" to="/contacts">Контакты</router-link>
-    <router-link class="link" to="/intern">Проверка</router-link>
+    <a href="#partners_main">Партнерам</a>
+    <a href="#contacts_main">Контакты</a>
+    <router-link class="link" to="/sportsman">Проверка</router-link>
     <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
     <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>
   </nav> 
-  <router-view />
+  <router-view /> 
 </template>
 
 <script>

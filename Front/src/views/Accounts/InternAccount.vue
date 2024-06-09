@@ -1,5 +1,15 @@
 <template>
-  
+  <div class='navbar-intern'>
+      <div class='knopki'>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 35px">На главную</router-link>
+        <router-link class="link" to="/"  @click="logout()" style="text-decoration: none; color:white; font-size:22px; margin-left: 80px;">Выход</router-link>
+      </div>
+      <div class='logo-intern'>
+        <img src='assets/Ellipse.svg'> 
+      </div>
+  <p>Спортсмен-стажёр</p>
+  </div>
+
   <div class="main">
     <div class="block-photo">
       <div class="block-photo image">
@@ -39,14 +49,50 @@
       </form>
     </div>
   </div>
-  <button class="send1">&#8249;Пройти тестирование&#8250;</button>
-  <button class="status">Статус?</button>
+  <router-link to="/testirovanie"> <button class="send1">&#8249;Пройти тестирование&#8250;</button></router-link>
+
+<footer>
+</footer>
 </template>
 
 <script>
 </script>
 
 <style scoped>
+.navbar-intern{
+  height: 500px;
+  background-color: black;
+}
+.navbar-intern p{
+   color: white;
+   margin-top: 7%;
+   margin-left: 5%;
+   font-size: 50px;
+   letter-spacing: 7px;
+   font-weigh: lighter;
+
+}
+.knopki{
+  background-color: #1B1C21;
+  height: 70px;
+  border-radius: 15px;
+  margin-left: 80%;
+  margin-right: 2%;
+}
+
+.logo-intern{
+  background-color: #1B1C21;
+  border-radius: 15px;
+  width:100px;
+  height: 70px;
+  margin-left: 5%;
+  margin-top: -4%;
+}
+.logo-intern img{
+  margin-left: 37px;
+  margin-top: 20px;
+}
+
 .main {
   display: flex;
   width: 90%;
@@ -84,22 +130,10 @@ input{
 }
 .send1{
   position: absolute;
-  top: 134%;
+  top: 185%;
   left: 7%;
 }
-.status{
-  position: absolute;
-  top: 80%;
-  left: 85%;
-  font-family: 'JetBrains Mono';
-  color: #D9D9D9;
-  border: 1px solid #402FFF;
-  border-radius: 20px;
-  background: #402FFF;
-  font-size: 18px;
-  height: 40px;
-  width: 160px;
-}
+
 .send1:hover {
   border: 1px solid #000;
   background-color: #000;
@@ -131,6 +165,13 @@ input{
 }
 .image {
   padding-top: 5dvh;
+}
+footer{
+  height: 30px;
+  background: #1B1C21;
+  padding: 10px 20px;
+  margin-top: 40%;
+  position: static;
 }
 
 </style>
