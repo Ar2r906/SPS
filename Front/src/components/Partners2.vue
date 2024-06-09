@@ -36,6 +36,9 @@ export default {
     justify-content: center;
     align-items: center;
 }
+h1 {
+    margin-right: 
+}
 button {
     height: 7dvh;
     width: 15dvw;
