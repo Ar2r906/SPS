@@ -140,7 +140,7 @@ export default {
 }
 </script> -->
 
-<style>
+<style scoped>
 .windows {
     display: flex;
     flex-direction: column;

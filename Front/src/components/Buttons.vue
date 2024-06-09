@@ -11,7 +11,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .left {
   position: absolute;
   background: white;

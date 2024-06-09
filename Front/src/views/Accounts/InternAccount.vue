@@ -69,7 +69,7 @@
    margin-left: 5%;
    font-size: 50px;
    letter-spacing: 7px;
-   font-weigh: lighter;
+   font-weight: lighter;
 
 }
 .knopki{

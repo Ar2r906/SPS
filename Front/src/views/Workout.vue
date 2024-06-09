@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 label{
   font-family: 'JetBrains Mono';
   font-size: 20px;

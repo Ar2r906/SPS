@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 table{
     width: 95%;
     text-align: center;
@@ -71,7 +71,7 @@ table{
 td {
   text-align: center;
 	padding: 10px;
-    font-family: JetBrainsMonoNL;
+    font-family: "JetBrains Mono";
     font-size: 22px;
     font-weight: bold;
 }
