@@ -44,6 +44,9 @@
     </div>
   </div>
   <router-link to="/testirovanie"> <button class="send1">&#8249;Пройти тестирование&#8250;</button></router-link>
+
+<footer>
+</footer>
 </template>
 
 <script>
@@ -139,5 +142,11 @@ input{
 .image {
   padding-top: 5dvh;
 }
-
+footer{
+  height: 30px;
+  background: #1B1C21;
+  padding: 10px 20px;
+  margin-top: 37%;
+  position: static;
+}
 </style>
