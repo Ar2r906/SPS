@@ -53,7 +53,7 @@ button:hover {
     background-color: #402FFF;
 }
 .big_main {
-    padding-top: 5dvh;;
+    padding-top: 5dvh;
     padding-bottom: 10dvh;
 }
 .main {
