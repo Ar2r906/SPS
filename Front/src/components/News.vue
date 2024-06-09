@@ -20,7 +20,7 @@
                         <time datetime="18.03.2024">18.03.2024</time>
                     </div>
                     <div class="more-info-button">
-                  <button class="form form-button">Узнать подробнее</button>
+                  <button class="form form-button" onclick="document.location='/NewsPage'">Узнать подробнее</button>
                 </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                         <time datetime="18.03.2024">18.03.2024</time>
                     </div>
                     <div class="more-info-button">
-                  <button class="form form-button">Узнать подробнее</button>
+                  <button class="form form-button" onclick="document.location='/NewsPage'">Узнать подробнее</button>
                 </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                         <time datetime="18.03.2024">18.03.2024</time>
                     </div>
                     <div class="more-info-button">
-                  <button class="form form-button">Узнать подробнее</button>
+                  <button class="form form-button" onclick="document.location='/NewsPage'">Узнать подробнее</button>
                 </div>
                 </div>
             </div>
