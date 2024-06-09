@@ -1,5 +1,5 @@
 <template>
-    <div class="big_main">
+    <div class="big_main" id="partners_main">
         <div class="partners">
             <h1>Наши партнёры</h1>     
             <button class="b1" type="submit">Стать партнёром</button>    
@@ -33,11 +33,11 @@ export default {
 .partners {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 h1 {
-    margin-right: 
+    margin-left: 40dvw;
 }
 button {
     height: 7dvh;
@@ -47,6 +47,7 @@ button {
     border-radius: 5px;
     color: #fff;
     font-size: 1.2rem;
+    margin-right: 10.65dvw;
 }
 button:hover {
     background-color: #402FFF;

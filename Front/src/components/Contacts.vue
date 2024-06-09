@@ -1,5 +1,5 @@
 <template>
-  <v-footer id='contacts_main'>
+  <v-footer id="contacts_main">
   <!-- <img src="../assets/footer.svg"> -->
     <div class="col">
       <h1><Контактная информация></h1> 
