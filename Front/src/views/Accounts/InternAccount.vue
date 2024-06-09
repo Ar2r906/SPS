@@ -2,12 +2,12 @@
   <div class='navbar-intern'>
       <div class='knopki'>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 35px">На главную</router-link>
-        <router-link class="link" to="/"  @click="logout()" style="text-decoration: none; color:white; font-size:22px; margin-left: 80px;">Выход</router-link>
+        <router-link class="link" to="/" @click="logout()" style="text-decoration: none; color:white; font-size:22px; margin-left: 80px;">Выход</router-link>
       </div>
-      <div class='logo-intern'>
-        <img src='assets/Ellipse.svg'> 
-      </div>
-  <p>Спортсмен-стажёр</p>
+      <!-- <div class='logo-intern'>
+        <img src='../../assets/Ellipse.svg'> 
+      </div> -->
+    <p>Спортсмен-стажёр</p>
   </div>
 
   <div class="main">
@@ -62,6 +62,9 @@
 .navbar-intern{
   height: 500px;
   background-color: black;
+  background-image: url('../../assets/Ellipse.svg');
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 .navbar-intern p{
    color: white;

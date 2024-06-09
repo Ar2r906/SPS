@@ -1,10 +1,9 @@
 <template>
     <div class="big_main">
-        <div id="partners_main" class="partners">
-            <h1 >Наши партнёры</h1>
-            <button class="b1" type="submit">Стать партнёром</button>
+        <div class="partners">
+            <h1>Наши партнёры</h1>     
+            <button class="b1" type="submit">Стать партнёром</button>    
         </div>
-        
         <div class="main">
             <div class="group_1">
                 <div class="block" id="1"><a href="#"><img src="../assets/partners/вк.svg" alt="VK"></a></div>
@@ -31,28 +30,24 @@ export default {
 </script>
 
 <style scoped>
-.partners_main {
+.partners {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-h1 {
-    margin-top: 70px;
-    text-align: center;
+button {
+    height: 7dvh;
+    width: 15dvw;
+    background-color: #000;
+    border: #000;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
 }
-.b1 {
-    position: absolute;
-    margin-top: -37px;
-    width: 270px;
-    height: 50px;
-    font-family: 'JetBrains Mono';
-    color: #D9D9D9;
-    border: 0;
-    border-radius: 0px;
-    background: #000000;
-    font-size: 15px;
-    /* margin-left: 1452px; */
+button:hover {
+    background-color: #402FFF;
 }
-
 .big_main {
     padding-bottom: 10dvh;
 }

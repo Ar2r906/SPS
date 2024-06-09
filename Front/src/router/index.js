@@ -13,7 +13,7 @@ import CoachAccount from '@/views/Accounts/CoachAccount'
 import PartnerAccount from '@/views/Accounts/PartnerAccount'
 import SportsmanAccount from '@/views/Accounts/SportsmanAccount'
 import InternAccount from '@/views/Accounts/InternAccount.vue'
-import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount'
+import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount.vue'
 import auth from '@/store/auth'
 
 const routes = [
@@ -39,10 +39,10 @@ const routes = [
     path: '/headcoach',
     name: 'headcoach',
     component: HeadCoachAccount,
-    meta: {
-      role: 'headcoach',
-      // auth: true,
-    }
+    // meta: {
+    //   role: 'headcoach',
+    //   // auth: true,
+    // }
   },
   {
     path: '/intern',
