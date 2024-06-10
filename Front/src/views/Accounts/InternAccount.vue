@@ -107,8 +107,8 @@
   margin: 5% 5%;
 }
 form {
-  margin-top: 5dvh;
-  margin-left: 10dvw;
+  margin-top: 1.5dvh;
+  margin-left: 5dvw;
   width: 750px; /* ширина формы */
 
 }
@@ -133,8 +133,8 @@ input{
 }
 .send1{
   position: absolute;
-  top: 185%;
-  left: 7%;
+  top: 202%;
+  left: 3%;
 }
 
 .send1:hover {
@@ -154,8 +154,8 @@ input{
   background: #402FFF;
   font-size: 15px;
   position: absolute;
-  left: 9.5%;
-  margin-top: 3dvh;
+  left: 12%;
+  margin-top: 0.3dvh;
   /* top: 100%;
   left: 7%; */
 }
@@ -167,7 +167,7 @@ input{
   margin-left: 2dvw;
 }
 .image {
-  padding-top: 5dvh;
+  padding-top: 2.5dvh;
 }
 footer{
   height: 30px;

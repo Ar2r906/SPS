@@ -9,7 +9,7 @@
       </div>
       <div class='knopki2'>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px;">Команды</router-link>
-        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
+        <router-link class="link" to="/workout" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Мероприятия</router-link>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Лидерборд</router-link>
       </div>

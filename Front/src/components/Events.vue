@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <td>27-29 июня</td>
-            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</a></td>
+            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</router-link></td>
             <td>Г. Оренбург</td>
             <td>Программирование робототехники</td>
             <td>Студенты</td>
@@ -19,7 +19,7 @@
 
         <tr>
             <td>1-3 августа</td>
-            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию среди студентов</a></td>
+            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию среди студентов</router-link></td>
             <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
             <td></td>
             <td>Студенты</td>
@@ -28,7 +28,7 @@
 
         <tr>
             <td>1-3 августа</td>
-            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</a></td>
+            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</router-link></td>
             <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
             <td></td>
             <td>Мужчины и женщины</td>
@@ -36,7 +36,7 @@
 
         <tr>
             <td>27-31 августа</td>
-            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования среди студентов по спортивному программированию "Кубок будущего"</a></td>
+            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования среди студентов по спортивному программированию "Кубок будущего"</router-link></td>
             <td>Г. Калуга, KFL Arena</td>
             <td></td>
             <td>Студенты</td>
@@ -44,7 +44,7 @@
 
         <tr>
             <td>13-15 сентября</td>
-            <td><a href="#"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</a></td>
+            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</router-link></td>
             <td>Г. Пермь, Пермский край</td>
             <td>Программирование систем информационной безопасности</td>
             <td>Мужчины и женщины от 16 лет</td>
