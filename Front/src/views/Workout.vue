@@ -7,7 +7,7 @@
           <label>Дата</label>
           <input v-model="date" type="date" required>
           <label>Время</label>
-          <input v-model='time1' type="time" placeholder="Время" />
+          <input v-model='time' type="time" placeholder="Время" />
           <label>Длительность</label>
           <input v-model="time2" type="time" placeholder="Длительность" required />
         <br>
@@ -15,16 +15,11 @@
           <input v-model="title" type="text" placeholder="Название" required />
           <label>Сложность</label>
           <select name="complexity">
-            <option value="com1">Лёгко</option>
+            <option value="com1">Легко</option>
             <option value="com2">Средне</option>
             <option value="com3">Сложно</option>
           </select>       
           <button type="submit" class="schedule">Запланировать</button>
-          <ul>
-            <li v-for="workout in workouts" :key="wirkout.id">
-              {{ workout.title }} - {{ workout.description }} - {{ workout.date }}
-            </li>
-          </ul>
         </form>
     </div>
 
@@ -34,48 +29,7 @@
 
 <script>
 
-export default {
-  data() {
-    return {
-      title: '',
-      description: '',
-      date: '',
-      workouts: [],
-    };
-  },
-  methods: {
-    async fetchWorcouts() {
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3000/posts/api/workouts', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const data = await response.json();
-      this.workouts = data;
-    },
-    
-    async createWorkout() {
-      const token = localStorage.getItem('token');
-      await fetch('http://localhost:3000/posts/api/workouts', {
-        method: 'POST',
-        headers: {
-          'Conten-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          title: this.title,
-          description: this.description,
-          date: this.date,
-        }),
-      });
-      this.fetchWorcouts();
-    },
-  },
-  mounted() {
-    this.fetchWorcouts();
-  },
-}
+
 </script>
 
 <style scoped>
