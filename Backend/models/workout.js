@@ -23,11 +23,14 @@ const workout = sequelize.define(
         duration: {
             type: DataTypes.TIME,
         },
+        UserId: {
+            type: DataTypes.INTEGER,
+        },
     },
     { 
         tableName: 'workout',
         timestamps: true
-    }
+    },
 );
 
 async function getWorkout() {
