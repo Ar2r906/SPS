@@ -77,7 +77,7 @@ const routes = [
     name: 'workout',
     component: Workout,
     meta: {
-      auth: true, roles: ['coach', 'headcoach']
+      //auth: true, roles: ['coach', 'headcoach']
     }
   },
   {
