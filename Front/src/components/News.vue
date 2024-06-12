@@ -1,6 +1,6 @@
 <template>
     <div class="windows">
-        <div class="window-title">
+        <!-- <div class="window-title">
             <h1>&lt;Новости&gt;</h1>
         </div>
         
@@ -64,81 +64,21 @@
                 </div>
                 </div>
             </div>
-        </div>
-
+        </div> -->
+        <FetchNews/>
   </div>
 </template>
 
 <script>
-export default {
-    name: 'News'
-}
-</script>
-
-
-
-<!-- <template>
-    <div class="windows">
-        <div class="window-title">
-            <h1>&lt;Новости&gt;</h1>
-        </div>
-        
-        <div class="windows-blocks">
-            <div v-for="news in newsList" class="window-inform">
-                <div class="inform-main">
-                    <div class="main-image">
-                        <img :src="news.image" alt="test image" style="width:100%">
-                    </div>
-                    <div class="main-title">
-                        <h2>{{ news.title }}</h2>
-                    </div>
-                    <div class="main-text">
-                        <p>{{ news.description }}</p>
-                    </div>
-                    <div class="main-date">
-                        <time :datetime="news.date">{{ news.date }}</time>
-                    </div>
-                    <div class="more-info-button">
-                        <button class="form form-button" @click="showMoreInfo(news.url)">Узнать подробнее</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</template>
-
-<script>
-import axios from 'axios';
+import FetchNews from './FetchNews.vue';
 
 export default {
     name: 'News',
-    data() {
-        return {
-            newsList: []
-        };
-    },
-    created() {
-        this.fetchNews();
-    },
-    methods: {
-        async fetchNews() {
-            const response = await axios.get('https://fsp-russia.com/');
-            const data = response.data;
-            this.newsList = data.map(item => ({
-                title: item.title,
-                description: item.description,
-                date: item.date,
-                image: item.image,
-                url: item.url
-            }));
-        },
-        showMoreInfo(url) {
-            // Implement logic to show more info based on the URL
-        }
+    components: {
+        FetchNews
     }
 }
-</script> -->
+</script>
 
 <style scoped>
 .windows {
