@@ -1,4 +1,8 @@
 <template>
+    <h1>Тренировки</h1>
+    <ul id="workouts-list"></ul>
+
+    <hr>
     <div class='new-workout'>
       
         <h2>&#8249;Запланировать тренировку&#8250;</h2>
@@ -29,53 +33,60 @@
 </template>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+      fetch('/api/workouts')
+        .then(response => response.json())
+        .then(workouts => {
+          const list = document.getElementById('workouts-list');
+          workouts.forEach(workout => {
+            const item = document.createElement('li');
+            item.textContent = `${workout.title} - ${workout.date}`;
+            list.appendChild(item);
+          });
+        })
+        .catch(error => console.error('Ошибка:', error));
+    });
 
 export default {
   data() {
     return {
       date: '',
-        time: '',
-        duration: '',
-        title: '',
-        complexity: 'com1',
-        workouts: [],
+      time: '',
+      duration: '',
+      title: '',
+      complexity: ''
     };
   },
   methods: {
-    async fetchWorkouts() {
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3000/posts/api/workouts', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const data = await response.json();
-      this.workouts = data;
-    },
-    
     async createWorkout() {
-      const token = localStorage.getItem('token');
-      await fetch('http://localhost:3000/posts/api/workouts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          title: this.title,
-          complexity: this.complexity,
-          date: this.date,
-          time: this.time,
-          duration: this.duration,
-        }),
-      });
-      this.fetchWorkouts();
-    },
-  },
-  mounted() {
-    this.fetchWorkouts();
-  },
-}
+      try {
+        const response = await fetch('/api/workout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            date: this.date,
+            time: this.time,
+            duration: this.duration,
+            title: this.title,
+            complexity: this.complexity
+          })
+        });
+        if (response.ok) {
+          // Обработка успешного сохранения данных
+          console.log('Тренировка запланирована');
+        } else {
+          // Обработка ошибок сервера
+          console.error('Ошибка при планировании тренировки');
+        }
+      } catch (error) {
+        // Обработка ошибок сети
+        console.error('Проблема сети:', error);
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
