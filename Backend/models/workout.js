@@ -8,17 +8,20 @@ const workout = sequelize.define(
             autoIncrement: true,
             primaryKey: true,
         },
-        uid: {
-            type: DataTypes.UUID,
-        },
         title: {
             type: DataTypes.TEXT,
         },
-        description: {
+        complexity: {
             type: DataTypes.TEXT,
         },
         date: {
             type: DataTypes.DATE,
+        },
+        time: {
+            type: DataTypes.TIME,
+        },
+        duration: {
+            type: DataTypes.TIME,
         },
     },
     { 

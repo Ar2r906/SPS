@@ -3,11 +3,12 @@
       <a class="logo" href="/"><img src="./assets/Logotype.svg" alt="logotype"></a>
       <router-link class="link" to="/login" v-if="!isAuth">Вход</router-link>
       <router-link class="link" to="/register" v-if="!isAuth">Регистрация</router-link>
-      <router-link class="link" to="/events" v-if="isAuth">Мероприятия</router-link>     
+      <!--<router-link class="link" to="/events" v-if="isAuth">Мероприятия</router-link>-->
       <a class="link" href="#partners_main">Партнерам</a>
-      <a class="link" href="#contacts_main">Контакты</a>
-      <router-link class="link" to="/sportsman">Проверка</router-link>
+      <a class="link" href="#mero">Мероприятия</a>
+      <!-- <router-link class="link" to="/sportsman">Проверка</router-link> -->
       <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
+      <router-link class="link" to="/workout">Календарь тренировок</router-link>
       <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>
     </nav> 
   <router-view /> 

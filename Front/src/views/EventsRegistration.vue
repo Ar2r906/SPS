@@ -1,4 +1,5 @@
 <template>
+  <div id='registration-miro'>
   <h2>НАЗВАНИЕ</h2>
   <h4>Информация о мероприятии</h4>
     <hr>
@@ -31,6 +32,7 @@
         </div>
         <button class="send1">Отправить</button>
     </form>
+  </div>
     <Contacts/>
 </template>
 

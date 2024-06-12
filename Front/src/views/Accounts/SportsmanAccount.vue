@@ -9,7 +9,7 @@
       </div>
       <div class='knopki2'>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px;">Команды</router-link>
-        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
+        <router-link class="link" to="/workout" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Мероприятия</router-link>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Лидерборд</router-link>
       </div>
@@ -17,16 +17,18 @@
 </div>
 
   <div class="main">
-    <div class="block-photo">
-      <div class="block-photo image">
-        <img src="../../assets/temp/Image_profile.svg" alt="image-profile">
-      </div>
-      <button class="block-photo button">Изменить</button>
+    <div class='avatar'>
+      <img :src="avatarUrl" alt="Аватарка">
     </div>
+    <div class='ava-pole'>
+      <input type="file" ref="fileInput" @change="handleAvatarUpload">
+    </div>
+
     <div class="block-info">
       <form @submit.prevent="">
         <div>
           <label>Фамилия Имя Отчество</label>
+
         </div>
         <div>
         <label>
@@ -80,9 +82,52 @@
 </template>
 
 <script>
+export default {
+    data() {
+        return {
+            avatarUrl: '', // переменная для хранения URL выбранной аватарки
+            defaultAvatarUrl: 'cat.png',
+        };
+    },
+    computed: {
+        displayAvatarUrl() {
+            return this.avatarUrl || this.defaultAvatarUrl; // если нет загруженной фотографии, отобразить фото по умолчанию
+        },
+    },
+    methods: {
+        handleAvatarUpload() {
+            const file = this.$refs.fileInput.files[0];
+            if (file) {
+                const reader = new FileReader(); // используем FileReader для чтения загруженного файла
+                reader.onload = (e) => {
+                    this.avatarUrl = e.target.result; // сохраняем URL файла в переменной
+                };
+                reader.readAsDataURL(file); // читаем файл как Data URL
+            }
+        },
+    },
+};
 </script>
 
 <style scoped>
+
+.avatar img {
+    width: 350px; /* настройте максимальную ширину загруженной фотографии */
+    height: 350px;
+    display: block;
+    margin: 0 auto; /* расположить по центру */
+    margin-top: 20%;
+    margin-left: 40%;
+    border-radius: 55%; /* скругленные углы */
+}
+.ava-pole{
+    position: absolute;
+    margin-left: 7%;
+    margin-top: 25%;
+    width: 400px;
+}
+
+
 .navbar-sport{
   height: 500px;
   background-color: black;
@@ -124,6 +169,7 @@
 
 
 .main, .main2, .main3, .main4 {
+  
   display: flex;
   width: 90%;
   height: 60dvh;
@@ -151,6 +197,10 @@ form {
   margin-left: 35dvw;
   font-size: 25px;
 }
+.block-info{
+  position: absolute;
+  margin-left: 20%;
+}
 label{
   font-family: 'JetBrains Mono';
   font-size: 20px;
@@ -170,6 +220,7 @@ input{
   float: right;  /* выравнивание по правому краю */ 
   padding-left: 15px; /* отступ текста в поле */ 
 }
+
 .send1{
   position: absolute;
   top: 134%;
@@ -197,12 +248,8 @@ input{
   border: 1px solid #000;
   background-color: #000;
 }
-.block-photo {
-  margin-left: 2dvw;
-}
-.image {
-  padding-top: 5dvh;
-}
+
+
 footer{
   height: 30px;
   background: #1B1C21;
