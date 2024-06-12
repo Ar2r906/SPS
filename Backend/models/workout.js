@@ -20,7 +20,7 @@ const workout = sequelize.define(
         time: {
             type: DataTypes.TIME,
         },
-        time2: {
+        duration: {
             type: DataTypes.TIME,
         },
     },
