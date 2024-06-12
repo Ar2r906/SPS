@@ -9,19 +9,20 @@
           <label>Время</label>
           <input v-model='time' type="time" placeholder="Время" />
           <label>Длительность</label>
-          <input v-model="time2" type="time" placeholder="Длительность" required />
+          <input v-model="duration" type="time" placeholder="Длительность" required />
         <br>
           <label>Название</label>
           <input v-model="title" type="text" placeholder="Название" required />
           <label>Сложность</label>
-          <select name="complexity">
+          <select v-model="complexity">
             <option value="com1">Легко</option>
             <option value="com2">Средне</option>
             <option value="com3">Сложно</option>
           </select>       
           <button type="submit" class="schedule">Запланировать</button>
         </form>
-    </div>
+
+</div>
 
 <div class="work-footer">
 </div>
@@ -29,7 +30,52 @@
 
 <script>
 
-
+export default {
+  data() {
+    return {
+      date: '',
+        time: '',
+        duration: '',
+        title: '',
+        complexity: 'com1',
+        workouts: [],
+    };
+  },
+  methods: {
+    async fetchWorkouts() {
+      const token = localStorage.getItem('token');
+      const response = await fetch('http://localhost:3000/posts/api/workouts', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      this.workouts = data;
+    },
+    
+    async createWorkout() {
+      const token = localStorage.getItem('token');
+      await fetch('http://localhost:3000/posts/api/workouts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          title: this.title,
+          complexity: this.complexity,
+          date: this.date,
+          time: this.time,
+          duration: this.duration,
+        }),
+      });
+      this.fetchWorkouts();
+    },
+  },
+  mounted() {
+    this.fetchWorkouts();
+  },
+}
 </script>
 
 <style scoped>
