@@ -9,6 +9,7 @@
       <!-- <a class="link" href="#mero">Мероприятия</a> -->
       <router-link class="link" to="/Events">Мероприятия</router-link>
       <!-- <router-link class="link" to="/sportsman">Проверка</router-link> -->
+      <router-link class="link" to="/Contacts">Контакты</router-link>
       <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
       <router-link class="link" to="/workout">Календарь тренировок</router-link>
       <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>

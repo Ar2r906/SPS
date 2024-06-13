@@ -19,6 +19,7 @@ import auth from '@/store/auth'
 
 import Partners2 from '@/components/Partners2.vue'
 import Events from '@/components/Events.vue'
+import Contacts from '@/components/Contacts.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -102,6 +103,11 @@ const routes = [
     path: '/Events',
     name: 'Events',
     component: Events,
+  },
+  {
+    path: '/Contacts',
+    name: 'Contacts',
+    component: Contacts,
   },
 ]
 
