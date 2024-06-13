@@ -17,6 +17,10 @@ import InternAccount from '@/views/Accounts/InternAccount.vue'
 import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount.vue'
 import auth from '@/store/auth'
 
+import Partners2 from '@/components/Partners2.vue'
+import Events from '@/components/Events.vue'
+import Contacts from '@/components/Contacts.vue'
+
 const routes = [
   { path: '/', name: 'home', component: Home },
   { path: '/register', name: 'register', component: Register},
@@ -89,6 +93,21 @@ const routes = [
     path: '/newspage',
     name: 'newspage',
     component: NewsPage,
+  },
+  {
+    path: '/Partners2',
+    name: 'partners2',
+    component: Partners2,
+  },
+  {
+    path: '/Events',
+    name: 'Events',
+    component: Events,
+  },
+  {
+    path: '/Contacts',
+    name: 'Contacts',
+    component: Contacts,
   },
 ]
 
