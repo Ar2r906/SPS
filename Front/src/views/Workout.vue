@@ -1,6 +1,19 @@
 <template>
     <h1>Тренировки</h1>
-    <ul id="workouts-list"></ul>
+     <ul class="hr">
+      <li>Дата</li>
+      <li>Время</li>
+      <li>Длительность</li>
+      <li>Название</li>
+      <li>Сложность</li>
+      </ul>
+    <ul id="workouts-list">
+    <li v-for="workout in workouts" :key="workout.id">
+      {{ workout.date }}{{ workout.time }} {{ workout.duration }} {{ workout.title }}  {{ workout.complexity }}
+      <button class="enroll-button" @click="enroll(workout.id)">Записаться</button>
+      <button class="delete-button" @click="deleteWorkout(workout.id)">Удалить</button>
+    </li>
+    </ul>
 
     <hr>
     <div class='new-workout'>
@@ -36,6 +49,7 @@
 export default {
   data() {
     return {
+      workouts: [],
       workoutData: {
         date: '',
         time: '',
@@ -45,25 +59,102 @@ export default {
       }
     };
   },
+    created() {
+    this.fetchWorkouts();
+  },
   methods: {
+    fetchWorkouts() {
+      // Здесь должен быть ваш HTTP запрос к серверу для получения списка тренировок
+      // Пример:
+      fetch('http://localhost:3000/api/workouts')
+        .then(response => response.json())
+        .then(data => {
+          this.workouts = data;
+        })
+        .catch(error => console.error('Ошибка:', error));
+    },
     async createWorkout() {
       try {
         const response = await this.$axios.post('/api/workouts', this.workoutData);
-        if (response.status === 201) {
-          // Тренировка успешно создана
+        if (response && response.data && response.status === 201) {
           console.log('Тренировка создана:', response.data);
-          // Очистка формы или переход на другую страницу
+        } else {
+          // Обработка случая, когда ответ не содержит данных
+          console.error('Ответ сервера не содержит данных');
         }
       } catch (error) {
-        console.error('Ошибка при создании тренировки:', error);
-        // Обработка ошибок, например, показ сообщения пользователю
+        // Проверка наличия объекта error.response и error.response.data
+        if (error.response && error.response.data) {
+          console.error('Ошибка при создании тренировки:', error.response.data);
+        } else {
+          console.error('Ошибка при создании тренировки:', error);
+        }
       }
+    },
+
+     enroll(workoutId) {
+      // Здесь код для процесса записи на тренировку
+      alert('Вы успешно записались на тренировку!');
+    },
+     deleteWorkout(workoutId) {
+      this.workouts = this.workouts.filter(workout => workout.id !== workoutId);
+      alert('Тренировка отменена!');
     }
   }
 }
+
 </script>
 
 <style scoped>
+ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 4%; /* Отступ слева */
+    
+   }
+.hr{
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+}
+#workouts-list {
+  list-style-type: none; /* Убираем маркеры списка */
+  padding: 0;
+}
+.hr{
+  margin-left:4%;
+}
+
+#workouts-list li {
+  background-color: #f2f2f2; /* Светлый фон для каждого элемента списка */
+  margin-bottom: 1.5%; /* Отступ между элементами списка */
+  padding: 10px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругление углов */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для элементов списка */
+  width: 50%;
+  margin-left: 2.5%;
+}
+
+
+
+#workouts-list li:hover {
+  background-color: #e9e9e9; /* Цвет фона при наведении */
+}
+
+.enroll-button, .delete-button {
+  background-color: #402FFF;
+  font-family: 'JetBrains Mono';
+  color:#D9D9D9;
+  padding: 10px 15px; /* Внутренние отступы */
+  border: none; /* Убираем границу */
+  border-radius: 10px; /* Скругляем углы */
+  cursor: pointer; /* Курсор в виде указателя */
+  margin-left: 2.5%;
+
+}
+
+.enroll-button:hover, .delete-button:hover {
+  background-color: #000; /* Темно-зеленый фон при наведении */
+}
+
 label{
   font-family: 'JetBrains Mono';
   font-size: 20px;
