@@ -29,7 +29,7 @@ const workout = sequelize.define(
     },
     { 
         tableName: 'workout',
-        timestamps: true
+        timestamps: false,
     },
 );
 
