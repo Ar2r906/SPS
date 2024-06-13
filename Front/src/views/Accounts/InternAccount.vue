@@ -1,15 +1,4 @@
 <template>
-  <div class='navbar-intern'>
-      <div class='knopki'>
-        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 35px">На главную</router-link>
-        <router-link class="link" to="/" @click="logout()" style="text-decoration: none; color:white; font-size:22px; margin-left: 80px;">Выход</router-link>
-      </div>
-      <!-- <div class='logo-intern'>
-        <img src='../../assets/Ellipse.svg'> 
-      </div> -->
-    <p>Спортсмен-стажёр</p>
-  </div>
-
   <div class="main">
     <div class="block-photo">
       <div class="block-photo image">
@@ -18,44 +7,50 @@
       <button class="block-photo button">Изменить</button>
     </div>
     <div class="block-info">
-      <form @submit.prevent="">
+      <form @submit.prevent="updateProfile">
         <div>
-          <label>Фамилия Имя Отчество</label>
+          <input type="text" v-model="name" placeholder="Имя">
+          <input type="text" v-model="email" placeholder="Email">
         </div>
-        <div>
-        <label>
-          Учебное заведение:
-          <input type="text" v-model="educational_envy">
-        </label>
-        </div>
-        <div>
-        <label>
-          Группа/класс:
-          <input type="text" v-model="group">
-        </label> 
-        </div>
-        <div>
-        <label>
-          Почта:
-          <input type="text" v-model="email">
-        </label>
-        </div>
-        <div>
-        <label>
-          Телефон:
-          <input type="text" v-model="telephone">
-        </label>
-        </div>
+        <button type="submit">Сохранить изменения</button>
       </form>
     </div>
   </div>
   <router-link to="/testirovanie"> <button class="send1">&#8249;Пройти тестирование&#8250;</button></router-link>
-
-<footer>
-</footer>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+
+export default {
+  data() {
+    return {
+      // Предполагается, что данные уже загружены в состояние Vuex
+      name: this.$store.state.auth.user.name,
+      email: this.$store.state.auth.user.email
+    }
+  },
+  methods: {
+    ...mapActions('auth', ['updateProfile']),
+    updateProfile() {
+      const updatedData = {
+        name: this.name,
+        email: this.email
+      }
+      this.updateProfile(updatedData).then(() => {
+        // Обработка успешного обновления профиля
+      }).catch(error => {
+        // Обработка ошибок обновления профиля
+      })
+    }
+  },
+  created() {
+    // Здесь вы можете вызвать действие для загрузки данных пользователя, если они еще не загружены
+    if (!this.name || !this.email) {
+      this.$store.dispatch('auth/loadUserProfile')
+    }
+  }
+}
 </script>
 
 <style scoped>
