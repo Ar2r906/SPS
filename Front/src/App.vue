@@ -4,8 +4,10 @@
       <router-link class="link" to="/login" v-if="!isAuth">Вход</router-link>
       <router-link class="link" to="/register" v-if="!isAuth">Регистрация</router-link>
       <!--<router-link class="link" to="/events" v-if="isAuth">Мероприятия</router-link>-->
-      <a class="link" href="#partners_main">Партнерам</a>
-      <a class="link" href="#mero">Мероприятия</a>
+      <!-- <a class="link" href="#partners_main">Партнерам</a> -->
+      <router-link class="link" to="/Partners2">Партнеры</router-link>
+      <!-- <a class="link" href="#mero">Мероприятия</a> -->
+      <router-link class="link" to="/Events">Мероприятия</router-link>
       <!-- <router-link class="link" to="/sportsman">Проверка</router-link> -->
       <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
       <router-link class="link" to="/workout">Календарь тренировок</router-link>
