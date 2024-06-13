@@ -33,60 +33,34 @@
 </template>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-      fetch('/api/workouts')
-        .then(response => response.json())
-        .then(workouts => {
-          const list = document.getElementById('workouts-list');
-          workouts.forEach(workout => {
-            const item = document.createElement('li');
-            item.textContent = `${workout.title} - ${workout.date}`;
-            list.appendChild(item);
-          });
-        })
-        .catch(error => console.error('Ошибка:', error));
-    });
-
 export default {
   data() {
     return {
-      date: '',
-      time: '',
-      duration: '',
-      title: '',
-      complexity: ''
+      workoutData: {
+        date: '',
+        time: '',
+        duration: '',
+        title: '',
+        complexity: ''
+      }
     };
   },
   methods: {
     async createWorkout() {
       try {
-        const response = await fetch('/api/workout', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            date: this.date,
-            time: this.time,
-            duration: this.duration,
-            title: this.title,
-            complexity: this.complexity
-          })
-        });
-        if (response.ok) {
-          // Обработка успешного сохранения данных
-          console.log('Тренировка запланирована');
-        } else {
-          // Обработка ошибок сервера
-          console.error('Ошибка при планировании тренировки');
+        const response = await this.$axios.post('/api/workouts', this.workoutData);
+        if (response.status === 201) {
+          // Тренировка успешно создана
+          console.log('Тренировка создана:', response.data);
+          // Очистка формы или переход на другую страницу
         }
       } catch (error) {
-        // Обработка ошибок сети
-        console.error('Проблема сети:', error);
+        console.error('Ошибка при создании тренировки:', error);
+        // Обработка ошибок, например, показ сообщения пользователю
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -136,5 +110,13 @@ label{
   padding: 10px 20px;
   margin-top: 3%;
   position: static;
+}
+hr {
+  	margin: 35px auto 10px;
+	padding: 0;
+	height: 50px;
+	border: none;
+	border-bottom: 2px solid #1f1209;
+	width: 95%;
 }
 </style>
