@@ -30,6 +30,7 @@ app.use('/api/posts', posts_routes)
 
 app.get('/api/workouts', workoutController.getWorkouts);
 app.post('/api/workouts', workoutController.createWorkout);
+app.delete('/api/workouts/:id', workoutController.deleteWorkout);
 
 async function deleteOldNews(days) {
     const date = new Date();
