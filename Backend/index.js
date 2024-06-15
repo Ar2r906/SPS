@@ -14,7 +14,7 @@ const posts_routes = require('./routes/posts')
 const auths_routes = require('./routes/auths')
 const users_routes = require('./routes/users')
 const workoutController = require('./controllers/workoutController');
-
+const eventController = require('./controllers/eventController');
 
 const { error } = require('console')
 const bodyParser = require('body-parser')
@@ -31,6 +31,8 @@ app.use('/api/posts', posts_routes)
 app.get('/api/workouts', workoutController.getWorkouts);
 app.post('/api/workouts', workoutController.createWorkout);
 app.delete('/api/workouts/:id', workoutController.deleteWorkout);
+
+app.get('/api/events', eventController.getEvents);
 
 async function deleteOldNews(days) {
     const date = new Date();
