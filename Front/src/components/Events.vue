@@ -60,6 +60,7 @@ export default {
     margin-right: 10%; /* Отступ слева */
     font-size: 20px;
     margin-left: 5%;
+    margin-right: 15%;    
 }
 .list{
   margin-top: 1.5%;
