@@ -164,7 +164,6 @@ export default {
 .workout-info {
   flex: 1;
   margin-left: 1.7%;
-   
 }
 
 
