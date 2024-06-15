@@ -1,88 +1,94 @@
 <template>
-<div id='mero'>
-    <h1>&lt;Мероприятия&gt;</h1>
-    <table>
-        <tr>
-            <td><u>Дата</u></td>
-            <td><u>Название</u></td>
-            <td><u>Место</u></td>
-            <td><u>Дисциплина</u></td>
-            <td><u>Участники</u></td>
-        </tr>
-        <tr>
-            <td>27-29 июня</td>
-            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</router-link></td>
-            <td>Г. Оренбург</td>
-            <td>Программирование робототехники</td>
-            <td>Студенты</td>
-        </tr>
-
-        <tr>
-            <td>1-3 августа</td>
-            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию среди студентов</router-link></td>
-            <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
-            <td></td>
-            <td>Студенты</td>
-
-        </tr>
-
-        <tr>
-            <td>1-3 августа</td>
-            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</router-link></td>
-            <td>Г. Москва, РЭУ им. Г.В. Плеханова</td>
-            <td></td>
-            <td>Мужчины и женщины</td>
-        </tr>
-
-        <tr>
-            <td>27-31 августа</td>
-            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования среди студентов по спортивному программированию "Кубок будущего"</router-link></td>
-            <td>Г. Калуга, KFL Arena</td>
-            <td></td>
-            <td>Студенты</td>
-        </tr>
-
-        <tr>
-            <td>13-15 сентября</td>
-            <td><router-link class="link" to="/EventsRegistration"  style="text-decoration: none; color:black;">Всероссийские соревнования по спортивному программированию</router-link></td>
-            <td>Г. Пермь, Пермский край</td>
-            <td>Программирование систем информационной безопасности</td>
-            <td>Мужчины и женщины от 16 лет</td>
-        </tr>
-
-    </table>
-</div>
-<hr>
+    <div class='mero-zag'>
+    <h1>Мероприятия</h1></div>
+    <ul class="list">
+      <li>Дата</li>
+      <li>Название</li>
+      <li>Дисциплина</li>
+      </ul>
+    <ul id="mero-list">
+      <li v-for="event in events" :key="event.id">
+      <span class="event-info">{{ event.date }}</span>
+      <span class="event-info">{{ event.title }}</span>
+      <span class="event-info">{{ event.discipline }}</span>
+      <!-- <button class="enroll-button" @click="enroll(workout.id)">Записаться</button> -->
+      </li>
+      </ul>
+    <hr>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: 'Events',
+  data() {
+    return {
+      events: [],
+      eventData: {
+        date: '',
+        title: '',
+        discipline: ''
+      }
+    };
+  },
+    created() {
+    this.fetchEvents();
+  },
+  methods: {
+    fetchEvents() {
+      // Здесь должен быть ваш HTTP запрос к серверу для получения списка тренировок
+      // Пример:
+      fetch('http://localhost:3000/api/events')
+        .then(response => response.json())
+        .then(data => {
+          this.events = data;
+        })
+        .catch(error => console.error('Ошибка:', error));
+    },
+  }
 }
+
 </script>
 
 <style scoped>
-table{
-    width: 95%;
-    text-align: center;
+.mero-zag h1{
     margin-left: 3%;
-    margin-top: 10px;
+    margin-top: 2%;
 }
-td {
-  text-align: center;
-	padding: 10px;
-    font-family: "JetBrains Mono";
-    font-size: 22px;
-    font-weight: bold;
+.list li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 10%; /* Отступ слева */
+    font-size: 20px;
+    margin-left: 5%;
 }
- th {
-  text-align: center;
-  padding: 10px;
- }
+.list{
+  margin-top: 1.5%;
+  margin-bottom: 0.7%;
+  margin-left:2%;
+}
 
-h1 {
-  margin: 35px 0px 0px 70px;
+#mero-list li {
+  background-color: #f2f2f2; /* Светлый фон для каждого элемента списка */
+  margin-bottom: 1.5%; /* Отступ между элементами списка */
+  padding: 12px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругление углов */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для элементов списка */
+  width: 75%;
+  margin-left: 3.8%;
+  font-size: 18px;
+
 }
+#mero-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.event-info {
+  flex: 1;
+  margin-right: 1.7%;
+}
+
 hr {
   	margin: 35px auto 10px;
 	padding: 0;
@@ -91,4 +97,5 @@ hr {
 	border-bottom: 2px solid #1f1209;
 	width: 95%;
 }
+
 </style>
