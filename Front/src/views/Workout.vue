@@ -1,6 +1,7 @@
 <template>
-    <h1>Тренировки</h1>
-     <ul class="hr">
+     <div class="zag">
+     <h1>Тренировки</h1> </div>
+     <ul class="list">
       <li>Дата</li>
       <li>Время</li>
       <li>Длительность</li>
@@ -8,13 +9,16 @@
       <li>Сложность</li>
       </ul>
     <ul id="workouts-list">
-    <li v-for="workout in workouts" :key="workout.id">
-      {{ workout.date }}{{ workout.time }} {{ workout.duration }} {{ workout.title }}  {{ workout.complexity }}
-      <button class="enroll-button" @click="enroll(workout.id)">Записаться</button>
+      <li v-for="workout in workouts" :key="workout.id">
+      <span class="workout-info">{{ workout.date }}</span>
+      <span class="workout-info">{{ workout.time }}</span>
+      <span class="workout-info">{{ workout.duration }}</span>
+      <span class="workout-info">{{ workout.title }}</span>
+      <span class="workout-info">{{ workout.complexity }}</span>
+      <!-- <button class="enroll-button" @click="enroll(workout.id)">Записаться</button> -->
       <button class="delete-button" @click="deleteWorkout(workout.id)">Удалить</button>
-    </li>
-    </ul>
-
+      </li>
+      </ul>
     <hr>
     <div class='new-workout'>
       
@@ -22,19 +26,19 @@
   
         <form @submit.prevent="createWorkout">
           <label>Дата</label>
-          <input v-model="date" type="date" required>
+          <input v-model="workoutData.date" type="date" required>
           <label>Время</label>
-          <input v-model='time' type="time" placeholder="Время" />
+          <input v-model='workoutData.time' type="time" placeholder="Время" />
           <label>Длительность</label>
-          <input v-model="duration" type="time" placeholder="Длительность" required />
+          <input v-model="workoutData.duration" type="time" placeholder="Длительность" required />
         <br>
           <label>Название</label>
-          <input v-model="title" type="text" placeholder="Название" required />
+          <input v-model="workoutData.title" type="text" placeholder="Название" required />
           <label>Сложность</label>
-          <select v-model="complexity">
-            <option value="com1">Легко</option>
-            <option value="com2">Средне</option>
-            <option value="com3">Сложно</option>
+          <select v-model="workoutData.complexity">
+            <option value="Легко">Легко</option>
+            <option value="Средне">Средне</option>
+            <option value="Сложно">Сложно</option>
           </select>       
           <button type="submit" class="schedule">Запланировать</button>
         </form>
@@ -46,6 +50,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -74,65 +80,92 @@ export default {
         .catch(error => console.error('Ошибка:', error));
     },
     async createWorkout() {
-      try {
-        const response = await this.$axios.post('/api/workouts', this.workoutData);
-        if (response && response.data && response.status === 201) {
+    console.log('Метод createWorkout вызван');
+    console.log('Отправляемые данные:', this.workoutData);
+    try {
+      const response = await axios.post('http://localhost:3000/api/workouts', this.workoutData);
+      if (response && response.data) {
+        if (response.status === 201) {
           console.log('Тренировка создана:', response.data);
+          alert('Тренировка создана! Обновите страницу.');
         } else {
-          // Обработка случая, когда ответ не содержит данных
-          console.error('Ответ сервера не содержит данных');
+          console.log('Неожиданный статус ответа:', response.status, response.data);
         }
-      } catch (error) {
-        // Проверка наличия объекта error.response и error.response.data
-        if (error.response && error.response.data) {
-          console.error('Ошибка при создании тренировки:', error.response.data);
-        } else {
-          console.error('Ошибка при создании тренировки:', error);
-        }
+      } else {
+        console.error('Ответ сервера не содержит данных');
       }
-    },
-
+    } catch (error) {
+      if (error.response && error.response.data) {
+        console.error('Ошибка при создании тренировки:', error.response.data);
+      } else {
+        console.error('Ошибка при создании тренировки:', error);
+      }
+    }
+  },
+    
      enroll(workoutId) {
       // Здесь код для процесса записи на тренировку
       alert('Вы успешно записались на тренировку!');
     },
-     deleteWorkout(workoutId) {
-      this.workouts = this.workouts.filter(workout => workout.id !== workoutId);
-      alert('Тренировка отменена!');
+      async deleteWorkout(workoutId) {
+    try {
+      const response = await axios.delete(`http://localhost:3000/api/workouts/${workoutId}`);
+      if (response.status === 200) {
+        console.log('Тренировка удалена:', response.data);
+        this.fetchWorkouts(); // Обновляем список тренировок
+        alert('Тренировка удалена!');
+      } else {
+        console.log('Неожиданный статус ответа:', response.status);
+      }
+    } catch (error) {
+      console.error('Ошибка при удалении тренировки:', error);
     }
   }
+}
 }
 
 </script>
 
 <style scoped>
-ul.hr li {
+.list li {
     display: inline; /* Отображать как строчный элемент */
-    margin-right: 4%; /* Отступ слева */
+    margin-right: 3.5%; /* Отступ слева */
+    font-size: 20px;
+    margin-left: 5.5%;
     
    }
-.hr{
+.list{
   margin-top: 1.5%;
   margin-bottom: 1%;
+  margin-left:2%;
 }
+
 #workouts-list {
   list-style-type: none; /* Убираем маркеры списка */
-  padding: 0;
-}
-.hr{
-  margin-left:4%;
 }
 
 #workouts-list li {
   background-color: #f2f2f2; /* Светлый фон для каждого элемента списка */
   margin-bottom: 1.5%; /* Отступ между элементами списка */
-  padding: 10px; /* Внутренние отступы */
+  padding: 12px; /* Внутренние отступы */
   border-radius: 5px; /* Скругление углов */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для элементов списка */
-  width: 50%;
-  margin-left: 2.5%;
+  width: 75%;
+  margin-left: 3.8%;
+  font-size: 18px;
+
+}
+#workouts-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.workout-info {
+  flex: 1;
+  margin-left: 1.7%;
+   
+}
 
 
 #workouts-list li:hover {
@@ -147,8 +180,9 @@ ul.hr li {
   border: none; /* Убираем границу */
   border-radius: 10px; /* Скругляем углы */
   cursor: pointer; /* Курсор в виде указателя */
-  margin-left: 2.5%;
-
+  margin-left: auto;
+  font-size: 15px;
+  display: block;
 }
 
 .enroll-button:hover, .delete-button:hover {
@@ -171,7 +205,7 @@ label{
   background: #402FFF;
   font-size: 17px;
   position: absolute;
-  left: 65%;
+  left: 62.5%;
   margin-top: 1.3%;
 
 }
@@ -193,6 +227,18 @@ label{
 .new-workout h2{
   margin-top: 3%;
   margin-left: 3%;
+  color: #402FFF;
+}
+.list h1{
+   margin-top: 3%;
+  margin-left: -1.5%;
+  margin-bottom:2%;
+  color: #402FFF;
+}
+.zag h1{
+  margin-left: 3%;
+  margin-top: 2%;
+
   color: #402FFF;
 }
 .work-footer{
