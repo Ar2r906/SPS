@@ -11,16 +11,6 @@ exports.getWorkouts = async (req, res) => {
     }
 };
 
-// exports.createWorkout = async (req, res) => {
-//     const { title, time, duration, date, complexity } = req.body;
-//     try {
-//         // const workout = await workout.create({ title, time, duration, date, complexity, UserId: req.user.id });
-//         const workout = await workout.create({ title, time, duration, date, complexity });
-//         res.status(201).json(workout);
-//     } catch (error) {
-//         res.status(400).json({ message: error.message });
-//     }
-// };
 
 exports.createWorkout = async (req, res) => {
     try {
@@ -31,3 +21,17 @@ exports.createWorkout = async (req, res) => {
       res.status(500).send(error.message);
     }
   };
+
+exports.deleteWorkout = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const deleted = await workout.destroy({ where: { id } });
+    if (deleted) {
+      res.status(200).json({ message: 'Тренировка удалена.' });
+    } else {
+      res.status(404).json({ message: 'Тренировка не найдена.' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
