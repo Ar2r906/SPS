@@ -31,6 +31,7 @@ const routes = [
     name: 'EventsRegistration',
     component: EventsRegistration,
     /**  meta: { auth: true} **/
+    props: true
   },
   {
     path: '/coach',
