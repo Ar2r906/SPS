@@ -8,10 +8,12 @@
       </ul>
     <ul id="mero-list">
       <li v-for="event in events" :key="event.id">
-      <span class="event-info">{{ event.date }}</span>
-      <span class="event-info">{{ event.title }}</span>
-      <span class="event-info">{{ event.discipline }}</span>
-      <!-- <button class="enroll-button" @click="enroll(workout.id)">Записаться</button> -->
+      <router-link :to="{ name: 'EventsRegistration', params: { eventId: event.id } }">
+          <span class="event-info">{{ event.date }}</span>
+          <span class="event-info">{{ event.title }}</span>
+          <span class="event-info">{{ event.discipline }}</span>
+          
+      </router-link>
       </li>
       </ul>
     <hr>
@@ -36,8 +38,6 @@ export default {
   },
   methods: {
     fetchEvents() {
-      // Здесь должен быть ваш HTTP запрос к серверу для получения списка тренировок
-      // Пример:
       fetch('http://localhost:3000/api/events')
         .then(response => response.json())
         .then(data => {
@@ -77,17 +77,31 @@ export default {
   width: 75%;
   margin-left: 3.8%;
   font-size: 18px;
-
+  
 }
 #mero-list li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 .event-info {
-  flex: 1;
-  margin-right: 1.7%;
+  margin-right: 16em;
+  margin-left: 2em;
+
+}
+
+.router-link-exact-active, .router-link-active {
+  text-decoration: none; /* Убирает подчёркивание у активных ссылок */
+}
+
+#mero-list a { /* Убирает подчёркивание у всех ссылок в списке */
+  text-decoration: none;
+  color: black;
+  font-family: 'JetBrains Mono';
+  font-size: 18px;
+  
 }
 
 hr {
