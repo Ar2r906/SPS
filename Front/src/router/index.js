@@ -9,6 +9,7 @@ import EventsRegistration from '@/views/EventsRegistration.vue'
 import Workout from '@/views/Workout.vue'
 import Testirovanie from '@/views/Testirovanie.vue'
 import NewsPage from '@/views/NewsPage.vue'
+import Team from '@/views/Team.vue'
 
 import CoachAccount from '@/views/Accounts/CoachAccount'
 import PartnerAccount from '@/views/Accounts/PartnerAccount'
@@ -108,6 +109,11 @@ const routes = [
     path: '/Contacts',
     name: 'Contacts',
     component: Contacts,
+  },
+  {
+    path: '/Team',
+    name: 'team',
+    component: Team,
   },
 ]
 
