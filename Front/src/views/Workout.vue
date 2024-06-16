@@ -70,8 +70,6 @@ export default {
   },
   methods: {
     fetchWorkouts() {
-      // Здесь должен быть ваш HTTP запрос к серверу для получения списка тренировок
-      // Пример:
       fetch('http://localhost:3000/api/workouts')
         .then(response => response.json())
         .then(data => {
