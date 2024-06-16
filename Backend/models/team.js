@@ -8,7 +8,7 @@ const team = sequelize.define(
             autoIncrement: true,
             primaryKey: true,
         },
-        name: {
+        nameTeam: {
             type: DataTypes.TEXT,
         },
 
