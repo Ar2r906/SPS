@@ -18,3 +18,22 @@ export default createStore({
     feedback: feedback
   }
 })
+
+// export default createStore({
+//   state: {
+//     userData: null
+//   },
+//   mutations: {
+//     setUserData(state, userData) {
+//       state.userData = userData;
+//     }
+//   },
+//   actions: {
+//     fetchUserData({ commit }, userData) {
+//       commit('setUserData', userData);
+//     }
+//   },
+//   getters: {
+//     getUserData: state => state.userData
+//   }
+// })
