@@ -12,8 +12,8 @@ exports.getTeams = async (req, res) => {
 
 exports.createTeam = async (req, res) => {
     try {
-      const { name } = req.body;
-      const newTeam = await team.create({ name });
+      const { nameTeam } = req.body;
+      const newTeam = await team.create({ nameTeam });
       res.status(201).json(newTeam);
     } catch (error) {
       res.status(500).send(error.message);
