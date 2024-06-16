@@ -3,7 +3,7 @@
     <h1>Команды</h1></div>
     <ul id="team-list">
       <li v-for="team in teams" :key="team.id">
-      <span class="team-info">{{ team.name }}</span>
+      <span class="team-info">{{ team.nameTeam }}</span>
       <!-- <button class="enroll-button" @click="enroll(team.id)">Записаться</button> -->
       </li>
       </ul>
@@ -13,7 +13,7 @@
         <h2>Создание команды</h2>
         <form @submit.prevent="createTeam">
           <label>Название</label>
-          <input v-model="teamData.name" type="text" required>
+          <input v-model="teamData.nameTeam" type="text" required>
           <button type="submit" class="newTeam">Создать</button>
         </form>
       </div>
@@ -22,13 +22,12 @@
 <script>
 import axios from 'axios';
 
-
 export default {
   data() {
     return {
       teams: [],
       teamData: {
-        name: '',
+        nameTeam: '',
       }
     };
   },
@@ -37,8 +36,6 @@ export default {
   },
   methods: {
     fetchTeams() {
-      // Здесь должен быть ваш HTTP запрос к серверу для получения списка тренировок
-      // Пример:
       fetch('http://localhost:3000/api/teams')
         .then(response => response.json())
         .then(data => {
