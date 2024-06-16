@@ -8,7 +8,7 @@
       <router-link class="link" to="/Partners2">Партнеры</router-link>
       <!-- <a class="link" href="#mero">Мероприятия</a> -->
       <router-link class="link" to="/Events">Мероприятия</router-link>
-      <!-- <router-link class="link" to="/sportsman">Проверка</router-link> -->
+      <router-link class="link" to="/team">Проверка(Команды)</router-link>
       <a class="link" href="#contacts_main">Контакты</a>
       <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
       <router-link class="link" to="/workout">Календарь тренировок</router-link>
