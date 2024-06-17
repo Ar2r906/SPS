@@ -2,6 +2,7 @@
   <MainHeader />
   <News />
   <Events/>
+  <hr>
   <Partners2/>
   <Contacts/>
 </template>
@@ -25,4 +26,16 @@ export default {
     Partners2,
   },
 }
+
 </script>
+
+<style>
+hr {
+  	margin: 35px auto 10px;
+	padding: 0;
+	height: 50px;
+	border: none;
+	border-bottom: 2px solid #1f1209;
+	width: 95%;
+}
+</style>
