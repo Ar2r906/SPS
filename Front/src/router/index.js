@@ -10,6 +10,7 @@ import Workout from '@/views/Workout.vue'
 import Testirovanie from '@/views/Testirovanie.vue'
 import NewsPage from '@/views/NewsPage.vue'
 import Team from '@/views/Team.vue'
+import EventsStr from '@/views/EventsStr.vue'
 
 import CoachAccount from '@/views/Accounts/CoachAccount'
 import PartnerAccount from '@/views/Accounts/PartnerAccount'
@@ -106,6 +107,11 @@ const routes = [
     path: '/Events',
     name: 'Events',
     component: Events,
+  },
+  {
+    path: '/EventsStr',
+    name: 'EventsStr',
+    component: EventsStr,
   },
   {
     path: '/Contacts',
