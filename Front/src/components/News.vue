@@ -1,6 +1,6 @@
 <template>
     <div class="windows">
-        <!-- <div class="window-title">
+        <div class="window-title">
             <h1>&lt;Новости&gt;</h1>
         </div>
         
@@ -64,8 +64,8 @@
                 </div>
                 </div>
             </div>
-        </div> -->
-        <FetchNews/>
+        </div>
+        <!-- <FetchNews/> -->
   </div>
 </template>
 

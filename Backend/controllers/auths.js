@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const secret = process.env.SECRET
 const { v4: uuidv4 } = require('uuid')
-const { request } = require('express')
 
 const ACCESS_LIFETIME = 30; // 30 секунд
 const REFRESH_LIFETIME = 60 * 60 * 24 * 60; // 2 месяца

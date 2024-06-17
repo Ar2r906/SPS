@@ -25,7 +25,7 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 
-app.use('/api/auth', auths_routes)
+app.use('/api/auths', auths_routes)
 app.use('/api/users', users_routes)
 app.use('/api/posts', posts_routes)
 

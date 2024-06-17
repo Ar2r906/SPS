@@ -6,7 +6,7 @@
         </div>
         <div class="main">
             <div class="group_1">
-                <div class="block" id="1"><a href="#"><img src="../assets/partners/vk.svg" alt="VK"></a></div>
+                <div class="block" id="1"><a href="#"><img src="../assets/partners/вк.svg" alt="VK"></a></div>
                 <div class="block" id="2"><a href="#"><img src="../assets/partners/1с.svg" alt="1C"></a></div>
                 <div class="block" id="3"><a href="#"><img src="../assets/partners/росатом.svg" alt="Rosatom"></a></div>
                 <div class="block" id="4"><a href="#"><img src="../assets/partners/хх.svg" alt="HH"></a></div>
