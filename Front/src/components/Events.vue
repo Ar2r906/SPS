@@ -1,5 +1,5 @@
 <template>
-    <div class='mero-zag'>
+    <div class='mero-zag' id="events-main">
     <h1>Мероприятия</h1></div>
     <ul class="list">
       <li>Дата</li>
