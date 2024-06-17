@@ -2,6 +2,11 @@
   <div id='registration-miro'>
   <h2>НАЗВАНИЕ</h2>
   <h4>Информация о мероприятии</h4>
+   <div v-if="EventsRegistration">
+      <h1>{{ EventsRegistration.title }}</h1>
+      <p>{{ EventsRegistration.date }}</p>
+      <p>{{ EventsRegistration.discipline }}</p>
+    </div>
     <hr>
     <h3>&#8249;Подача заявки&#8250;</h3>
     <form id="registration" action="" method="POST">
@@ -38,13 +43,34 @@
 
 <script>
 import Contacts from '../components/Contacts.vue'
+import axios from 'axios';
 
 export default {
-  name: 'Home',
+  name: 'EventsRegistration',
   components: {
     Contacts,
   },
+  data() {
+    return {
+      EventsRegistration: null
+    };
+  },
+  created() {
+    this.fetchEventsRegistration();
+  },
+  methods: {
+    fetchEventsRegistration() {
+      const eventId = this.$route.params.eventId;
+      axios.get(`http://localhost:3000/api/events/${eventId}`)
+        .then(response => {
+          console.log('Данные мероприятия:', response.data); // Для проверки
+          this.EventsRegistration = response.data;
+        })
+        .catch(error => console.error('Ошибка:', error));
+    }
+  }
 }
+
 </script>
 
 <style>
