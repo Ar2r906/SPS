@@ -20,6 +20,7 @@ import auth from '@/store/auth'
 import Partners2 from '@/components/Partners2.vue'
 import Events from '@/components/Events.vue'
 import Contacts from '@/components/Contacts.vue'
+import MainHeader from '@/components/MainHeader.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -108,6 +109,11 @@ const routes = [
     path: '/Contacts',
     name: 'Contacts',
     component: Contacts,
+  },
+  {
+    path: '/MainHeader',
+    name: 'MainHeader',
+    component: MainHeader,
   },
 ]
 
