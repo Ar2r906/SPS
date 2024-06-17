@@ -45,14 +45,17 @@
 
 </div>
 
-<div class="work-footer">
-</div>
+<Contacts/>
 </template>
 
 <script>
 import axios from 'axios';
+import Contacts from '../components/Contacts.vue'
 
 export default {
+  components:{
+    Contacts,
+  },
   data() {
     return {
       workouts: [],
@@ -226,6 +229,10 @@ label{
   margin-left: 3%;
   color: #402FFF;
 }
+.new-workout{
+  margin-bottom: 7%;
+}
+
 .list h1{
    margin-top: 3%;
   margin-left: -1.5%;
