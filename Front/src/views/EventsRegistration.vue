@@ -1,4 +1,14 @@
 <template>
+<div class='head-eventsReg'>
+    <h1>Мероприятия</h1>
+
+
+    <div class='knopki-work'>
+      <a href="/">На главную</a>
+      <a href="javascript:history.back()">Назад</a>
+    </div>
+</div>
+
   <div id='registration-miro'>
   <h2>НАЗВАНИЕ</h2>
   <h4>Информация о мероприятии</h4>
@@ -74,6 +84,35 @@ export default {
 </script>
 
 <style>
+.head-eventsReg{
+  height: 23em;
+  weight: 100%;
+  background-color: black;
+  color: #EEE9E9;
+  font-family: 'JetBrains Mono';
+  letter-spacing: 6px;
+}
+.head-eventsReg h1{
+  padding-top: 7%;
+  margin-left: 3%;
+  font-size: 45px;
+}
+.knopki-work a {
+  color: #EEE9E9;
+  text-decoration: none;
+  padding-right: 25px;
+  padding-left: 2.5em;
+  letter-spacing: 3px;
+}
+.knopki-work{
+  margin-top:-10%;
+  margin-left: 80%;
+  width: 340px;
+  height: 50px;
+  background-color: #1B1C21;
+  border-radius: 5px;
+}
+
   .send1{
     width: 260px;
     height: 50px;
