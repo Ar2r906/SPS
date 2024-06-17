@@ -10,6 +10,7 @@
     <router-link class="link" to="/Events">Мероприятия</router-link>
     <!-- <router-link class="link" to="/sportsman">Проверка</router-link> -->
     <a class="link" href="#contacts_main">Контакты</a>
+    <router-link class="link" to="/EventsRegistration">Проверка(меро-рег)</router-link>
     <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
     <router-link class="link" to="/workout">Календарь тренировок</router-link>
     <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>
