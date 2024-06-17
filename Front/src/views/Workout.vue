@@ -1,4 +1,14 @@
 <template>
+  <div class='head-work'>
+    <h1>Календарь тренировок</h1>
+
+
+    <div class='knopki-work'>
+      <a href="/">На главную</a>
+      <a href="javascript:history.back()">Назад</a>
+    </div>
+  </div>
+
      <div class="zag">
      <h1>Тренировки</h1> </div>
      <ul class="list">
@@ -51,6 +61,7 @@
 <script>
 import axios from 'axios';
 import Contacts from '../components/Contacts.vue'
+
 
 export default {
   components:{
@@ -124,10 +135,39 @@ export default {
   }
 }
 }
-
 </script>
 
 <style scoped>
+.head-work{
+  height: 23em;
+  weight: 100%;
+  background-color: black;
+  color: #EEE9E9;
+  font-family: 'JetBrains Mono';
+  letter-spacing: 6px;
+}
+.head-work h1{
+  padding-top: 7%;
+  margin-left: 3%;
+  font-size: 45px;
+}
+.knopki-work a {
+  color: #EEE9E9;
+  text-decoration: none;
+  padding-right: 25px;
+  padding-left: 2.5em;
+  letter-spacing: 3px;
+}
+.knopki-work{
+  margin-top:-10%;
+  margin-left: 80%;
+  width: 340px;
+  height: 50px;
+  background-color: #1B1C21;
+  border-radius: 5px;
+}
+
+
 .list li {
     display: inline; /* Отображать как строчный элемент */
     margin-right: 3.5%; /* Отступ слева */
@@ -188,6 +228,7 @@ export default {
 .enroll-button:hover, .delete-button:hover {
   background-color: #000; /* Темно-зеленый фон при наведении */
 }
+
 
 label{
   font-family: 'JetBrains Mono';
