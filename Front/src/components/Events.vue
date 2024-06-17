@@ -12,17 +12,20 @@
           <span class="event-info">{{ event.date }}</span>
           <span class="event-info">{{ event.title }}</span>
           <span class="event-info">{{ event.discipline }}</span>
-          
       </router-link>
       </li>
       </ul>
-    <hr>
+
+
 </template>
 
 <script>
+
+
 import axios from 'axios';
 
 export default {
+
   data() {
     return {
       events: [],
@@ -104,13 +107,5 @@ export default {
   
 }
 
-hr {
-  	margin: 35px auto 10px;
-	padding: 0;
-	height: 50px;
-	border: none;
-	border-bottom: 2px solid #1f1209;
-	width: 95%;
-}
 
 </style>
