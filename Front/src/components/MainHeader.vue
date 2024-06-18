@@ -3,9 +3,9 @@
     <a class="logo" href="/"><img src="../assets/Logotype.svg" alt="logotype"></a>
     <router-link class="link" to="/login" v-if="!isAuth">Вход</router-link>
     <router-link class="link" to="/register" v-if="!isAuth">Регистрация</router-link>
-    <a class="link" href="#partners_main">Партнеры</a>
-    <a class="link" href="#events-main">Мероприятия</a>
-    <a class="link" href="#contacts_main">Контакты</a>
+    <router-link class="link" :to="{ path: '/', hash: '#events-main' }">Мероприятия</router-link>
+    <router-link class="link" :to="{ path: '/', hash: '#partners_main' }">Партнеры</router-link>
+    <router-link class="link" :to="{ path: '/', hash: '#contacts_main' }">Контакты</router-link>
     <router-link class="link" to="/EventsRegistration">Проверка(меро-рег)</router-link>
     <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
     <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>
@@ -92,4 +92,30 @@ export default {
     color: #402FFF;
   }
  
+</style>
+<style>
+.login-page nav {
+  height: 8.5dvh;
+    background-color: #1b1c21;
+    padding: 0 2dvw;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3dvw;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding-right: 1dvw;
+    background-image: none
+}
+.register-page nav {
+  height: 8.5dvh;
+    background-color: #1b1c21;
+    padding: 0 2dvw;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3dvw;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding-right: 1dvw;
+    background-image: none
+}
 </style>

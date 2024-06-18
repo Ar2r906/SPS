@@ -1,4 +1,6 @@
 <template>
+   <div class="login-page">
+    <MainHeader />
   <div class="form">
     <h1>&lt;Вход&gt;</h1>
     <form @submit.prevent="go_login">
@@ -8,12 +10,17 @@
       <span class="form text">Нет аккаунта?<a href="/register">Зарегистрироваться</a></span>
     </form>
   </div>
+</div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import MainHeader from '../components/MainHeader.vue'
 
 export default{
+  components: {
+    MainHeader
+  },
   data() {
     return {
       email: '',

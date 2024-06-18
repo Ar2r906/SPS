@@ -1,4 +1,6 @@
 <template>
+    <div class="register-page">
+      <MainHeader />
     <div class="form">
         <h1>&lt;Регистрация&gt;</h1>
         <form @submit.prevent="goRegister" autocomplete="off">
@@ -16,12 +18,17 @@
             <span class="form text">Уже есть аккаунт?<a href="/login">Войти</a></span>
         </form>
     </div>
+    </div>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import MainHeader from '../components/MainHeader.vue'
 
 export default {
+  components: {
+    MainHeader
+  },
     data() {
         return {
             role: 'intern',

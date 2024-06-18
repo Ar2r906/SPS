@@ -1,39 +1,40 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import instance from '@/middlewares'
-import store from '../store'
+import { createRouter, createWebHistory } from 'vue-router';
+import instance from '@/middlewares';
+import store from '../store';
+import { nextTick } from 'vue';
 
-import Home from '@/views/Home.vue'
-import Login from '@/views/Login.vue'
-import Register from '@/views/Register.vue'
-import EventsRegistration from '@/views/EventsRegistration.vue'
-import Workout from '@/views/Workout.vue'
-import Testirovanie from '@/views/Testirovanie.vue'
-import NewsPage from '@/views/NewsPage.vue'
-import Team from '@/views/Team.vue'
-import EventsStr from '@/views/EventsStr.vue'
+import Home from '@/views/Home.vue';
+import Login from '@/views/Login.vue';
+import Register from '@/views/Register.vue';
+import EventsRegistration from '@/views/EventsRegistration.vue';
+import Workout from '@/views/Workout.vue';
+import Testirovanie from '@/views/Testirovanie.vue';
+import NewsPage from '@/views/NewsPage.vue';
+import Team from '@/views/Team.vue';
+import EventsStr from '@/views/EventsStr.vue';
 
-import CoachAccount from '@/views/Accounts/CoachAccount'
-import PartnerAccount from '@/views/Accounts/PartnerAccount'
-import SportsmanAccount from '@/views/Accounts/SportsmanAccount'
-import InternAccount from '@/views/Accounts/InternAccount.vue'
-import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount.vue'
-import auth from '@/store/auth'
+import CoachAccount from '@/views/Accounts/CoachAccount';
+import PartnerAccount from '@/views/Accounts/PartnerAccount';
+import SportsmanAccount from '@/views/Accounts/SportsmanAccount';
+import InternAccount from '@/views/Accounts/InternAccount.vue';
+import HeadCoachAccount from '@/views/Accounts/HeadCoachAccount.vue';
+import auth from '@/store/auth';
 
-import Partners2 from '@/components/Partners2.vue'
-import Events from '@/components/Events.vue'
-import Contacts from '@/components/Contacts.vue'
-import MainHeader from '@/components/MainHeader.vue'
+import Partners2 from '@/components/Partners2.vue';
+import Events from '@/components/Events.vue';
+import Contacts from '@/components/Contacts.vue';
+import MainHeader from '@/components/MainHeader.vue';
 
 const routes = [
   { path: '/', name: 'home', component: Home },
-  { path: '/register', name: 'register', component: Register},
+  { path: '/register', name: 'register', component: Register },
   { path: '/login', name: 'login', component: Login },
   {
     path: '/EventsRegistration',
     name: 'EventsRegistration',
     component: EventsRegistration,
-    /**  meta: { auth: true} **/
-    props: true
+    /** meta: { auth: true} **/
+    props: true,
   },
   {
     path: '/coach',
@@ -42,7 +43,7 @@ const routes = [
     meta: {
       role: 'coach',
       // auth: true,
-    }
+    },
   },
   {
     path: '/headcoach',
@@ -60,16 +61,16 @@ const routes = [
     meta: {
       role: 'intern',
       // auth: true,
-    }
+    },
   },
   {
     path: '/sportsman',
     name: 'sportsman',
     component: SportsmanAccount,
     meta: {
-      role:'sportsman',
+      role: 'sportsman',
       // auth: true,
-    }
+    },
   },
   {
     path: '/partner',
@@ -78,15 +79,15 @@ const routes = [
     meta: {
       role: 'partner',
       // auth: true,
-    }
+    },
   },
   {
     path: '/workout',
     name: 'workout',
     component: Workout,
     meta: {
-      //auth: true, roles: ['coach', 'headcoach']
-    }
+      // auth: true, roles: ['coach', 'headcoach']
+    },
   },
   {
     path: '/testirovanie',
@@ -128,29 +129,43 @@ const routes = [
     name: 'MainHeader',
     component: MainHeader,
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return nextTick().then(() => {
+        const element = document.querySelector(to.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    } else if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  },
+});
 
 router.beforeEach(async (to, from, next) => {
   try {
-    const requireAuth = to.matched.some(record => record?.meta.auth)
-    if(requireAuth) {
-      const response = await instance.get('api/users')
-      if(response.status == 200) {
-        return next()
-      } else if(response.status == 401) {
-        return next('/login')
+    const requireAuth = to.matched.some(record => record?.meta.auth);
+    if (requireAuth) {
+      const response = await instance.get('api/users');
+      if (response.status == 200) {
+        return next();
+      } else if (response.status == 401) {
+        return next('/login');
       }
     }
-    return next()
+    return next();
   } catch (error) {
-    console.log(error.message)
-    return next('/login')
+    console.log(error.message);
+    return next('/login');
   }
-})
+});
 
-export default router
+export default router;

@@ -138,13 +138,21 @@ export default {
 </script>
 
 <style scoped>
-.head-work{
-  height: 23em;
-  weight: 100%;
+.head-work {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 19em;
+  width: 100%;
   background-color: black;
   color: #EEE9E9;
   font-family: 'JetBrains Mono';
   letter-spacing: 6px;
+  background-image: url('../assets/footer.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: auto;
+  text-align: center;
 }
 .head-work h1{
   padding-top: 7%;
@@ -159,12 +167,15 @@ export default {
   letter-spacing: 3px;
 }
 .knopki-work{
-  margin-top:-10%;
+  padding-top: 2.7dvh;
+  padding-right: 1.5dvh;
+  margin-top:-10.2%;
   margin-left: 80%;
   width: 340px;
   height: 50px;
   background-color: #1B1C21;
-  border-radius: 5px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 
@@ -173,12 +184,16 @@ export default {
     margin-right: 3.5%; /* Отступ слева */
     font-size: 20px;
     margin-left: 5.5%;
-    
    }
 .list{
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2em;
+  margin: 1em 0;
+/*   
   margin-top: 1.5%;
   margin-bottom: 1%;
-  margin-left:2%;
+  margin-left:2%; */
 }
 
 #workouts-list {

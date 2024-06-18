@@ -1,10 +1,18 @@
 <template>
+<div>
   <MainHeader />
   <News />
+  <div id="events-main">
   <Events/>
+  </div>
   <hr>
+  <div id="partners_main">
   <Partners2/>
+  </div>
+  <div id="contacts_main">
   <Contacts/>
+  </div>
+</div>
 </template>
 
 <script>
