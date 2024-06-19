@@ -10,3 +10,16 @@ exports.getEvents = async (req, res) => {
     }
 };
 
+exports.getEventsRegistration = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const EventsRegistration = await event.findByPk(id);
+        if (EventsRegistration) {
+            res.json(EventsRegistration);
+        } else {
+            res.status(404).json({ message: 'Event not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
