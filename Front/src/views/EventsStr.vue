@@ -48,7 +48,7 @@ export default {
           this.events = data;
         })
         .catch(error => console.error('Ошибка:', error));
-    }
+    },
   }
 }
 
