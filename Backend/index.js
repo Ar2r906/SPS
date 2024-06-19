@@ -34,7 +34,18 @@ app.post('/api/workouts', workoutController.createWorkout);
 app.delete('/api/workouts/:id', workoutController.deleteWorkout);
 
 app.get('/api/events', eventController.getEvents);
+app.get('/api/events/:id', eventController.getEventsRegistration);
 app.get('/api/teams', teamController.getTeams);
+
+// app.get('/api/events/:id', (req, res) => {
+//     const eventId = Number(req.params.id);
+//     const event = events.find(event => event.id === eventId);
+//     if (event) {
+//       res.json(event);
+//     } else {
+//       res.status(404).send('Event not found');
+//     }
+//   });
 
 async function deleteOldNews(days) {
     const date = new Date();
