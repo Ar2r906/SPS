@@ -30,11 +30,11 @@ const routes = [
   { path: '/register', name: 'register', component: Register },
   { path: '/login', name: 'login', component: Login },
   {
-    path: '/EventsRegistration',
+    path: '/events/:eventId',
     name: 'EventsRegistration',
     component: EventsRegistration,
     /** meta: { auth: true} **/
-    props: true,
+    props: route => ({ eventId: Number(route.params.eventId) })
   },
   {
     path: '/coach',
