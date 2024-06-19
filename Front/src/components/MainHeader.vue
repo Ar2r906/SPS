@@ -6,7 +6,7 @@
     <router-link class="link" :to="{ path: '/', hash: '#events-main' }">Мероприятия</router-link>
     <router-link class="link" :to="{ path: '/', hash: '#partners_main' }">Партнеры</router-link>
     <router-link class="link" :to="{ path: '/', hash: '#contacts_main' }">Контакты</router-link>
-    <router-link class="link" to="/EventsRegistration">Проверка(меро-рег)</router-link>
+    <!-- <router-link class="link" to="/EventsRegistration">Проверка(меро-рег)</router-link> -->
     <router-link class="link" to="#" v-if="isAuth">Профиль</router-link>
     <router-link class="link" to="/" v-if="isAuth" @click="logout()">Выход</router-link>
   </nav> 
