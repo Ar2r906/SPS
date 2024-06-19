@@ -1,8 +1,6 @@
 <template>
 <div class='head-eventsReg'>
     <h1>Мероприятия</h1>
-
-
     <div class='knopki-work'>
       <a href="/">На главную</a>
       <a href="javascript:history.back()">Назад</a>
@@ -10,15 +8,18 @@
 </div>
 
   <div id='registration-miro'>
-  <h2>НАЗВАНИЕ</h2>
-  <h4>Информация о мероприятии</h4>
-   <div v-if="EventsRegistration">
-      <h1>{{ EventsRegistration.title }}</h1>
-      <p>{{ EventsRegistration.date }}</p>
-      <p>{{ EventsRegistration.discipline }}</p>
-    </div>
+    <div v-if="EventsRegistration" class="EventsRegistration">
+        <h1>{{ EventsRegistration.title }}</h1>
+        <p><strong>Дата:</strong> {{ EventsRegistration.date }}</p>
+        <p><strong>Дисциплина:</strong> {{ EventsRegistration.discipline }}</p>
+        <p><strong>Описание:</strong> {{ EventsRegistration.description }}</p>
+      </div>
+      <div v-else>
+        Загрузка данных...
+      </div>
     <hr>
-    <h3>&#8249;Подача заявки&#8250;</h3>
+    
+    <h2>&#8249;Подача заявки&#8250;</h2>
     <form id="registration" action="" method="POST">
         <div class="field">
           <p>Субъект Российской Федерации: </p>
@@ -57,6 +58,9 @@ import axios from 'axios';
 
 export default {
   name: 'EventsRegistration',
+  props:{
+    eventId: Number
+  },
   components: {
     Contacts,
   },
@@ -66,17 +70,19 @@ export default {
     };
   },
   created() {
-    this.fetchEventsRegistration();
+    this.getEventsRegistration(this.$route.params.eventId);
   },
   methods: {
-    fetchEventsRegistration() {
-      const eventId = this.$route.params.eventId;
-      axios.get(`http://localhost:3000/api/events/${eventId}`)
-        .then(response => {
-          console.log('Данные мероприятия:', response.data); // Для проверки
-          this.EventsRegistration = response.data;
+    getEventsRegistration(eventId) {
+      eventId = Number(eventId)
+      fetch(`http://localhost:3000/api/events/${eventId}`)
+        .then(response => response.json())
+        .then(data => {
+          this.EventsRegistration = data;
         })
-        .catch(error => console.error('Ошибка:', error));
+        .catch(error => {
+          console.error('Ошибка при получении данных: ', error);
+        });
     }
   }
 }
@@ -84,6 +90,16 @@ export default {
 </script>
 
 <style>
+.EventsRegistration{
+  width: 70%;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+.EventsRegistration p{
+  font-family:'JetBrains Mono';
+  font-size: 20px;
+}
+
 .head-eventsReg{
   display: flex;
   flex-direction: column;
@@ -153,12 +169,9 @@ export default {
   .field{
     margin-left: 100px;
   }
-  h2, h3{
-    margin-left: 20px;
+  h2{
+    margin-left: 3%;
     margin-top:30px;
   }
-  h4{
-    margin-left: 100px;
-    margin-top:30px;
-  }
+
 </style>
