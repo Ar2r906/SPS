@@ -17,6 +17,9 @@ const event = sequelize.define(
         discipline: {
             type: DataTypes.TIME,
         },
+        description: {
+            type: DataTypes.TEXT,
+        },
 
     },
     { 
