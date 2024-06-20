@@ -8,9 +8,9 @@
         <img src='assets/Ellipse.svg'> 
       </div>
       <div class='knopki2'>
-        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px;">Команды</router-link>
-        <router-link class="link" to="/workout" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
-        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Мероприятия</router-link>
+        <router-link class="link" to="/Team" style="text-decoration: none; color:white; font-size: 20px;">Команды</router-link>
+        <router-link class="link" to="/workoutSport" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
+        <router-link class="link" to="/EventsStr" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Мероприятия</router-link>
         <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Лидерборд</router-link>
       </div>
   <p>Спортсмен</p>
