@@ -15,7 +15,7 @@ const createRefresh = (uid) => createToken(uid, REFRESH_LIFETIME)
 
 const isPasswordValid = (password) => {
     if(password.length < 8) return false;
-    const regex = /^(?=.*[a-z])(?=.*[A-Z(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/
+    const regex = /^(?=.*[a-z])(?=.*[A-Z(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/;
     return regex.test(password);
 }
 
@@ -60,7 +60,7 @@ exports.signin = async(request, response) => {
             }
         })
 
-        if (!user) return response.status(403).send({ error: 'Введены невенрые данные' })
+        if (!user) return response.status(403).send({ error: 'Введены неверные данные' })
         var passwordIsValid = bcrypt.compareSync(
             request.body.password,
             user.password
