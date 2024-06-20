@@ -8,6 +8,7 @@ import Login from '@/views/Login.vue';
 import Register from '@/views/Register.vue';
 import EventsRegistration from '@/views/EventsRegistration.vue';
 import Workout from '@/views/Workout.vue';
+import WorkoutSport from '@/views/Workout-sport.vue';
 import Testirovanie from '@/views/Testirovanie.vue';
 import NewsPage from '@/views/NewsPage.vue';
 import Team from '@/views/Team.vue';
@@ -85,6 +86,14 @@ const routes = [
     path: '/workout',
     name: 'workout',
     component: Workout,
+    meta: {
+      // auth: true, roles: ['coach', 'headcoach']
+    },
+  },
+  {
+    path: '/workoutSport',
+    name: 'workoutSport',
+    component: WorkoutSport,
     meta: {
       // auth: true, roles: ['coach', 'headcoach']
     },
