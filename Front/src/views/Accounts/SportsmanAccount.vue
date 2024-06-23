@@ -24,38 +24,13 @@
       <input type="file" ref="fileInput" @change="handleAvatarUpload">
     </div>
 
-    <div class="block-info">
-      <form @submit.prevent="">
-        <div>
-          <label>Фамилия Имя Отчество</label>
-
-        </div>
-        <div>
-        <label>
-          Учебное заведение:
-          <input type="text" v-model="educational_envy">
-        </label>
-        </div>
-        <div>
-        <label>
-          Группа/класс:
-          <input type="text" v-model="group">
-        </label> 
-        </div>
-        <div>
-        <label>
-          Почта:
-          <input type="text" v-model="email">
-        </label>
-        </div>
-        <div>
-        <label>
-          Телефон:
-          <input type="text" v-model="telephone">
-        </label>
-        </div>
-      </form>
-    </div>
+   <div>
+    <h1>Личный кабинет</h1>
+    <p>Имя: {{ user.name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Роль: {{ user.role }}</p>
+    <!-- Другие данные пользователя -->
+  </div>
   </div>
 
   <div class="main2">
@@ -83,30 +58,17 @@
 
 <script>
 export default {
-    data() {
-        return {
-            avatarUrl: '', // переменная для хранения URL выбранной аватарки
-            defaultAvatarUrl: 'cat.png',
-        };
-    },
-    computed: {
-        displayAvatarUrl() {
-            return this.avatarUrl || this.defaultAvatarUrl; // если нет загруженной фотографии, отобразить фото по умолчанию
-        },
-    },
-    methods: {
-        handleAvatarUpload() {
-            const file = this.$refs.fileInput.files[0];
-            if (file) {
-                const reader = new FileReader(); // используем FileReader для чтения загруженного файла
-                reader.onload = (e) => {
-                    this.avatarUrl = e.target.result; // сохраняем URL файла в переменной
-                };
-                reader.readAsDataURL(file); // читаем файл как Data URL
-            }
-        },
-    },
-};
+  computed: {
+    // Используйте геттеры Vuex для доступа к данным пользователя
+    user() {
+      return this.$store.state.user.user;
+    }
+  },
+  created() {
+    // Запросите данные пользователя при создании компонента
+    this.$store.dispatch('user/fetchUserDetails');
+  }
+}
 </script>
 
 <style scoped>
@@ -142,12 +104,17 @@ export default {
 
 }
 .knopki{
-  background-color: #1B1C21;
-  height: 70px;
-  border-radius: 15px;
+  padding-top: 2dvh;
+  padding-right: 1.5dvh;
   margin-left: 80%;
-  margin-right: 2%;
+  width: 340px;
+  height: 50px;
+  background-color: #1B1C21;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
+
+
 .knopki2{
   position: absolute;
   margin-top: 20%;
