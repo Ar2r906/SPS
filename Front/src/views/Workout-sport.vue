@@ -5,6 +5,11 @@
       <a href="/">На главную</a>
       <a href="javascript:history.back()">Назад</a>
     </div>
+    <div class='knopki2'>
+        <router-link class="link" to="/Team" style="text-decoration: none; color:white; font-size: 20px;">Команды</router-link>
+        <router-link class="link" to="/EventsStr" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Мероприятия</router-link>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Лидерборд</router-link>
+      </div>
   </div>
 
      <div class="zag">
@@ -39,6 +44,8 @@
           <span class="workout-info">{{ workout.complexity }}</span>
         </li>
       </ul>
+      <br>
+      <br>
 <Contacts/>
 </template>
 
@@ -144,23 +151,22 @@ export default {
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
-
+.knopki2{
+  position: absolute;
+  margin-top: 14%;
+  margin-left: 3%;
+  letter-spacing: 1px;
+}
 
 .list li {
     display: inline; /* Отображать как строчный элемент */
-    margin-right: 3.5%; /* Отступ слева */
     font-size: 20px;
-    margin-left: 5.5%;
+
    }
 .list{
   display: flex;
   justify-content: space-around;
-  font-size: 1.2em;
   margin: 1em 0;
-/*   
-  margin-top: 1.5%;
-  margin-bottom: 1%;
-  margin-left:2%; */
 }
 
 #workouts-list, #registered-workouts {
@@ -218,15 +224,10 @@ label{
   font-weight:bold;
 }
 
-.list h1{
-  margin-top: 3%;
-  margin-left: -1.5%;
-  margin-bottom:2%;
-  color: #402FFF;
-}
-.zag h1, .zag h2{
+.zag h1{
   margin-left: 3%;
-  margin-top: 2%;
+  margin-top: 5%;
+  margin-bottom: 3%;
   color: #402FFF;
 }
 
@@ -238,8 +239,6 @@ label{
   position: static;
 }
 hr {
-  	margin: 35px auto 10px;
-	padding: 0;
 	height: 50px;
 	border: none;
 	border-bottom: 2px solid #1f1209;
