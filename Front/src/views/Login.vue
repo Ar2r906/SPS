@@ -1,6 +1,6 @@
 <template>
-   <div class="login-page">
-    <MainHeader />
+  <div class="login-page">
+  <MainHeader />
   <div class="form">
     <h1>&lt;Вход&gt;</h1>
     <form @submit.prevent="go_login">
@@ -16,10 +16,12 @@
 <script>
 import { mapActions } from 'vuex';
 import MainHeader from '../components/MainHeader.vue'
+import Contacts from '../components/Contacts.vue'
 
 export default{
   components: {
-    MainHeader
+    MainHeader,
+    Contacts
   },
   data() {
     return {
@@ -89,4 +91,8 @@ h1 {
 .text a:hover {
   color: #402FFF;
 }
+.form{
+  margin-top: 7%;
+}
+
 </style>
