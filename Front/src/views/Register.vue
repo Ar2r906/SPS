@@ -65,7 +65,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 5dvh;
+    padding-top: 17dvh;
     padding-bottom: 5dvh;
 }
 h1 {
