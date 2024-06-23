@@ -309,7 +309,7 @@ label{
   position: static;
 }
 hr {
-  	margin: 35px auto 10px;
+  margin: 35px auto 10px;
 	padding: 0;
 	height: 50px;
 	border: none;
