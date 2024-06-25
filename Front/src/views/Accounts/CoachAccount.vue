@@ -1,4 +1,17 @@
 <template>
+  <div class='navbar-events'>
+      <h1>Тренер</h1>
+      <div class='knopki'>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; padding-right: 25px; padding-left: 2.5em; letter-spacing: 3px;">На главную</router-link>
+        <router-link class="link" to="/"  @click="logout()" style="text-decoration: none; color:white; padding-right: 25px; padding-left: 2.5em; letter-spacing: 3px;">Выход</router-link>
+      </div>
+      <div class='knopki2'>
+        <router-link class="link" to="/Team" style="text-decoration: none; color:white; font-size: 20px;">Команды</router-link>
+        <router-link class="link" to="/workoutSport" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Календарь тренировок</router-link>
+        <router-link class="link" to="/EventsStr" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Мероприятия</router-link>
+        <router-link class="link" to="/" style="text-decoration: none; color:white; font-size: 20px; margin-left: 90px">Лидерборд</router-link>
+      </div>
+  </div>
     <div class="main">
       <div class="block-photo">
         <div class="block-photo image">
@@ -48,6 +61,44 @@
   </script>
   
   <style scoped>
+  .navbar-events{
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 19em;
+  width: 100%;
+  background-color: black;
+  color: #EEE9E9;
+  font-family: 'JetBrains Mono';
+  letter-spacing: 6px;
+  background-image: url('../../assets/footer.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: auto;
+  text-align: center;
+}
+.knopki2{
+  position: absolute;
+  margin-top: 14%;
+  margin-left: 3%;
+  letter-spacing: 1px;
+}
+.navbar-events h1{
+  padding-top: 7%;
+  margin-left: 3%;
+  font-size: 45px;
+}
+.knopki{
+  padding-top: 2.7dvh;
+  padding-right: 1.5dvh;
+  margin-top:-10.2%;
+  margin-left: 80%;
+  width: 340px;
+  height: 50px;
+  background-color: #1B1C21;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
   .main, .main2 {
     display: flex;
     width: 90%;
